@@ -1,0 +1,9 @@
+C:\Users\pip43\source\repos\phillipweinstock\PHP-SRePS\PHP-SRePs-Frontend\bin\Debug\PHP-SRePs-Frontend.exe.config
+C:\Users\pip43\source\repos\phillipweinstock\PHP-SRePS\PHP-SRePs-Frontend\bin\Debug\PHP-SRePs-Frontend.exe
+C:\Users\pip43\source\repos\phillipweinstock\PHP-SRePS\PHP-SRePs-Frontend\bin\Debug\PHP-SRePs-Frontend.pdb
+C:\Users\pip43\source\repos\phillipweinstock\PHP-SRePS\PHP-SRePs-Frontend\obj\Debug\PHP-SRePs-Frontend.csprojAssemblyReference.cache
+C:\Users\pip43\source\repos\phillipweinstock\PHP-SRePS\PHP-SRePs-Frontend\obj\Debug\PHP_SRePs_Frontend.Properties.Resources.resources
+C:\Users\pip43\source\repos\phillipweinstock\PHP-SRePS\PHP-SRePs-Frontend\obj\Debug\PHP-SRePs-Frontend.csproj.GenerateResource.cache
+C:\Users\pip43\source\repos\phillipweinstock\PHP-SRePS\PHP-SRePs-Frontend\obj\Debug\PHP-SRePs-Frontend.csproj.CoreCompileInputs.cache
+C:\Users\pip43\source\repos\phillipweinstock\PHP-SRePS\PHP-SRePs-Frontend\obj\Debug\PHP-SRePs-Frontend.exe
+C:\Users\pip43\source\repos\phillipweinstock\PHP-SRePS\PHP-SRePs-Frontend\obj\Debug\PHP-SRePs-Frontend.pdb

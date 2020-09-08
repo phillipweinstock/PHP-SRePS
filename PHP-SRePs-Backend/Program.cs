@@ -7,6 +7,7 @@ namespace PHP_SRePs_Backend
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World lets do this :D!");
+            Console.ReadLine();
         }
     }
 }

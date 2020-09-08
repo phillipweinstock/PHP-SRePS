@@ -1,0 +1,13 @@
+C:\Users\pip43\source\repos\phillipweinstock\PHP-SRePS\PHP-SRePs-Backend\bin\Debug\netcoreapp3.1\PHP-SRePs-Backend.exe
+C:\Users\pip43\source\repos\phillipweinstock\PHP-SRePS\PHP-SRePs-Backend\bin\Debug\netcoreapp3.1\PHP-SRePs-Backend.deps.json
+C:\Users\pip43\source\repos\phillipweinstock\PHP-SRePS\PHP-SRePs-Backend\bin\Debug\netcoreapp3.1\PHP-SRePs-Backend.runtimeconfig.json
+C:\Users\pip43\source\repos\phillipweinstock\PHP-SRePS\PHP-SRePs-Backend\bin\Debug\netcoreapp3.1\PHP-SRePs-Backend.runtimeconfig.dev.json
+C:\Users\pip43\source\repos\phillipweinstock\PHP-SRePS\PHP-SRePs-Backend\bin\Debug\netcoreapp3.1\PHP-SRePs-Backend.dll
+C:\Users\pip43\source\repos\phillipweinstock\PHP-SRePS\PHP-SRePs-Backend\bin\Debug\netcoreapp3.1\PHP-SRePs-Backend.pdb
+C:\Users\pip43\source\repos\phillipweinstock\PHP-SRePS\PHP-SRePs-Backend\obj\Debug\netcoreapp3.1\PHP-SRePs-Backend.csprojAssemblyReference.cache
+C:\Users\pip43\source\repos\phillipweinstock\PHP-SRePS\PHP-SRePs-Backend\obj\Debug\netcoreapp3.1\PHP-SRePs-Backend.AssemblyInfoInputs.cache
+C:\Users\pip43\source\repos\phillipweinstock\PHP-SRePS\PHP-SRePs-Backend\obj\Debug\netcoreapp3.1\PHP-SRePs-Backend.AssemblyInfo.cs
+C:\Users\pip43\source\repos\phillipweinstock\PHP-SRePS\PHP-SRePs-Backend\obj\Debug\netcoreapp3.1\PHP-SRePs-Backend.csproj.CoreCompileInputs.cache
+C:\Users\pip43\source\repos\phillipweinstock\PHP-SRePS\PHP-SRePs-Backend\obj\Debug\netcoreapp3.1\PHP-SRePs-Backend.dll
+C:\Users\pip43\source\repos\phillipweinstock\PHP-SRePS\PHP-SRePs-Backend\obj\Debug\netcoreapp3.1\PHP-SRePs-Backend.pdb
+C:\Users\pip43\source\repos\phillipweinstock\PHP-SRePS\PHP-SRePs-Backend\obj\Debug\netcoreapp3.1\PHP-SRePs-Backend.genruntimeconfig.cache

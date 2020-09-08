@@ -1,6 +1,6 @@
 ﻿namespace PHP_SRePs_Frontend
 {
-    partial class Form1
+    partial class home
     {
         /// <summary>
         /// Required designer variable.

@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "PHP-SRePs-Backend/1.0.0": {
+        "runtime": {
+          "PHP-SRePs-Backend.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "PHP-SRePs-Backend/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
