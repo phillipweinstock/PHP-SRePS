@@ -27,7 +27,7 @@ namespace PHP_SRePS_Frontend
             var channel = GrpcChannel.ForAddress("https://localhost:5001");
             var client = new Greeter.GreeterClient(channel);
 
-            var input = new HelloRequest { Name = "Bruh" };
+            var input = new PHP_SRePS_Backend.HelloRequest{ Name = "Bruh" };
 
             var reply = await client.SayHelloAsync(input);
 
