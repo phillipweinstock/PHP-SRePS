@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PHP_SRePs_Frontend
+namespace PHP_SRePS_Frontend
 {
     static class Program
     {

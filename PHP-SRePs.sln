@@ -3,14 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PHP-SRePs-Backend", "PHP-SRePs-Backend\PHP-SRePs-Backend.csproj", "{6AC9DFC4-BEFC-449E-BB57-30D1BDD1BFCC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PHP-SRePS-Backend", "PHP-SRePS-Backend\PHP-SRePS-Backend.csproj", "{307E3FDC-E6F9-4881-A419-FF692BBADA1E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PHP-SRePs-Frontend", "PHP-SRePs-Frontend\PHP-SRePs-Frontend.csproj", "{A1FACAA0-57CE-4EB9-878F-EC887BFFB16E}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Protos", "Protos", "{53F42FCC-A0ED-4325-88A2-C47CEDF2929B}"
-	ProjectSection(SolutionItems) = preProject
-		hello.proto = hello.proto
-	EndProjectSection
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PHP-SRePS-Frontend", "PHP-SRePS-Frontend\PHP-SRePS-Frontend.csproj", "{B0AECBBF-1AA3-4304-AC6A-06A3A9954508}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,19 +13,19 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{6AC9DFC4-BEFC-449E-BB57-30D1BDD1BFCC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6AC9DFC4-BEFC-449E-BB57-30D1BDD1BFCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6AC9DFC4-BEFC-449E-BB57-30D1BDD1BFCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6AC9DFC4-BEFC-449E-BB57-30D1BDD1BFCC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A1FACAA0-57CE-4EB9-878F-EC887BFFB16E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A1FACAA0-57CE-4EB9-878F-EC887BFFB16E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A1FACAA0-57CE-4EB9-878F-EC887BFFB16E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A1FACAA0-57CE-4EB9-878F-EC887BFFB16E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{307E3FDC-E6F9-4881-A419-FF692BBADA1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{307E3FDC-E6F9-4881-A419-FF692BBADA1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{307E3FDC-E6F9-4881-A419-FF692BBADA1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{307E3FDC-E6F9-4881-A419-FF692BBADA1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0AECBBF-1AA3-4304-AC6A-06A3A9954508}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0AECBBF-1AA3-4304-AC6A-06A3A9954508}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0AECBBF-1AA3-4304-AC6A-06A3A9954508}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0AECBBF-1AA3-4304-AC6A-06A3A9954508}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {5691F6B1-A061-4110-A185-FFDF6F9E1916}
+		SolutionGuid = {7C8470DB-D98D-4E0D-BA03-B09ADCE0FE81}
 	EndGlobalSection
 EndGlobal

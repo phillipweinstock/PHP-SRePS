@@ -1,29 +1,27 @@
-﻿using System;
-using System.Net.Http;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
-using Grpc.Core;
-//Note this might need to be deleted as a gRPC server project may 
-//Need to be created
-//TODO
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Hosting;
 
-
-namespace PHP_SRePs_Backend
-
+namespace PHP_SRePS_Backend
 {
-    class Program
+    public class Program
     {
-        const int Port = 4121;
-        static void  Main(string[] args)
+        public static void Main(string[] args)
         {
-            Console.WriteLine("Hello World lets do this :D!");
-            Server server = new Server
-            {
-                Services = { HelloService.BindService(new HelloTask()) },
-                Ports = { new ServerPort("localhost", Port, ServerCredentials.Insecure) }
-            };
-            server.Start();
-            server.ShutdownAsync().Wait();
+            CreateHostBuilder(args).Build().Run();
         }
- 
+
+        // Additional configuration is required to successfully run gRPC on macOS.
+        // For instructions on how to configure Kestrel and gRPC clients on macOS, visit https://go.microsoft.com/fwlink/?linkid=2099682
+        public static IHostBuilder CreateHostBuilder(string[] args) =>
+            Host.CreateDefaultBuilder(args)
+                .ConfigureWebHostDefaults(webBuilder =>
+                {
+                    webBuilder.UseStartup<Startup>();
+                });
     }
 }
