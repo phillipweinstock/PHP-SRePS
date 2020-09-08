@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\pip43\\source\\repos\\phillipweinstock\\PHP-SRePs\\PHP-SRePs-Backend\\PHP-SRePs-Backend.csproj": {}
+    "C:\\Users\\pip43\\source\\repos\\phillipweinstock\\PHP-SRePs\\PHP-SRePs-Frontend\\PHP-SRePs-Frontend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\pip43\\source\\repos\\phillipweinstock\\PHP-SRePs\\PHP-SRePs-Backend\\PHP-SRePs-Backend.csproj": {
+    "C:\\Users\\pip43\\source\\repos\\phillipweinstock\\PHP-SRePs\\PHP-SRePs-Frontend\\PHP-SRePs-Frontend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pip43\\source\\repos\\phillipweinstock\\PHP-SRePs\\PHP-SRePs-Backend\\PHP-SRePs-Backend.csproj",
-        "projectName": "PHP-SRePs-Backend",
-        "projectPath": "C:\\Users\\pip43\\source\\repos\\phillipweinstock\\PHP-SRePs\\PHP-SRePs-Backend\\PHP-SRePs-Backend.csproj",
+        "projectUniqueName": "C:\\Users\\pip43\\source\\repos\\phillipweinstock\\PHP-SRePs\\PHP-SRePs-Frontend\\PHP-SRePs-Frontend.csproj",
+        "projectName": "PHP-SRePs-Frontend",
+        "projectPath": "C:\\Users\\pip43\\source\\repos\\phillipweinstock\\PHP-SRePs\\PHP-SRePs-Frontend\\PHP-SRePs-Frontend.csproj",
         "packagesPath": "C:\\Users\\pip43\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pip43\\source\\repos\\phillipweinstock\\PHP-SRePs\\PHP-SRePs-Backend\\obj\\",
+        "outputPath": "C:\\Users\\pip43\\source\\repos\\phillipweinstock\\PHP-SRePs\\PHP-SRePs-Frontend\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -40,22 +40,6 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "dependencies": {
-            "Google.Protobuf": {
-              "target": "Package",
-              "version": "[3.13.0, )"
-            },
-            "Grpc.AspNetCore.Server": {
-              "target": "Package",
-              "version": "[2.23.2, )"
-            },
-            "Grpc.Tools": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[2.31.0, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",
@@ -67,11 +51,11 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App.WindowsForms": {
+              "privateAssets": "none"
             }
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"

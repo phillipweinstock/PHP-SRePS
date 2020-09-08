@@ -10,11 +10,12 @@ using System.Windows.Forms;
 
 namespace PHP_SRePs_Frontend
 {
-    public partial class home : Form
+    public partial class Form1 : Form
     {
-        public home()
+        public Form1()
         {
             InitializeComponent();
         }
+
     }
 }

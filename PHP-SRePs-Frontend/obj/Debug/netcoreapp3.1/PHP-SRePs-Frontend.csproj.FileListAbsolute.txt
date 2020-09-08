@@ -1,0 +1,15 @@
+C:\Users\pip43\source\repos\phillipweinstock\PHP-SRePs\PHP-SRePs-Frontend\bin\Debug\netcoreapp3.1\PHP-SRePs-Frontend.exe
+C:\Users\pip43\source\repos\phillipweinstock\PHP-SRePs\PHP-SRePs-Frontend\bin\Debug\netcoreapp3.1\PHP-SRePs-Frontend.deps.json
+C:\Users\pip43\source\repos\phillipweinstock\PHP-SRePs\PHP-SRePs-Frontend\bin\Debug\netcoreapp3.1\PHP-SRePs-Frontend.runtimeconfig.json
+C:\Users\pip43\source\repos\phillipweinstock\PHP-SRePs\PHP-SRePs-Frontend\bin\Debug\netcoreapp3.1\PHP-SRePs-Frontend.runtimeconfig.dev.json
+C:\Users\pip43\source\repos\phillipweinstock\PHP-SRePs\PHP-SRePs-Frontend\bin\Debug\netcoreapp3.1\PHP-SRePs-Frontend.dll
+C:\Users\pip43\source\repos\phillipweinstock\PHP-SRePs\PHP-SRePs-Frontend\bin\Debug\netcoreapp3.1\PHP-SRePs-Frontend.pdb
+C:\Users\pip43\source\repos\phillipweinstock\PHP-SRePs\PHP-SRePs-Frontend\obj\Debug\netcoreapp3.1\PHP-SRePs-Frontend.csprojAssemblyReference.cache
+C:\Users\pip43\source\repos\phillipweinstock\PHP-SRePs\PHP-SRePs-Frontend\obj\Debug\netcoreapp3.1\PHP_SRePs_Frontend.Form1.resources
+C:\Users\pip43\source\repos\phillipweinstock\PHP-SRePs\PHP-SRePs-Frontend\obj\Debug\netcoreapp3.1\PHP-SRePs-Frontend.csproj.GenerateResource.cache
+C:\Users\pip43\source\repos\phillipweinstock\PHP-SRePs\PHP-SRePs-Frontend\obj\Debug\netcoreapp3.1\PHP-SRePs-Frontend.AssemblyInfoInputs.cache
+C:\Users\pip43\source\repos\phillipweinstock\PHP-SRePs\PHP-SRePs-Frontend\obj\Debug\netcoreapp3.1\PHP-SRePs-Frontend.AssemblyInfo.cs
+C:\Users\pip43\source\repos\phillipweinstock\PHP-SRePs\PHP-SRePs-Frontend\obj\Debug\netcoreapp3.1\PHP-SRePs-Frontend.csproj.CoreCompileInputs.cache
+C:\Users\pip43\source\repos\phillipweinstock\PHP-SRePs\PHP-SRePs-Frontend\obj\Debug\netcoreapp3.1\PHP-SRePs-Frontend.dll
+C:\Users\pip43\source\repos\phillipweinstock\PHP-SRePs\PHP-SRePs-Frontend\obj\Debug\netcoreapp3.1\PHP-SRePs-Frontend.pdb
+C:\Users\pip43\source\repos\phillipweinstock\PHP-SRePs\PHP-SRePs-Frontend\obj\Debug\netcoreapp3.1\PHP-SRePs-Frontend.genruntimeconfig.cache
