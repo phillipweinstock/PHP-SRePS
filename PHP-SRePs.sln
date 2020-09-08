@@ -5,7 +5,12 @@ VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PHP-SRePs-Backend", "PHP-SRePs-Backend\PHP-SRePs-Backend.csproj", "{6AC9DFC4-BEFC-449E-BB57-30D1BDD1BFCC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PHP-SRePs-Frontend", "PHP-SRePs-Frontend\PHP-SRePs-Frontend.csproj", "{A1FACAA0-57CE-4EB9-878F-EC887BFFB16E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PHP-SRePs-Frontend", "PHP-SRePs-Frontend\PHP-SRePs-Frontend.csproj", "{A1FACAA0-57CE-4EB9-878F-EC887BFFB16E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Protos", "Protos", "{53F42FCC-A0ED-4325-88A2-C47CEDF2929B}"
+	ProjectSection(SolutionItems) = preProject
+		hello.proto = hello.proto
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

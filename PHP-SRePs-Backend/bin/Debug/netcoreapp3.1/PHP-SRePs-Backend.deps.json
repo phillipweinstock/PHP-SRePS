@@ -6,18 +6,60 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v3.1": {
-      "PHP-SRePs-Backend/1.0.0": {
+      "PHP-SRePs-Backend/0.0.1": {
         "dependencies": {
           "Google.Protobuf": "3.13.0",
+          "Grpc.AspNetCore.Server": "2.23.2",
+          "Grpc.Auth": "2.31.0",
+          "Grpc.Core": "2.31.0",
+          "Grpc.Net.Common": "2.31.0",
           "Grpc.Tools": "2.31.0"
         },
         "runtime": {
           "PHP-SRePs-Backend.dll": {}
         }
       },
+      "Google.Apis/1.46.0": {
+        "dependencies": {
+          "Google.Apis.Core": "1.46.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Google.Apis.dll": {
+            "assemblyVersion": "1.46.0.0",
+            "fileVersion": "1.46.0.0"
+          }
+        }
+      },
+      "Google.Apis.Auth/1.46.0": {
+        "dependencies": {
+          "Google.Apis": "1.46.0",
+          "Google.Apis.Core": "1.46.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Google.Apis.Auth.PlatformServices.dll": {
+            "assemblyVersion": "1.46.0.0",
+            "fileVersion": "1.46.0.0"
+          },
+          "lib/netstandard2.0/Google.Apis.Auth.dll": {
+            "assemblyVersion": "1.46.0.0",
+            "fileVersion": "1.46.0.0"
+          }
+        }
+      },
+      "Google.Apis.Core/1.46.0": {
+        "dependencies": {
+          "Newtonsoft.Json": "12.0.3"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Google.Apis.Core.dll": {
+            "assemblyVersion": "1.46.0.0",
+            "fileVersion": "1.46.0.0"
+          }
+        }
+      },
       "Google.Protobuf/3.13.0": {
         "dependencies": {
-          "System.Memory": "4.5.2",
+          "System.Memory": "4.5.3",
           "System.Runtime.CompilerServices.Unsafe": "4.5.2"
         },
         "runtime": {
@@ -27,16 +69,135 @@
           }
         }
       },
+      "Grpc.AspNetCore.Server/2.23.2": {
+        "dependencies": {
+          "Grpc.Core.Api": "2.31.0",
+          "Grpc.Net.Common": "2.31.0"
+        },
+        "runtime": {
+          "lib/netcoreapp3.0/Grpc.AspNetCore.Server.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.23.2.0"
+          }
+        }
+      },
+      "Grpc.Auth/2.31.0": {
+        "dependencies": {
+          "Google.Apis.Auth": "1.46.0",
+          "Grpc.Core.Api": "2.31.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Grpc.Auth.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.31.0.0"
+          }
+        }
+      },
+      "Grpc.Core/2.31.0": {
+        "dependencies": {
+          "Grpc.Core.Api": "2.31.0",
+          "System.Memory": "4.5.3"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Grpc.Core.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.31.0.0"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/linux/native/libgrpc_csharp_ext.x64.so": {
+            "rid": "linux",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux/native/libgrpc_csharp_ext.x86.so": {
+            "rid": "linux",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/osx/native/libgrpc_csharp_ext.x64.dylib": {
+            "rid": "osx",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/osx/native/libgrpc_csharp_ext.x86.dylib": {
+            "rid": "osx",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win/native/grpc_csharp_ext.x64.dll": {
+            "rid": "win",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win/native/grpc_csharp_ext.x86.dll": {
+            "rid": "win",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "Grpc.Core.Api/2.31.0": {
+        "dependencies": {
+          "System.Memory": "4.5.3"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Grpc.Core.Api.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.31.0.0"
+          }
+        }
+      },
+      "Grpc.Net.Common/2.31.0": {
+        "dependencies": {
+          "Grpc.Core.Api": "2.31.0"
+        },
+        "runtime": {
+          "lib/netstandard2.1/Grpc.Net.Common.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.31.0.0"
+          }
+        }
+      },
       "Grpc.Tools/2.31.0": {},
-      "System.Memory/4.5.2": {},
+      "Newtonsoft.Json/12.0.3": {
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "assemblyVersion": "12.0.0.0",
+            "fileVersion": "12.0.3.23909"
+          }
+        }
+      },
+      "System.Memory/4.5.3": {},
       "System.Runtime.CompilerServices.Unsafe/4.5.2": {}
     }
   },
   "libraries": {
-    "PHP-SRePs-Backend/1.0.0": {
+    "PHP-SRePs-Backend/0.0.1": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "Google.Apis/1.46.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-W6ZKacMAkZHOjQFv6iWpoADOgmZMUggnz+nPFYF8a4lRtAHD6nur4EcwtzU9IEZF+KeQz0DQLO6jVjMP1iXqPQ==",
+      "path": "google.apis/1.46.0",
+      "hashPath": "google.apis.1.46.0.nupkg.sha512"
+    },
+    "Google.Apis.Auth/1.46.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Mc/qDXb5Xg599Q7kzsecloOQeHwTI+/PmeucmcJurZSFsPYziaPaejHy+Z+52evj54H/zGc5ohcyABrT32vmGQ==",
+      "path": "google.apis.auth/1.46.0",
+      "hashPath": "google.apis.auth.1.46.0.nupkg.sha512"
+    },
+    "Google.Apis.Core/1.46.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-I7tUKeY70MJxHnYu4cRzug90e2oaClhgRAwYIrqWnqIvojF2DTB3D5DeGbrEcgKGHEGL5ADgjBMFIhdnAO2Iqg==",
+      "path": "google.apis.core/1.46.0",
+      "hashPath": "google.apis.core.1.46.0.nupkg.sha512"
     },
     "Google.Protobuf/3.13.0": {
       "type": "package",
@@ -45,6 +206,41 @@
       "path": "google.protobuf/3.13.0",
       "hashPath": "google.protobuf.3.13.0.nupkg.sha512"
     },
+    "Grpc.AspNetCore.Server/2.23.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-y70K5AeBfFqP0C0V6XWomaCEgOXrJNkLhMzwPllTvdYLcS16iSHSBSlJx2AAR4qABs29Pd7b/p+Oxdk+Qy2syQ==",
+      "path": "grpc.aspnetcore.server/2.23.2",
+      "hashPath": "grpc.aspnetcore.server.2.23.2.nupkg.sha512"
+    },
+    "Grpc.Auth/2.31.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-UOjyRQiESQ/CdiEhgXBEVIwZcdQtPgCLGAdEMj320Nq2PpJok7kKDP3PtFjnnDpyNEBZG4ZJPbOSpUt0lL1p3g==",
+      "path": "grpc.auth/2.31.0",
+      "hashPath": "grpc.auth.2.31.0.nupkg.sha512"
+    },
+    "Grpc.Core/2.31.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-OYkkF9nzI0a20D4RmE21wfIMiwNuMm9ep6iwSNapjg2xKIswchxDudB3M1o8QxRfht3v23vQNVnABuP28XKDfA==",
+      "path": "grpc.core/2.31.0",
+      "hashPath": "grpc.core.2.31.0.nupkg.sha512"
+    },
+    "Grpc.Core.Api/2.31.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-UbCva42tB1EMJTVzlectfHfz25HD9T04HBlm3PA+m93yK48FxyKi7lC72yiKt/Hi3dpESYxh8CksM8a8GJpFAA==",
+      "path": "grpc.core.api/2.31.0",
+      "hashPath": "grpc.core.api.2.31.0.nupkg.sha512"
+    },
+    "Grpc.Net.Common/2.31.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-yJjSulvcJLcS9Q1h7ynJ+hwAp7FDObn7uhbTZGEHb0W1i1QZtRHoYr8JsKcBqBnLmtei0+oy3fef4J6kZzK5yw==",
+      "path": "grpc.net.common/2.31.0",
+      "hashPath": "grpc.net.common.2.31.0.nupkg.sha512"
+    },
     "Grpc.Tools/2.31.0": {
       "type": "package",
       "serviceable": true,
@@ -52,12 +248,19 @@
       "path": "grpc.tools/2.31.0",
       "hashPath": "grpc.tools.2.31.0.nupkg.sha512"
     },
-    "System.Memory/4.5.2": {
+    "Newtonsoft.Json/12.0.3": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-fvq1GNmUFwbKv+aLVYYdgu/+gc8Nu9oFujOxIjPrsf+meis9JBzTPDL6aP/eeGOz9yPj6rRLUbOjKMpsMEWpNg==",
-      "path": "system.memory/4.5.2",
-      "hashPath": "system.memory.4.5.2.nupkg.sha512"
+      "sha512": "sha512-6mgjfnRB4jKMlzHSl+VD+oUc1IebOZabkbyWj2RiTgWwYPPuaK1H97G1sHqGwPlS5npiF5Q0OrxN1wni2n5QWg==",
+      "path": "newtonsoft.json/12.0.3",
+      "hashPath": "newtonsoft.json.12.0.3.nupkg.sha512"
+    },
+    "System.Memory/4.5.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-3oDzvc/zzetpTKWMShs1AADwZjQ/36HnsufHRPcOjyRAAMLDlu2iD33MBI2opxnezcVUtXyqDXXjoFMOU9c7SA==",
+      "path": "system.memory/4.5.3",
+      "hashPath": "system.memory.4.5.3.nupkg.sha512"
     },
     "System.Runtime.CompilerServices.Unsafe/4.5.2": {
       "type": "package",

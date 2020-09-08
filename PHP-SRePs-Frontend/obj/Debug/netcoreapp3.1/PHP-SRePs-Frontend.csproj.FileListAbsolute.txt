@@ -18,3 +18,17 @@ C:\Users\pip43\source\repos\phillipweinstock\PHP-SRePs\PHP-SRePs-Frontend\bin\De
 C:\Users\pip43\source\repos\phillipweinstock\PHP-SRePs\PHP-SRePs-Frontend\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
 C:\Users\pip43\source\repos\phillipweinstock\PHP-SRePs\PHP-SRePs-Frontend\obj\Debug\netcoreapp3.1\PHP-SRePs-Frontend.csproj.CopyComplete
 C:\Users\pip43\source\repos\phillipweinstock\PHP-SRePs\PHP-SRePs-Frontend\bin\Debug\netcoreapp3.1\Google.Protobuf.dll
+C:\Users\pip43\source\repos\phillipweinstock\PHP-SRePs\PHP-SRePs-Frontend\bin\Debug\netcoreapp3.1\Grpc.Core.dll
+C:\Users\pip43\source\repos\phillipweinstock\PHP-SRePs\PHP-SRePs-Frontend\bin\Debug\netcoreapp3.1\runtimes\linux\native\libgrpc_csharp_ext.x64.so
+C:\Users\pip43\source\repos\phillipweinstock\PHP-SRePs\PHP-SRePs-Frontend\bin\Debug\netcoreapp3.1\runtimes\linux\native\libgrpc_csharp_ext.x86.so
+C:\Users\pip43\source\repos\phillipweinstock\PHP-SRePs\PHP-SRePs-Frontend\bin\Debug\netcoreapp3.1\runtimes\osx\native\libgrpc_csharp_ext.x64.dylib
+C:\Users\pip43\source\repos\phillipweinstock\PHP-SRePs\PHP-SRePs-Frontend\bin\Debug\netcoreapp3.1\runtimes\osx\native\libgrpc_csharp_ext.x86.dylib
+C:\Users\pip43\source\repos\phillipweinstock\PHP-SRePs\PHP-SRePs-Frontend\bin\Debug\netcoreapp3.1\runtimes\win\native\grpc_csharp_ext.x64.dll
+C:\Users\pip43\source\repos\phillipweinstock\PHP-SRePs\PHP-SRePs-Frontend\bin\Debug\netcoreapp3.1\runtimes\win\native\grpc_csharp_ext.x86.dll
+C:\Users\pip43\source\repos\phillipweinstock\PHP-SRePs\PHP-SRePs-Frontend\bin\Debug\netcoreapp3.1\Google.Apis.dll
+C:\Users\pip43\source\repos\phillipweinstock\PHP-SRePs\PHP-SRePs-Frontend\bin\Debug\netcoreapp3.1\Google.Apis.Auth.PlatformServices.dll
+C:\Users\pip43\source\repos\phillipweinstock\PHP-SRePs\PHP-SRePs-Frontend\bin\Debug\netcoreapp3.1\Google.Apis.Auth.dll
+C:\Users\pip43\source\repos\phillipweinstock\PHP-SRePs\PHP-SRePs-Frontend\bin\Debug\netcoreapp3.1\Google.Apis.Core.dll
+C:\Users\pip43\source\repos\phillipweinstock\PHP-SRePs\PHP-SRePs-Frontend\bin\Debug\netcoreapp3.1\Grpc.Auth.dll
+C:\Users\pip43\source\repos\phillipweinstock\PHP-SRePs\PHP-SRePs-Frontend\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\pip43\source\repos\phillipweinstock\PHP-SRePs\PHP-SRePs-Frontend\obj\Debug\netcoreapp3.1\PHP-SRePs-Frontend.csproj.CoreCompileInputs.cache

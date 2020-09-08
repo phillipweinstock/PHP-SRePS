@@ -17,6 +17,7 @@
   </PropertyGroup>
   <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <Import Project="$(NuGetPackageRoot)grpc.tools\2.31.0\build\Grpc.Tools.props" Condition="Exists('$(NuGetPackageRoot)grpc.tools\2.31.0\build\Grpc.Tools.props')" />
+    <Import Project="$(NuGetPackageRoot)grpc.tools.msbuild.unofficial\1.0.51\build\Grpc.Tools.MsBuild.Unofficial.props" Condition="Exists('$(NuGetPackageRoot)grpc.tools.msbuild.unofficial\1.0.51\build\Grpc.Tools.MsBuild.Unofficial.props')" />
   </ImportGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <PkgGrpc_Tools Condition=" '$(PkgGrpc_Tools)' == '' ">C:\Users\pip43\.nuget\packages\grpc.tools\2.31.0</PkgGrpc_Tools>
