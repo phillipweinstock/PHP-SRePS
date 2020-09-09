@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -18,16 +17,16 @@ namespace PHP_SRePS_Frontend
         {
             InitializeComponent();
 
-            _ = rpcTest();
+            _ = RpcTest();
         }
 
         //Rpc test example
-        private async Task rpcTest()
+        private async Task RpcTest()
         {
             var channel = GrpcChannel.ForAddress("https://localhost:5001");
             var client = new Greeter.GreeterClient(channel);
 
-            var input = new PHP_SRePS_Backend.HelloRequest{ Name = "Bruh" };
+            var input = new PHP_SRePS_Backend.HelloRequest { Name = "Bruh" };
 
             var reply = await client.SayHelloAsync(input);
 

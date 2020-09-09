@@ -6,11 +6,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Protobuf Include="Protos\greet.proto" GrpcServices="Server" />
+    <PackageReference Include="Grpc.AspNetCore" Version="2.27.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Grpc.AspNetCore" Version="2.27.0" />
+    <Protobuf Include="..\Protos\*.proto" GrpcServices="Server">
+      <Link>Protos\%(Filename)%(Extension)</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Protobuf>
   </ItemGroup>
 
 </Project>

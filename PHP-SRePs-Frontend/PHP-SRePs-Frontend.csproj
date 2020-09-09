@@ -18,8 +18,16 @@
     </PackageReference>
   </ItemGroup>
 
+
   <ItemGroup>
-    <Protobuf Include="Protos\greet.proto" GrpcServices="Client" />
+    <Folder Include="Protos\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Protobuf Include="..\Protos\*.proto" GrpcServices="Client">
+      <Link>Protos\%(Filename)%(Extension)</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Protobuf>
   </ItemGroup>
 
 </Project>
