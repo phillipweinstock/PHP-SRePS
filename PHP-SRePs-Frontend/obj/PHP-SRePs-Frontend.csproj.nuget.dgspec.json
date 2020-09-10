@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Shared\\Uni\\Year 2 Semester 2\\SWE30010 - Development Project 2\\Assignments\\repo\\PHP-SRePS\\PHP-SRePS-Backend\\PHP-SRePS-Backend.csproj": {}
+    "D:\\Shared\\Uni\\Year 2 Semester 2\\SWE30010 - Development Project 2\\Assignments\\repo\\PHP-SRePS\\PHP-SRePS-Frontend\\PHP-SRePS-Frontend.csproj": {}
   },
   "projects": {
-    "D:\\Shared\\Uni\\Year 2 Semester 2\\SWE30010 - Development Project 2\\Assignments\\repo\\PHP-SRePS\\PHP-SRePS-Backend\\PHP-SRePS-Backend.csproj": {
+    "D:\\Shared\\Uni\\Year 2 Semester 2\\SWE30010 - Development Project 2\\Assignments\\repo\\PHP-SRePS\\PHP-SRePS-Frontend\\PHP-SRePS-Frontend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Shared\\Uni\\Year 2 Semester 2\\SWE30010 - Development Project 2\\Assignments\\repo\\PHP-SRePS\\PHP-SRePS-Backend\\PHP-SRePS-Backend.csproj",
-        "projectName": "PHP-SRePS-Backend",
-        "projectPath": "D:\\Shared\\Uni\\Year 2 Semester 2\\SWE30010 - Development Project 2\\Assignments\\repo\\PHP-SRePS\\PHP-SRePS-Backend\\PHP-SRePS-Backend.csproj",
+        "projectUniqueName": "D:\\Shared\\Uni\\Year 2 Semester 2\\SWE30010 - Development Project 2\\Assignments\\repo\\PHP-SRePS\\PHP-SRePS-Frontend\\PHP-SRePS-Frontend.csproj",
+        "projectName": "PHP-SRePS-Frontend",
+        "projectPath": "D:\\Shared\\Uni\\Year 2 Semester 2\\SWE30010 - Development Project 2\\Assignments\\repo\\PHP-SRePS\\PHP-SRePS-Frontend\\PHP-SRePS-Frontend.csproj",
         "packagesPath": "C:\\Users\\Adam\\.nuget\\packages\\",
-        "outputPath": "D:\\Shared\\Uni\\Year 2 Semester 2\\SWE30010 - Development Project 2\\Assignments\\repo\\PHP-SRePS\\PHP-SRePS-Backend\\obj\\",
+        "outputPath": "D:\\Shared\\Uni\\Year 2 Semester 2\\SWE30010 - Development Project 2\\Assignments\\repo\\PHP-SRePS\\PHP-SRePS-Frontend\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Adam\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -38,9 +38,19 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
-            "Grpc.AspNetCore": {
+            "Google.Protobuf": {
               "target": "Package",
-              "version": "[2.27.0, )"
+              "version": "[3.13.0, )"
+            },
+            "Grpc.Net.Client": {
+              "target": "Package",
+              "version": "[2.31.0, )"
+            },
+            "Grpc.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.31.0, )"
             }
           },
           "imports": [
@@ -54,11 +64,11 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App.WindowsForms": {
+              "privateAssets": "none"
             }
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
