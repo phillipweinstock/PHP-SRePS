@@ -3,12 +3,12 @@
     partial class Form1
     {
         /// <summary>
-        ///  Required designer variable.
+        /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        ///  Clean up any resources being used.
+        /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
@@ -23,8 +23,8 @@
         #region Windows Form Designer generated code
 
         /// <summary>
-        ///  Required method for Designer support - do not modify
-        ///  the contents of this method with the code editor.
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
@@ -34,10 +34,11 @@
             // lblTest
             // 
             this.lblTest.AutoSize = true;
-            this.lblTest.Font = new System.Drawing.Font("Segoe UI", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblTest.Cursor = System.Windows.Forms.Cursors.SizeNS;
+            this.lblTest.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblTest.Location = new System.Drawing.Point(13, 13);
             this.lblTest.Name = "lblTest";
-            this.lblTest.Size = new System.Drawing.Size(151, 47);
+            this.lblTest.Size = new System.Drawing.Size(142, 45);
             this.lblTest.TabIndex = 0;
             this.lblTest.Text = "Test Text";
             // 
@@ -59,4 +60,3 @@
         private System.Windows.Forms.Label lblTest;
     }
 }
-
