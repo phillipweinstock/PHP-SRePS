@@ -30,3 +30,9 @@ CREATE TABLE Item_Detail (
 Alter Table Item_Detail
 Add sale_id INT,
 Add Constraint PRIMARY KEY (sale_id);
+
+	Create Table User(
+     user_id int AUTO_INCREMENT PRIMARY KEY NOT NULL,
+     user_name varchar(50),
+     Hash varchar(25)
+    );
