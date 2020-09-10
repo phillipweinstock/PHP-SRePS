@@ -24,9 +24,9 @@ namespace PHP_SRePS_Frontend
         private async Task RpcTest()
         {
             var channel = GrpcChannel.ForAddress("https://localhost:5001");
-            var client = new Greeter.GreeterClient(channel);
+            var client = new Sale.SaleClient(channel);
 
-            var input = new PHP_SRePS_Backend.HelloRequest { Name = "Bruh" };
+            var input = new AddSaleRequest { Name = "Bruh" };
 
             var reply = await client.SayHelloAsync(input);
 

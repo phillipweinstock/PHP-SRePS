@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+
+// The sales service definition.
+service Sale {
+  // Sends a sales insertion
+  rpc AddSale (AddSaleRequest) returns (ErrorCodeReply);
+}
+//The Item to be added to the sale, item_id is a foreign key
+//item_id is also a foreign key for the actual item we are trying to get
+message ItemDetail 
+{
+  uint32 quantity_id = 2;
+  uint32 item_id = 3;
+}
+
+
+// The request message containing the Item Ids to be added
+message AddSaleRequest 
+{
+  repeated  ItemDetail item_details = 1 [packed=false];
+  float total_billed = 2;
+  
+}
+
+// Error Code 
+message ErrorCodeReply {
+   bool error_code = 1;
+}
+
+
+
+
