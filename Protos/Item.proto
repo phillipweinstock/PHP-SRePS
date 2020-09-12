@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-
+package backend;
 // The Items service definition.
 service ItemDef {
   // Gets a item from the backend
@@ -15,10 +15,12 @@ service ItemDef {
 }
 //The Item to be added to the sale, item_id is a foreign key
 //item_id is also a foreign key for the actual item we are trying to get
+// Error Code 
+message ErrorCodeReply {
+	bool error_code = 1;
+}
 
-
-message Item
-{
+message Item {
   uint32 item_id = 1;
   string name_id = 2;
   string catagory_id = 3;
@@ -27,28 +29,19 @@ message Item
 
 
 // The request message containing the Item Parameters we are looking for 
-message ItemGet 
-{
+message ItemGet {
    uint32 item_id = 1;
    string name_id = 2;
   
 }
 //A message used to check whether or not the data has changed in the mean time and 
 //down load the new items 
-message HasChanged 
-{
+message HasChanged {
   bool changed_data = 1;
   
 }
 //Returns a list of items
-message ItemList 
-{
+message ItemList {
   repeated Item item_list = 1;
 }
-
-message ErrorCodeReply {
-   bool error_code = 1;
-}
-
-
 

@@ -1,5 +1,5 @@
 syntax = "proto3";
-
+package backend;
 // The sales service definition.
 service SaleDef {
 	// Sends a sales insertion
