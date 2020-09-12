@@ -1,5 +1,4 @@
 ﻿using Grpc.Net.Client;
-using PHP_SRePS_Backend;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,11 +16,11 @@ namespace PHP_SRePS_Frontend
         {
             InitializeComponent();
 
-            _ = RpcTest();
+            /*_ = RpcTest();*/
         }
 
         //Rpc test example
-        private async Task RpcTest()
+/*        private async Task RpcTest()
         {
             var channel = GrpcChannel.ForAddress("https://localhost:5001");
             var client = new Sale.SaleClient(channel);
@@ -31,6 +30,6 @@ namespace PHP_SRePS_Frontend
             var reply = await client.SayHelloAsync(input);
 
             lblTest.Text = reply.Message;
-        }
+        }*/
     }
 }
