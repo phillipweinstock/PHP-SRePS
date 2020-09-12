@@ -10,7 +10,7 @@ service SaleDef {
 	// Sends a sales insertion
 	rpc AddSale (AddSaleRequest) returns (ErrorCodeReply);
 	// Get requested sales: 
-	//	- Date = all sales from Date
+	//	- Date = all sales added to db at date
 	//	- ID = just a single sale
 	rpc GetSale (SaleGet) returns (stream SaleInfo);
 	// Return all sales
