@@ -1,33 +1,50 @@
 syntax = "proto3";
 
-
 // The sales service definition.
-service Sale {
-  // Sends a sales insertion
-  rpc AddSale (AddSaleRequest) returns (ErrorCodeReply);
+service SaleDef {
+	// Sends a sales insertion
+	rpc AddSale (AddSaleRequest) returns (ErrorCodeReply);
+	rpc GetSale (SaleGet) returns (stream SaleInfo);
+	rpc GetAllSales (SaleGet) returns (stream SaleInfo);
 }
+
 //The Item to be added to the sale, item_id is a foreign key
 //item_id is also a foreign key for the actual item we are trying to get
-message ItemDetail 
-{
-  uint32 quantity_id = 2;
-  uint32 item_id = 3;
+message ItemDetail {
+	uint32 quantity_id = 1;
+	uint32 item_id = 2;
 }
 
-
 // The request message containing the Item Ids to be added
-message AddSaleRequest 
-{
-  repeated  ItemDetail item_details = 1 [packed=false];
-  float total_billed = 2;
-  
+message AddSaleRequest {
+	repeated ItemDetail item_details = 1 [packed=false];
+	float total_billed = 2;
 }
 
 // Error Code 
 message ErrorCodeReply {
-   bool error_code = 1;
+	bool error_code = 1;
 }
 
+// Returns item information on request
+message ItemRequestDetails {
+	uint32 item_id = 1;
+	string name_id = 2;
+	float price_id = 3;
+	int quantity_id = 4;
+}
 
+// The request message for a sale, 
+// where if sale_id is sent a single sale will be returned, 
+// and if a sale_date is sent all sales made for that date are returned
+message SaleGet {
+	uint32 sale_id = 1;		//optional
+	string sale_date = 2;	// optional
+}
 
-
+// The return message that contains the sale information
+message SaleInfo {
+	uint32 sale_id = 1;
+	repeated ItemRequestDetails item_details = 2 [packed=false];	// return optional
+	float total_billed = 3;
+}
