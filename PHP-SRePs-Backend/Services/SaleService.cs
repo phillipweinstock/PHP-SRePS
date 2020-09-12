@@ -9,8 +9,8 @@ namespace PHP_SRePS_Backend
 {
     public class SaleService : SaleDef.SaleDefBase
     {
-        private readonly ILogger<GreeterService> _logger;
-        public SaleService(ILogger<GreeterService> logger)
+        private readonly ILogger<SaleService> _logger;
+        public SaleService(ILogger<SaleService> logger)
         {
             _logger = logger;
         }
@@ -20,8 +20,20 @@ namespace PHP_SRePS_Backend
             
             return Task.FromResult(new ErrorCodeReply
             {
-                ErrorCode = false
+                // TODO: Return stuff
             }) ;
+        }
+
+        public override Task GetSale(SaleGet request, IServerStreamWriter<SaleInfo> responseStream, ServerCallContext context)
+        {
+            // TODO: Do stuff
+            return base.GetSale(request, responseStream, context);
+        }
+
+        public override Task GetAllSales(HasChanged request, IServerStreamWriter<SaleInfo> responseStream, ServerCallContext context)
+        {
+            // TODO: Do stuff
+            return base.GetAllSales(request, responseStream, context);
         }
     }
 }
