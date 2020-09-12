@@ -9,7 +9,7 @@ service ItemDef {
   rpc GetAllItems (HasChanged) returns (ItemList);
   
   //Adds a new Item to the backend server
-  rpc AddItem (Item) returns (ErrorCodeReply)
+  rpc AddItem (Item) returns (ErrorCodeReply);
   //Deletes an item on the back end
   rpc DeleteItem (Item) returns (ErrorCodeReply);
 }

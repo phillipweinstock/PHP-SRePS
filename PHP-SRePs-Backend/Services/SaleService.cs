@@ -7,7 +7,7 @@ using Microsoft.Extensions.Logging;
 
 namespace PHP_SRePS_Backend
 {
-    public class SaleService : Sale.SaleBase
+    public class SaleService : SaleDef.SaleDefBase
     {
         private readonly ILogger<GreeterService> _logger;
         public SaleService(ILogger<GreeterService> logger)

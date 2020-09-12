@@ -31,7 +31,7 @@ message ItemRequestDetails {
 	uint32 item_id = 1;
 	string name_id = 2;
 	float price_id = 3;
-	int quantity_id = 4;
+	uint32 quantity_id = 4;
 }
 
 // The request message for a sale, 
