@@ -20,19 +20,19 @@ namespace PHP_SRePS_Backend
             
             return Task.FromResult(new ErrorCodeReply
             {
-                ErrorCode = false
+                // TODO: Return stuff
             }) ;
         }
 
         public override Task GetSale(SaleGet request, IServerStreamWriter<SaleInfo> responseStream, ServerCallContext context)
         {
-            // do stuff
+            // TODO: Do stuff
             return base.GetSale(request, responseStream, context);
         }
 
-        public override Task GetAllSales(SaleGet request, IServerStreamWriter<SaleInfo> responseStream, ServerCallContext context)
+        public override Task GetAllSales(HasChanged request, IServerStreamWriter<SaleInfo> responseStream, ServerCallContext context)
         {
-            // do stuff
+            // TODO: Do stuff
             return base.GetAllSales(request, responseStream, context);
         }
     }

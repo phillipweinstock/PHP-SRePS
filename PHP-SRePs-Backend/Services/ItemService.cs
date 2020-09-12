@@ -20,7 +20,7 @@ namespace PHP_SRePS_Backend
             
             return Task.FromResult(new Item
             {
-                //Return stuff   
+                // TODO: Return stuff   
             }) ;
         }
 
@@ -29,7 +29,7 @@ namespace PHP_SRePS_Backend
 
             return Task.FromResult(new ItemList
             {
-                //Return stuff   
+                // TODO: Return stuff    
             });
         }
 
@@ -38,7 +38,7 @@ namespace PHP_SRePS_Backend
 
             return Task.FromResult(new ErrorCodeReply
             {
-                //Return stuff   
+                // TODO: Return stuff     
             });
         }
 
@@ -47,7 +47,7 @@ namespace PHP_SRePS_Backend
 
             return Task.FromResult(new ErrorCodeReply
             {
-                //Return stuff   
+                // TODO: Return stuff   
             });
         }
     }

@@ -9,10 +9,12 @@ package backend;
 service SaleDef {
 	// Sends a sales insertion
 	rpc AddSale (AddSaleRequest) returns (ErrorCodeReply);
-	
+	// Get requested sales: 
+	//	- Date = all sales from Date
+	//	- ID = just a single sale
 	rpc GetSale (SaleGet) returns (stream SaleInfo);
-	
-	rpc GetAllSales (SaleGet) returns (stream SaleInfo);
+	// Return all sales
+	rpc GetAllSales (HasChanged) returns (stream SaleInfo);
 }
 
 // The request message containing the Item Ids to be added
