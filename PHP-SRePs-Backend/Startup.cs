@@ -32,8 +32,8 @@ namespace PHP_SRePS_Backend
             app.UseEndpoints(endpoints =>
             {
                 // TODO: Add future services here
-                endpoints.MapGrpcService<SaleService>();
                 endpoints.MapGrpcService<ItemService>();
+                endpoints.MapGrpcService<SaleService>();
 
                 endpoints.MapGet("/", async context =>
                 {

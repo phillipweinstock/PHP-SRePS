@@ -17,23 +17,89 @@ namespace PHP_SRePS_Backend
 
         public override Task<ErrorCodeReply> AddSale(AddSaleRequest request, ServerCallContext context)
         {
-            
+            // Print to console
+            _logger.LogDebug($"ItemId: {request.ItemDetails.ElementAt<AddSaleRequest.Types.ItemDetail>(1).ItemId}");
+
+            // Get ItemDetails at index
+            _ = request.ItemDetails.ElementAt<AddSaleRequest.Types.ItemDetail>(1).Quantity;
+
+            // List Size of ItemDetails sent
+            _logger.LogDebug($"Count: {request.ItemDetails.Count}");
+
+
+
+
+            // TODO: database stuff
+            // Conn to db
+
+            // db updated successfully?
+            bool dbUpdateSuccess = false;
+
+            // get this saleid - used later
+            uint saleid;
+
+            int itemCount = request.ItemDetails.Count;
+
+            // Loop to add items to ItemDetail table
+            foreach (var itemDetail in request.ItemDetails)
+            {
+                // insert saleid into ItemDetail
+
+                // insert info from request
+                _ = itemDetail.ItemId;
+                _ = itemDetail.Quantity;
+
+                // insert item id into sales database ??????????
+            }
+
+            // insert into sale table
+            _ = request.TotalBilled;
+
+            // Done?
+
             return Task.FromResult(new ErrorCodeReply
             {
-                // TODO: Return stuff
-            }) ;
+                ErrorCode = dbUpdateSuccess
+            });
         }
 
-        public override Task GetSale(SaleGet request, IServerStreamWriter<SaleInfo> responseStream, ServerCallContext context)
+        public override async Task GetSale(SaleGet request, IServerStreamWriter<SaleInfo> responseStream, ServerCallContext context)
         {
-            // TODO: Do stuff
-            return base.GetSale(request, responseStream, context);
+            // Sale information which will be returned
+            SaleInfo returnInfo = new SaleInfo();
+            
+            if(request.SaleId > 0) // saleId will be set to 0 if not specified
+            {
+                _logger.LogDebug($"ID: {request.SaleId.ToString()}");
+
+                // TODO: Database lookup with id
+
+            } else if(request.SaleDate != "")
+            {
+                _logger.LogDebug($"Date: {request.SaleDate.ToString()}");
+
+                // TODO: get all sales in db for date
+
+            } else
+            {
+                // No info recieved
+                _logger.LogError($"No information sent in GetSale request");
+
+                // Return 0 sale id - indicating an issue occured
+                returnInfo.SaleId = 0;
+
+                // TODO: return proper error
+                await responseStream.WriteAsync(returnInfo);
+            }
+
+            // TODO: proper return
+            await responseStream.WriteAsync(returnInfo);
         }
 
-        public override Task GetAllSales(HasChanged request, IServerStreamWriter<SaleInfo> responseStream, ServerCallContext context)
+        public override async Task GetAllSales(HasChanged request, IServerStreamWriter<SaleInfo> responseStream, ServerCallContext context)
         {
             // TODO: Do stuff
-            return base.GetAllSales(request, responseStream, context);
+            await base.GetAllSales(request, responseStream, context);
         }
     }
 }
