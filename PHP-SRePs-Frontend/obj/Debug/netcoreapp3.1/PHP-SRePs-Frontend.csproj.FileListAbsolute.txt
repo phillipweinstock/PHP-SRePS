@@ -19,6 +19,11 @@ D:\Shared\Uni\Year 2 Semester 2\SWE30010 - Development Project 2\Tutorials\PHP-S
 D:\Shared\Uni\Year 2 Semester 2\SWE30010 - Development Project 2\Tutorials\PHP-SRePS\PHP-SRePS-Frontend\obj\Debug\netcoreapp3.1\PHP-SRePS-Frontend.dll
 D:\Shared\Uni\Year 2 Semester 2\SWE30010 - Development Project 2\Tutorials\PHP-SRePS\PHP-SRePS-Frontend\obj\Debug\netcoreapp3.1\PHP-SRePS-Frontend.pdb
 D:\Shared\Uni\Year 2 Semester 2\SWE30010 - Development Project 2\Tutorials\PHP-SRePS\PHP-SRePS-Frontend\obj\Debug\netcoreapp3.1\PHP-SRePS-Frontend.genruntimeconfig.cache
+D:\Shared\Uni\Year 2 Semester 2\SWE30010 - Development Project 2\Assignments\repo\PHP-SRePS\PHP-SRePS-Frontend\obj\Debug\netcoreapp3.1\PHP_SRePS_Frontend.Form1.resources
+D:\Shared\Uni\Year 2 Semester 2\SWE30010 - Development Project 2\Assignments\repo\PHP-SRePS\PHP-SRePS-Frontend\obj\Debug\netcoreapp3.1\PHP-SRePS-Frontend.csproj.GenerateResource.cache
+D:\Shared\Uni\Year 2 Semester 2\SWE30010 - Development Project 2\Assignments\repo\PHP-SRePS\PHP-SRePS-Frontend\obj\Debug\netcoreapp3.1\PHP-SRePS-Frontend.AssemblyInfoInputs.cache
+D:\Shared\Uni\Year 2 Semester 2\SWE30010 - Development Project 2\Assignments\repo\PHP-SRePS\PHP-SRePS-Frontend\obj\Debug\netcoreapp3.1\PHP-SRePS-Frontend.AssemblyInfo.cs
+D:\Shared\Uni\Year 2 Semester 2\SWE30010 - Development Project 2\Assignments\repo\PHP-SRePS\PHP-SRePS-Frontend\obj\Debug\netcoreapp3.1\PHP-SRePS-Frontend.csproj.CoreCompileInputs.cache
 D:\Shared\Uni\Year 2 Semester 2\SWE30010 - Development Project 2\Assignments\repo\PHP-SRePS\PHP-SRePS-Frontend\bin\Debug\netcoreapp3.1\PHP-SRePS-Frontend.exe
 D:\Shared\Uni\Year 2 Semester 2\SWE30010 - Development Project 2\Assignments\repo\PHP-SRePS\PHP-SRePS-Frontend\bin\Debug\netcoreapp3.1\PHP-SRePS-Frontend.deps.json
 D:\Shared\Uni\Year 2 Semester 2\SWE30010 - Development Project 2\Assignments\repo\PHP-SRePS\PHP-SRePS-Frontend\bin\Debug\netcoreapp3.1\PHP-SRePS-Frontend.runtimeconfig.json
@@ -30,13 +35,8 @@ D:\Shared\Uni\Year 2 Semester 2\SWE30010 - Development Project 2\Assignments\rep
 D:\Shared\Uni\Year 2 Semester 2\SWE30010 - Development Project 2\Assignments\repo\PHP-SRePS\PHP-SRePS-Frontend\bin\Debug\netcoreapp3.1\Grpc.Net.Client.dll
 D:\Shared\Uni\Year 2 Semester 2\SWE30010 - Development Project 2\Assignments\repo\PHP-SRePS\PHP-SRePS-Frontend\bin\Debug\netcoreapp3.1\Grpc.Net.Common.dll
 D:\Shared\Uni\Year 2 Semester 2\SWE30010 - Development Project 2\Assignments\repo\PHP-SRePS\PHP-SRePS-Frontend\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
-D:\Shared\Uni\Year 2 Semester 2\SWE30010 - Development Project 2\Assignments\repo\PHP-SRePS\PHP-SRePS-Frontend\obj\Debug\netcoreapp3.1\PHP-SRePS-Frontend.csprojAssemblyReference.cache
-D:\Shared\Uni\Year 2 Semester 2\SWE30010 - Development Project 2\Assignments\repo\PHP-SRePS\PHP-SRePS-Frontend\obj\Debug\netcoreapp3.1\PHP_SRePS_Frontend.Form1.resources
-D:\Shared\Uni\Year 2 Semester 2\SWE30010 - Development Project 2\Assignments\repo\PHP-SRePS\PHP-SRePS-Frontend\obj\Debug\netcoreapp3.1\PHP-SRePS-Frontend.csproj.GenerateResource.cache
-D:\Shared\Uni\Year 2 Semester 2\SWE30010 - Development Project 2\Assignments\repo\PHP-SRePS\PHP-SRePS-Frontend\obj\Debug\netcoreapp3.1\PHP-SRePS-Frontend.AssemblyInfoInputs.cache
-D:\Shared\Uni\Year 2 Semester 2\SWE30010 - Development Project 2\Assignments\repo\PHP-SRePS\PHP-SRePS-Frontend\obj\Debug\netcoreapp3.1\PHP-SRePS-Frontend.AssemblyInfo.cs
-D:\Shared\Uni\Year 2 Semester 2\SWE30010 - Development Project 2\Assignments\repo\PHP-SRePS\PHP-SRePS-Frontend\obj\Debug\netcoreapp3.1\PHP-SRePS-Frontend.csproj.CoreCompileInputs.cache
 D:\Shared\Uni\Year 2 Semester 2\SWE30010 - Development Project 2\Assignments\repo\PHP-SRePS\PHP-SRePS-Frontend\obj\Debug\netcoreapp3.1\PHP-SRePS-Frontend.csproj.CopyComplete
 D:\Shared\Uni\Year 2 Semester 2\SWE30010 - Development Project 2\Assignments\repo\PHP-SRePS\PHP-SRePS-Frontend\obj\Debug\netcoreapp3.1\PHP-SRePS-Frontend.dll
 D:\Shared\Uni\Year 2 Semester 2\SWE30010 - Development Project 2\Assignments\repo\PHP-SRePS\PHP-SRePS-Frontend\obj\Debug\netcoreapp3.1\PHP-SRePS-Frontend.pdb
 D:\Shared\Uni\Year 2 Semester 2\SWE30010 - Development Project 2\Assignments\repo\PHP-SRePS\PHP-SRePS-Frontend\obj\Debug\netcoreapp3.1\PHP-SRePS-Frontend.genruntimeconfig.cache
+D:\Shared\Uni\Year 2 Semester 2\SWE30010 - Development Project 2\Assignments\repo\PHP-SRePS\PHP-SRePS-Frontend\obj\Debug\netcoreapp3.1\PHP-SRePS-Frontend.csprojAssemblyReference.cache
