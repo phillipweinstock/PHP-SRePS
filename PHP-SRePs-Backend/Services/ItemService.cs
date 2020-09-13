@@ -24,7 +24,7 @@ namespace PHP_SRePS_Backend
             }) ;
         }
 
-        public override Task<ItemList> GetAllItems(HasChanged request, ServerCallContext context)
+        public override  Task<ItemList> GetAllItems(HasChanged request, ServerCallContext context)
         {
 
             return Task.FromResult(new ItemList
