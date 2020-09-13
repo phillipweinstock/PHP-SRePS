@@ -12,6 +12,7 @@ namespace PHP_SRePS_Backend
     {
         public static void Main(string[] args)
         {
+            //TODO ADD SQL SERVER CONNECTION 
             CreateHostBuilder(args).Build().Run();
         }
 
