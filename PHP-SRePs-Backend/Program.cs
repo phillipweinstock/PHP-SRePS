@@ -1,21 +1,36 @@
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
-using MySqlConnector;
 
 namespace PHP_SRePS_Backend
 {
     public class Program
     {
-        public  static  async Task Main(string[] args)
+        public static async Task Dbconnection()
         {
+            using (var db = new AppDb()) 
+            {
+                await db.Connection.OpenAsync();
+                
+            
+            }
+        
+        }
 
+        public static Task connec = Dbconnection();
+
+        public  static async Task Main(string[] args)
+        {
+          /*  using (var db = new AppDb())
+            {
+                await db.Connection.OpenAsync();
+            }*/
+          //Database connection command
             //TODO ADD SQL SERVER CONNECTION 
-            CreateHostBuilder(args).Build().Run();
+        CreateHostBuilder(args).Build().Run();
         }
 
         // Additional configuration is required to successfully run gRPC on macOS.

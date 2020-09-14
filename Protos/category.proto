@@ -1,0 +1,19 @@
+﻿
+syntax = "proto3";
+
+option csharp_namespace = "PHP_SRePS_Backend";
+
+import "item.proto";
+
+package backend;
+// The sales service definition.
+service CategoryDef {
+	// Sends a sales insertion
+	rpc GetCategory (Category) returns (ErrorCodeReply);
+	rpc AddCategory (Category) returns (ErrorCodeReply);
+}
+
+message Category{
+  uint32 category_id = 1;
+  string cat_desc = 2;
+}

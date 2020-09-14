@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Grpc.Core;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using MySqlConnector;
 
 namespace PHP_SRePS_Backend
 {
@@ -14,8 +16,12 @@ namespace PHP_SRePS_Backend
         {
             _logger = logger;
         }
+        public IConfiguration Configuration
+        {
+            get; private set;
+        }
 
-        public override Task<ErrorCodeReply> AddSale(AddSaleRequest request, ServerCallContext context)
+        public override async Task<ErrorCodeReply> AddSale(AddSaleRequest request, ServerCallContext context)
         {
             // Print to console
             _logger.LogDebug($"ItemId: {request.ItemDetails.ElementAt<AddSaleRequest.Types.ItemDetail>(1).ItemId}");
@@ -27,10 +33,24 @@ namespace PHP_SRePS_Backend
             _logger.LogDebug($"Count: {request.ItemDetails.Count}");
 
 
-
-
             // TODO: database stuff
             // Conn to db
+
+            using (var db = new AppDb())
+            {
+                await db.Connection.OpenAsync();
+                using var command = new MySqlCommand("SELECT cat_id FROM Category;", db.Connection);
+                using var reader = await command.ExecuteReaderAsync();
+                while (await reader.ReadAsync())
+                {
+                    var value = reader.GetValue(0);
+
+                    // do something with 'value'
+                    _logger.LogWarning(value.ToString());
+                }
+            }
+
+            //_logger.LogCritical(Configuration.GetConnectionString("Default"));
 
             // db updated successfully?
             bool dbUpdateSuccess = false;
@@ -57,7 +77,7 @@ namespace PHP_SRePS_Backend
 
             // Done?
 
-            return Task.FromResult(new ErrorCodeReply
+            return await Task.FromResult(new ErrorCodeReply
             {
                 ErrorCode = dbUpdateSuccess
             });

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Shared\\Uni\\Year 2 Semester 2\\SWE30010 - Development Project 2\\Assignments\\repo\\PHP-SRePS\\PHP-SRePS-Frontend\\PHP-SRePS-Frontend.csproj": {}
+    "D:\\Shared\\Uni\\Year_2_Semester_2\\SWE30010_-_Development_Project_2\\Assignments\\repo\\PHP-SRePS\\PHP-SRePS-Frontend\\PHP-SRePS-Frontend.csproj": {}
   },
   "projects": {
-    "D:\\Shared\\Uni\\Year 2 Semester 2\\SWE30010 - Development Project 2\\Assignments\\repo\\PHP-SRePS\\PHP-SRePS-Frontend\\PHP-SRePS-Frontend.csproj": {
+    "D:\\Shared\\Uni\\Year_2_Semester_2\\SWE30010_-_Development_Project_2\\Assignments\\repo\\PHP-SRePS\\PHP-SRePS-Frontend\\PHP-SRePS-Frontend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Shared\\Uni\\Year 2 Semester 2\\SWE30010 - Development Project 2\\Assignments\\repo\\PHP-SRePS\\PHP-SRePS-Frontend\\PHP-SRePS-Frontend.csproj",
+        "projectUniqueName": "D:\\Shared\\Uni\\Year_2_Semester_2\\SWE30010_-_Development_Project_2\\Assignments\\repo\\PHP-SRePS\\PHP-SRePS-Frontend\\PHP-SRePS-Frontend.csproj",
         "projectName": "PHP-SRePS-Frontend",
-        "projectPath": "D:\\Shared\\Uni\\Year 2 Semester 2\\SWE30010 - Development Project 2\\Assignments\\repo\\PHP-SRePS\\PHP-SRePS-Frontend\\PHP-SRePS-Frontend.csproj",
+        "projectPath": "D:\\Shared\\Uni\\Year_2_Semester_2\\SWE30010_-_Development_Project_2\\Assignments\\repo\\PHP-SRePS\\PHP-SRePS-Frontend\\PHP-SRePS-Frontend.csproj",
         "packagesPath": "C:\\Users\\Adam\\.nuget\\packages\\",
-        "outputPath": "D:\\Shared\\Uni\\Year 2 Semester 2\\SWE30010 - Development Project 2\\Assignments\\repo\\PHP-SRePS\\PHP-SRePS-Frontend\\obj\\",
+        "outputPath": "D:\\Shared\\Uni\\Year_2_Semester_2\\SWE30010_-_Development_Project_2\\Assignments\\repo\\PHP-SRePS\\PHP-SRePS-Frontend\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Adam\\AppData\\Roaming\\NuGet\\NuGet.Config",

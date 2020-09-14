@@ -1,56 +1,42 @@
-
-CREATE TABLE `CATAGORY`
+CREATE TABLE `Category`
 (
- `CAT_ID`     int NOT NULL ,
- `CAT_D_ID_1` varchar(100) NOT NULL ,
+ `cat_id` int auto_increment NOT NULL ,
+ `cat_desc` varchar(100) NOT NULL ,
 
-PRIMARY KEY (`CAT_ID`)
+PRIMARY KEY (`cat_id`)
 );
 
 
-CREATE TABLE `ITEM`
+CREATE TABLE `Item`
 (
- `item_id`  int NOT NULL ,
- `price_id` decimal NOT NULL ,
- `name_id`   NOT NULL ,
- `CAT_ID`   int NOT NULL ,
+ `item_id`  int auto_increment NOT NULL ,
+ `price` decimal NOT NULL ,
+ `name` varchar(20) NOT NULL ,
+ `cat_id` int NOT NULL ,
 
 PRIMARY KEY (`item_id`),
-KEY `fkIdx_14` (`CAT_ID`),
-CONSTRAINT `FK_14` FOREIGN KEY `fkIdx_14` (`CAT_ID`) REFERENCES `CATAGORY` (`CAT_ID`)
+KEY `fkIdx_14` (`cat_id`),
+CONSTRAINT `FK_14` FOREIGN KEY `fkIdx_14` (`cat_id`) REFERENCES `Category` (`cat_id`)
 );
 
-
-
-CREATE TABLE `ITEMDETAIL`
+CREATE TABLE `ItemDetail`
 (
- `itemd_id`    int NOT NULL ,
- `quantity_id` int NOT NULL ,
- `item_id`     int NOT NULL ,
+ `item_detail_id`    int auto_increment NOT NULL ,
+ `quantity` int NOT NULL ,
+ `item_id`  int NOT NULL ,
 
-PRIMARY KEY (`itemd_id`),
+PRIMARY KEY (`item_detail_id`),
 KEY `fkIdx_28` (`item_id`),
 CONSTRAINT `FK_28` FOREIGN KEY `fkIdx_28` (`item_id`) REFERENCES `ITEM` (`item_id`)
 );
 
-
-
-CREATE TABLE `SALE`
+CREATE TABLE `Sale`
 (
- `sale_id`      int NOT NULL ,
+ `sale_id`      int auto_increment NOT NULL ,
  `total_billed` decimal NOT NULL ,
- `itemd_id`     int NOT NULL ,
+ `item_detail_id`     int NOT NULL ,
 
 PRIMARY KEY (`sale_id`),
-KEY `fkIdx_25` (`itemd_id`),
-CONSTRAINT `FK_25` FOREIGN KEY `fkIdx_25` (`itemd_id`) REFERENCES `ITEMDETAIL` (`itemd_id`)
+KEY `fkIdx_25` (`item_detail_id`),
+CONSTRAINT `FK_25` FOREIGN KEY `fkIdx_25` (`item_detail_id`) REFERENCES `ItemDetail` (`item_detail_id`)
 );
-
-
-
-
-
-
-
-
-

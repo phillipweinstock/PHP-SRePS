@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Grpc.Core;
 using Microsoft.Extensions.Logging;
+using MySqlConnector;
 
 namespace PHP_SRePS_Backend
 {
@@ -15,13 +16,27 @@ namespace PHP_SRePS_Backend
             _logger = logger;
         }
 
-        public override Task<Item> GetItem(ItemGet request, ServerCallContext context)
+        public override async Task<Item> GetItem(ItemGet request, ServerCallContext context)
         {
+
+            Item item = new Item();
             
-            return Task.FromResult(new Item
+            using (var db = new AppDb())
+            {
+                db.Connection.OpenAsync();
+                using var command = new MySqlCommand("SELECT sale_id FROM Sale;", db.Connection);
+                using var reader = await command.ExecuteReaderAsync();
+                while (await reader.ReadAsync())
+                {
+                    var value = reader.GetValue(0);
+                    // do something with 'value'
+                    _logger.LogWarning(value.ToString());
+                }
+            }
+            return await Task.FromResult(new Item
             {
                 // TODO: Return stuff   
-            }) ;
+            });
         }
 
         public override  Task<ItemList> GetAllItems(HasChanged request, ServerCallContext context)

@@ -19,7 +19,7 @@ namespace PHP_SRePS_Frontend
         {
             InitializeComponent();
 
-            //_ = AddSale();
+            _ = AddSaleExample();
             _ = RequestSales();
         }
 
@@ -84,6 +84,11 @@ namespace PHP_SRePS_Frontend
             }
 
             lblTest.Text = "Done";
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            _ = AddSaleExample();
         }
     }
 }
