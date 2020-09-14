@@ -14,6 +14,9 @@ service ItemDef {
   rpc AddItem (Item) returns (ErrorCodeReply);
   //Deletes an item on the back end
   rpc DeleteItem (Item) returns (ErrorCodeReply);
+  //Allows you to alter an existing item in the database. 
+  rpc AlterItem (AlteredItem) returns (ErrorCodeReply);
+  
 }
 //The Item to be added to the sale, item_id is a foreign key
 //item_id is also a foreign key for the actual item we are trying to get
@@ -30,6 +33,12 @@ message ItemGet {
    string name_id = 2;
 }
 
+message AlteredItem{
+   Item altered_item = 1;
+   ItemGet item_original = 2;
+
+
+}
 //A message used to check whether or not the data has changed in the mean time and 
 //down load the new items 
 message HasChanged {
