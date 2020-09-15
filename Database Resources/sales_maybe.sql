@@ -1,56 +1,42 @@
-
-CREATE TABLE `Category`
+CREATE TABLE Category
 (
- `cat_id` int auto_increment NOT NULL ,
- `cat_name` varchar(20) NOT NULL,
- `cat_desc` varchar(100) NOT NULL ,
+ cat_id   int NOT NULL ,
+ cat_desc varchar(100) NOT NULL ,
+ cat_name varchar(20) NOT NULL ,
 
-PRIMARY KEY (`cat_id`)
+PRIMARY KEY (cat_id)
 );
 
-CREATE TABLE `Item`
+CREATE TABLE SALE
 (
- `item_id` int auto_increment NOT NULL ,
- `price` float NOT NULL ,
- `name` varchar(20) NOT NULL ,
- `cat_id` int NOT NULL ,
+ sale_id      int NOT NULL ,
+ total_billed decimal NOT NULL ,
 
-PRIMARY KEY (`item_id`),
-KEY `fkIdx_14` (`cat_id`),
-CONSTRAINT `FK_14` FOREIGN KEY `fkIdx_14` (`cat_id`) REFERENCES `Category` (`cat_id`)
+PRIMARY KEY (sale_id)
 );
 
-CREATE TABLE `ItemDetail`
+CREATE TABLE ITEM
 (
- `item_detail_id`    int auto_increment NOT NULL ,
- `quantity` int NOT NULL ,
- `item_id`  int NOT NULL ,
+ item_id  int NOT NULL ,
+ price_id decimal NOT NULL ,
+ name_id  varchar(45) NOT NULL ,
+ cat_id   int NOT NULL ,
 
-PRIMARY KEY (`item_detail_id`),
-KEY `fkIdx_28` (`item_id`),
-CONSTRAINT `FK_28` FOREIGN KEY `fkIdx_28` (`item_id`) REFERENCES `ITEM` (`item_id`)
+PRIMARY KEY (item_id),
+KEY fkIdx_14 (cat_id),
+CONSTRAINT FK_14 FOREIGN KEY fkIdx_14 (cat_id) REFERENCES Category (cat_id)
 );
 
-CREATE TABLE `Sale`
+CREATE TABLE ITEMDETAIL
 (
- `sale_id`      int auto_increment NOT NULL ,
- `total_billed` float NOT NULL ,
- `item_detail_id`     int NOT NULL ,
+ itemd_id    int NOT NULL ,
+ quantity_id int NOT NULL ,
+ item_id     int NOT NULL ,
+ sale_id     int NOT NULL ,
 
-PRIMARY KEY (`sale_id`),
-KEY `fkIdx_25` (`item_detail_id`),
-CONSTRAINT `FK_25` FOREIGN KEY `fkIdx_25` (`item_detail_id`) REFERENCES `ItemDetail` (`item_detail_id`)
+PRIMARY KEY (itemd_id),
+KEY fkIdx_28 (item_id),
+CONSTRAINT FK_28 FOREIGN KEY fkIdx_28 (item_id) REFERENCES ITEM (item_id),
+KEY fkIdx_37 (sale_id),
+CONSTRAINT FK_37 FOREIGN KEY fkIdx_37 (sale_id) REFERENCES SALE (sale_id)
 );
-
-/* Insert into database example values */
-INSERT INTO CATEGORY (cat_name, cat_desc) 
-VALUES ("An Item", "It is an item that can be bought");
-
-INSERT INTO ITEM (price, name, cat_id)
-VALUES (1220.90, "Car", 1);
-
-INSERT INTO ITEMDETAIL (quantity, item_id)
-VALUES (1, 1);
-
-INSERT INTO SALE (total_billed, item_detail_id)
-VALUES (1240.00, 1);
