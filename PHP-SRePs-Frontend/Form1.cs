@@ -19,8 +19,8 @@ namespace PHP_SRePS_Frontend
         {
             InitializeComponent();
 
-            _ = AddSaleExample();
-            _ = RequestSales();
+           // _ = AddSaleExample();
+           // _ = RequestSales();
         }
 
         /// <summary>
@@ -43,6 +43,22 @@ namespace PHP_SRePS_Frontend
             var reply = await client.AddSaleAsync(input);
 
             lblTest.Text = "Done";
+        }
+        private async Task GetItemExample()
+        {
+            var channel = GrpcChannel.ForAddress("https://localhost:5001");
+            var client = new ItemDef.ItemDefClient(channel);
+
+            var input = new HasChanged
+            {
+                // Send the list of item details
+                ChangedData = false
+            };
+
+            var reply = await client.GetAllItemsAsync(input);
+
+            lblTest.Text = reply.ItemList_.Count.ToString();
+
         }
 
         /// <summary>
@@ -88,7 +104,12 @@ namespace PHP_SRePS_Frontend
 
         private void button1_Click(object sender, EventArgs e)
         {
-            _ = AddSaleExample();
+            _ = GetItemExample();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

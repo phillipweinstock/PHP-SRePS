@@ -11,9 +11,16 @@ service CategoryDef {
 	// Sends a sales insertion
 	rpc GetCategory (Category) returns (ErrorCodeReply);
 	rpc AddCategory (Category) returns (ErrorCodeReply);
+	rpc AlterCategory (CategoryAlterRequest) returns  (ErrorCodeReply);
 }
 
 message Category{
   uint32 category_id = 1;
   string cat_desc = 2;
+}
+
+message CategoryAlterRequest{
+  Category current_category = 1;
+  Category altered_category = 2;
+
 }
