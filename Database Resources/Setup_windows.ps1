@@ -6,7 +6,7 @@ Write-Host "This Program should automatically close after it finishs"
 #$outpath = "$($env:USERPROFILE)\Desktop\Powershell\xamp.exe"
 $runpath = "$PSScriptRoot\xamp.exe"
 
-Invoke-WebRequest -Uri $url -OutFile $runpath
+#Invoke-WebRequest -Uri $url -OutFile $runpath
 Invoke-Expression "& `$runpath` --installer-language en --mode unattended --disable-components xampp_filezilla,xampp_mercury,xampp_tomcat,xampp_perl,xampp_phpmyadmin,xampp_webalizer,xampp_sendmail"
 #
 Write-Host "Currently installing please wait"

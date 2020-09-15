@@ -37,17 +37,18 @@
             this.lblTest.AutoSize = true;
             this.lblTest.Cursor = System.Windows.Forms.Cursors.SizeNS;
             this.lblTest.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblTest.Location = new System.Drawing.Point(13, 13);
+            this.lblTest.Location = new System.Drawing.Point(15, 17);
             this.lblTest.Name = "lblTest";
-            this.lblTest.Size = new System.Drawing.Size(142, 45);
+            this.lblTest.Size = new System.Drawing.Size(173, 54);
             this.lblTest.TabIndex = 0;
             this.lblTest.Text = "Test Text";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(342, 177);
+            this.button1.Location = new System.Drawing.Point(391, 236);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(86, 31);
             this.button1.TabIndex = 1;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
@@ -55,13 +56,15 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(914, 600);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.lblTest);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

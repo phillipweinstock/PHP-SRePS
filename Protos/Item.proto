@@ -23,7 +23,7 @@ service ItemDef {
 message Item {
   uint32 item_id = 1;
   string name_id = 2;
-  string catagory_id = 3;
+  uint32 catagory_id = 3;
   float  price_id= 4 ;
 }
 

@@ -9,7 +9,7 @@ namespace PHP_SRePS_Backend
         public readonly MySqlConnection Connection; 
         public AppDb()
         {
-            Connection = new MySqlConnection("server=localhost;user=root;password=password;database=sales");
+            Connection = new MySqlConnection("server=localhost;user=root;password=;database=sales");
         }
         public void Dispose() {
             Connection.Close(); 
