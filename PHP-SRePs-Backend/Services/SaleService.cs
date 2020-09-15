@@ -33,20 +33,24 @@ namespace PHP_SRePS_Backend
             _logger.LogDebug($"Count: {request.ItemDetails.Count}");
 
 
+            // get this saleid - used later
+            int saleid = 0;
+
             // TODO: database stuff
             // Conn to db
-
             using (var db = new AppDb())
             {
                 await db.Connection.OpenAsync();
-                using var command = new MySqlCommand("SELECT cat_id FROM Category;", db.Connection);
+                // Change to Sale...
+                using var command = new MySqlCommand("SELECT * FROM Category;", db.Connection);
                 using var reader = await command.ExecuteReaderAsync();
                 while (await reader.ReadAsync())
                 {
-                    var value = reader.GetValue(0);
+                    saleid = (int) (reader.GetValue(0));
+                    var value2 = reader.GetValue(1);
 
                     // do something with 'value'
-                    _logger.LogWarning(value.ToString());
+                    _logger.LogWarning($"{saleid} : {value2}");
                 }
             }
 
@@ -55,15 +59,11 @@ namespace PHP_SRePS_Backend
             // db updated successfully?
             bool dbUpdateSuccess = false;
 
-            // get this saleid - used later
-            uint saleid;
-
-            int itemCount = request.ItemDetails.Count;
-
             // Loop to add items to ItemDetail table
             foreach (var itemDetail in request.ItemDetails)
             {
                 // insert saleid into ItemDetail
+
 
                 // insert info from request
                 _ = itemDetail.ItemId;

@@ -14,8 +14,6 @@ namespace PHP_SRePS_Backend
             using (var db = new AppDb()) 
             {
                 await db.Connection.OpenAsync();
-                
-            
             }
         
         }
