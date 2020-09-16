@@ -40,3 +40,8 @@ CONSTRAINT FK_28 FOREIGN KEY fkIdx_28 (item_id) REFERENCES ITEM (item_id),
 KEY fkIdx_37 (sale_id),
 CONSTRAINT FK_37 FOREIGN KEY fkIdx_37 (sale_id) REFERENCES SALE (sale_id)
 );
+CREATE TABLE USERS(
+     user_id int AUTO_INCREMENT PRIMARY KEY NOT NULL,
+     user_name varchar(50),
+     Hash varchar(25)
+    );
