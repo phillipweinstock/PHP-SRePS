@@ -311,23 +311,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\pip43\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\Adam\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\pip43\\source\\repos\\phillipweinstock\\PHP-SRePS\\PHP-SRePS-Frontend\\PHP-SRePS-Frontend.csproj",
+      "projectUniqueName": "D:\\Shared\\Uni\\Year_2_Semester_2\\SWE30010_-_Development_Project_2\\Assignments\\repo\\PHP-SRePS\\PHP-SRePS-Frontend\\PHP-SRePS-Frontend.csproj",
       "projectName": "PHP-SRePS-Frontend",
-      "projectPath": "C:\\Users\\pip43\\source\\repos\\phillipweinstock\\PHP-SRePS\\PHP-SRePS-Frontend\\PHP-SRePS-Frontend.csproj",
-      "packagesPath": "C:\\Users\\pip43\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\pip43\\source\\repos\\phillipweinstock\\PHP-SRePS\\PHP-SRePS-Frontend\\obj\\",
+      "projectPath": "D:\\Shared\\Uni\\Year_2_Semester_2\\SWE30010_-_Development_Project_2\\Assignments\\repo\\PHP-SRePS\\PHP-SRePS-Frontend\\PHP-SRePS-Frontend.csproj",
+      "packagesPath": "C:\\Users\\Adam\\.nuget\\packages\\",
+      "outputPath": "D:\\Shared\\Uni\\Year_2_Semester_2\\SWE30010_-_Development_Project_2\\Assignments\\repo\\PHP-SRePS\\PHP-SRePS-Frontend\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\pip43\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Adam\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -384,7 +380,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
       }
     }
   }
