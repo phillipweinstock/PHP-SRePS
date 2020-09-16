@@ -10,23 +10,11 @@
         "dependencies": {
           "System.Memory": "4.5.3",
           "System.Runtime.CompilerServices.Unsafe": "4.5.2"
-        },
-        "runtime": {
-          "lib/netstandard2.0/Google.Protobuf.dll": {
-            "assemblyVersion": "3.13.0.0",
-            "fileVersion": "3.13.0.0"
-          }
         }
       },
       "Grpc.Core.Api/2.31.0": {
         "dependencies": {
           "System.Memory": "4.5.3"
-        },
-        "runtime": {
-          "lib/netstandard2.0/Grpc.Core.Api.dll": {
-            "assemblyVersion": "2.0.0.0",
-            "fileVersion": "2.31.0.0"
-          }
         }
       },
       "Grpc.Net.Client/2.31.0": {
@@ -34,51 +22,18 @@
           "Grpc.Net.Common": "2.31.0",
           "Microsoft.Extensions.Logging.Abstractions": "3.0.3",
           "System.Diagnostics.DiagnosticSource": "4.5.1"
-        },
-        "runtime": {
-          "lib/netstandard2.1/Grpc.Net.Client.dll": {
-            "assemblyVersion": "2.0.0.0",
-            "fileVersion": "2.31.0.0"
-          }
         }
       },
       "Grpc.Net.Common/2.31.0": {
         "dependencies": {
           "Grpc.Core.Api": "2.31.0"
-        },
-        "runtime": {
-          "lib/netstandard2.1/Grpc.Net.Common.dll": {
-            "assemblyVersion": "2.0.0.0",
-            "fileVersion": "2.31.0.0"
-          }
         }
       },
       "Grpc.Tools/2.31.0": {},
-      "Microsoft.Extensions.Logging.Abstractions/3.0.3": {
-        "runtime": {
-          "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.dll": {
-            "assemblyVersion": "3.0.3.0",
-            "fileVersion": "3.0.320.7202"
-          }
-        }
-      },
-      "System.Diagnostics.DiagnosticSource/4.5.1": {
-        "runtime": {
-          "lib/netstandard1.3/System.Diagnostics.DiagnosticSource.dll": {
-            "assemblyVersion": "4.0.3.1",
-            "fileVersion": "4.6.26919.2"
-          }
-        }
-      },
+      "Microsoft.Extensions.Logging.Abstractions/3.0.3": {},
+      "System.Diagnostics.DiagnosticSource/4.5.1": {},
       "System.Memory/4.5.3": {},
-      "System.Runtime.CompilerServices.Unsafe/4.5.2": {
-        "runtime": {
-          "lib/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.dll": {
-            "assemblyVersion": "4.0.4.1",
-            "fileVersion": "4.6.26919.2"
-          }
-        }
-      }
+      "System.Runtime.CompilerServices.Unsafe/4.5.2": {}
     }
   },
   "libraries": {

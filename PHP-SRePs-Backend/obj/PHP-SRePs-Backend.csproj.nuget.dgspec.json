@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Shared\\Uni\\Year_2_Semester_2\\SWE30010_-_Development_Project_2\\Assignments\\repo\\PHP-SRePS\\PHP-SRePS-Backend\\PHP-SRePS-Backend.csproj": {}
+    "C:\\Users\\pip43\\source\\repos\\phillipweinstock\\PHP-SRePS\\PHP-SRePS-Backend\\PHP-SRePS-Backend.csproj": {}
   },
   "projects": {
-    "D:\\Shared\\Uni\\Year_2_Semester_2\\SWE30010_-_Development_Project_2\\Assignments\\repo\\PHP-SRePS\\PHP-SRePS-Backend\\PHP-SRePS-Backend.csproj": {
+    "C:\\Users\\pip43\\source\\repos\\phillipweinstock\\PHP-SRePS\\PHP-SRePS-Backend\\PHP-SRePS-Backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Shared\\Uni\\Year_2_Semester_2\\SWE30010_-_Development_Project_2\\Assignments\\repo\\PHP-SRePS\\PHP-SRePS-Backend\\PHP-SRePS-Backend.csproj",
+        "projectUniqueName": "C:\\Users\\pip43\\source\\repos\\phillipweinstock\\PHP-SRePS\\PHP-SRePS-Backend\\PHP-SRePS-Backend.csproj",
         "projectName": "PHP-SRePS-Backend",
-        "projectPath": "D:\\Shared\\Uni\\Year_2_Semester_2\\SWE30010_-_Development_Project_2\\Assignments\\repo\\PHP-SRePS\\PHP-SRePS-Backend\\PHP-SRePS-Backend.csproj",
-        "packagesPath": "C:\\Users\\Adam\\.nuget\\packages\\",
-        "outputPath": "D:\\Shared\\Uni\\Year_2_Semester_2\\SWE30010_-_Development_Project_2\\Assignments\\repo\\PHP-SRePS\\PHP-SRePS-Backend\\obj\\",
+        "projectPath": "C:\\Users\\pip43\\source\\repos\\phillipweinstock\\PHP-SRePS\\PHP-SRePS-Backend\\PHP-SRePS-Backend.csproj",
+        "packagesPath": "C:\\Users\\pip43\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\pip43\\source\\repos\\phillipweinstock\\PHP-SRePS\\PHP-SRePS-Backend\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Adam\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\pip43\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -42,6 +45,12 @@
               "target": "Package",
               "version": "[2.27.0, )"
             },
+            "Grpc.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.31.0, )"
+            },
             "MySqlConnector": {
               "target": "Package",
               "version": "[1.0.1, )"
@@ -65,7 +74,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
         }
       }
     }
