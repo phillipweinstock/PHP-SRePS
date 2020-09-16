@@ -52,11 +52,13 @@ namespace PHP_SRePS_Backend
                 List<Item> temp = new List<Item>();
                 while (await reader.ReadAsync())
                 {
-                    Item item = new Item();
-                    item.ItemId  = (uint)(int)reader.GetValue(0);
-                    item.PriceId = (float)(decimal)reader.GetValue(1);
-                    item.NameId  = (string)reader.GetValue(2);
-                    item.CatagoryId = (uint)(int)reader.GetValue(3);
+                    Item item = new Item
+                    {
+                        ItemId = (uint)(int)reader.GetValue(0),
+                        PriceId = (float)(decimal)reader.GetValue(1),
+                        NameId = (string)reader.GetValue(2),
+                        CatagoryId = (uint)(int)reader.GetValue(3)
+                    };
 
                     temp.Add(item);
 
@@ -65,12 +67,13 @@ namespace PHP_SRePS_Backend
                 
                 list.ItemList_.Add(temp);
             }
-            return await Task.FromResult(list);
+            //return  Task.FromResult(list);
+            return list;
         }
 
         public override Task<ErrorCodeReply> AddItem(Item request, ServerCallContext context)
         {
-
+            
             return Task.FromResult(new ErrorCodeReply
             {
                 // TODO: Return stuff     

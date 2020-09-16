@@ -117,13 +117,13 @@ namespace PHP_SRePS_Backend
             
             if(request.SaleId > 0) // saleId will be set to 0 if not specified
             {
-                _logger.LogDebug($"ID: {request.SaleId.ToString()}");
+                _logger.LogDebug($"ID: {request.SaleId}");
 
                 // TODO: Database lookup with id
 
             } else if(request.SaleDate != "")
             {
-                _logger.LogDebug($"Date: {request.SaleDate.ToString()}");
+                _logger.LogDebug($"Date: {request.SaleDate}");
 
                 // TODO: get all sales in db for date
 
