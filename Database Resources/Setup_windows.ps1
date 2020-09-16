@@ -25,7 +25,7 @@ $sqlfilePath = "$PSScriptRoot\sales_maybe.sql"
 $db_builder = Get-Content $sqlfilePath -Raw
 Write-Host "Please wait as we download the required software"
 
-#Invoke-WebRequest -Uri $url -OutFile $runpath
+Invoke-WebRequest -Uri $url -OutFile $runpath
 
 Write-Host "Currently installing please wait"
 Write-Host "This may take some time, after the installation is complete the DB will be spun up"
