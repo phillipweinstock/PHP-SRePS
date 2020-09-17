@@ -13,30 +13,26 @@ using System.Windows.Forms;
 
 namespace PHP_SRePS_Frontend
 {
-    public partial class Home : Form
+    public partial class AddSalesRecord : Form
     {
         int lastRow = 0; //store index of last row
 
-        public Home()
+        public AddSalesRecord()
         {
             InitializeComponent();
-            //_ = RpcTest();
-
-<<<<<<< HEAD
+            _ = RpcTest();
         }
 
         //Rpc test example
-        /*private async Task RpcTest()
-=======
-           // _ = AddSaleExample();
-           // _ = RequestSales();
+        private async Task RpcTest() {
+           _ = AddSaleExample();
+           _ = RequestSales();
         }
 
         /// <summary>
         /// Temporary: add a sale to the db
         /// </summary>
         private async Task AddSaleExample()
->>>>>>> 95a951932999768fa22bbc1bc9efeacefa805d66
         {
             var channel = GrpcChannel.ForAddress("https://localhost:5001");
             var client = new SaleDef.SaleDefClient(channel);
@@ -52,7 +48,7 @@ namespace PHP_SRePS_Frontend
 
             var reply = await client.AddSaleAsync(input);
 
-            lblTest.Text = "Done";
+            //lblTest.Text = "Done";
         }
         private async Task GetItemExample()
         {
@@ -67,7 +63,7 @@ namespace PHP_SRePS_Frontend
 
             var reply = await client.GetAllItemsAsync(input);
 
-            lblTest.Text = reply.ItemList_.Count.ToString();
+            //lblTest.Text = reply.ItemList_.Count.ToString();
 
         }
 
@@ -104,29 +100,27 @@ namespace PHP_SRePS_Frontend
                     foreach(var itemInfo in currentSaleInfo.ItemDetails)
                     {
                         // Do something with the item
-                        lblTest.Text = itemInfo.Name;
+                        //lblTest.Text = itemInfo.Name;
                     }
                 }
             }
 
-            lblTest.Text = "Done";
+            //lblTest.Text = "Done";
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
             _ = GetItemExample();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
-<<<<<<< HEAD
-            lblTest.Text = reply.Message;
-        }*/
+            //lblTest.Text = reply.Message;
+        }
 
         
 
-        private void addItemBtn_Click(object sender, EventArgs e)
+        private void AddItemBtn_Click(object sender, EventArgs e)
         {
             //Add textbox data to the list
             salesRecordView.Rows.Add();
@@ -143,11 +137,9 @@ namespace PHP_SRePS_Frontend
             lastRow++;
         }
 
-        private void removeItemBtn_Click(object sender, EventArgs e)
+        private void RemoveItemBtn_Click(object sender, EventArgs e)
         {
             salesRecordView.Rows.RemoveAt(salesRecordView.CurrentRow.Index);
-=======
->>>>>>> 95a951932999768fa22bbc1bc9efeacefa805d66
         }
     }
 }

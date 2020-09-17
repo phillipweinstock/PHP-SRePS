@@ -1,7 +1,6 @@
 {
   "format": 1,
   "restore": {
-<<<<<<< HEAD
     "C:\\Users\\Kieran\\Documents\\PHP-SRePS\\PHP-SRePS-Backend\\PHP-SRePS-Backend.csproj": {}
   },
   "projects": {
@@ -13,19 +12,6 @@
         "projectPath": "C:\\Users\\Kieran\\Documents\\PHP-SRePS\\PHP-SRePS-Backend\\PHP-SRePS-Backend.csproj",
         "packagesPath": "C:\\Users\\Kieran\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\Kieran\\Documents\\PHP-SRePS\\PHP-SRePS-Backend\\obj\\",
-=======
-    "D:\\Shared\\Uni\\Year_2_Semester_2\\SWE30010_-_Development_Project_2\\Assignments\\repo\\PHP-SRePS\\PHP-SRePS-Backend\\PHP-SRePS-Backend.csproj": {}
-  },
-  "projects": {
-    "D:\\Shared\\Uni\\Year_2_Semester_2\\SWE30010_-_Development_Project_2\\Assignments\\repo\\PHP-SRePS\\PHP-SRePS-Backend\\PHP-SRePS-Backend.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "D:\\Shared\\Uni\\Year_2_Semester_2\\SWE30010_-_Development_Project_2\\Assignments\\repo\\PHP-SRePS\\PHP-SRePS-Backend\\PHP-SRePS-Backend.csproj",
-        "projectName": "PHP-SRePS-Backend",
-        "projectPath": "D:\\Shared\\Uni\\Year_2_Semester_2\\SWE30010_-_Development_Project_2\\Assignments\\repo\\PHP-SRePS\\PHP-SRePS-Backend\\PHP-SRePS-Backend.csproj",
-        "packagesPath": "C:\\Users\\Adam\\.nuget\\packages\\",
-        "outputPath": "D:\\Shared\\Uni\\Year_2_Semester_2\\SWE30010_-_Development_Project_2\\Assignments\\repo\\PHP-SRePS\\PHP-SRePS-Backend\\obj\\",
->>>>>>> 95a951932999768fa22bbc1bc9efeacefa805d66
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -82,7 +68,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
         }
       }
     }

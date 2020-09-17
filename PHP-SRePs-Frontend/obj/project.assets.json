@@ -317,19 +317,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\Kieran\\Documents\\PHP-SRePS\\PHP-SRePS-Frontend\\PHP-SRePS-Frontend.csproj",
       "projectName": "PHP-SRePS-Frontend",
       "projectPath": "C:\\Users\\Kieran\\Documents\\PHP-SRePS\\PHP-SRePS-Frontend\\PHP-SRePS-Frontend.csproj",
       "packagesPath": "C:\\Users\\Kieran\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Kieran\\Documents\\PHP-SRePS\\PHP-SRePS-Frontend\\obj\\",
-=======
-      "projectUniqueName": "D:\\Shared\\Uni\\Year_2_Semester_2\\SWE30010_-_Development_Project_2\\Assignments\\repo\\PHP-SRePS\\PHP-SRePS-Frontend\\PHP-SRePS-Frontend.csproj",
-      "projectName": "PHP-SRePS-Frontend",
-      "projectPath": "D:\\Shared\\Uni\\Year_2_Semester_2\\SWE30010_-_Development_Project_2\\Assignments\\repo\\PHP-SRePS\\PHP-SRePS-Frontend\\PHP-SRePS-Frontend.csproj",
-      "packagesPath": "C:\\Users\\Adam\\.nuget\\packages\\",
-      "outputPath": "D:\\Shared\\Uni\\Year_2_Semester_2\\SWE30010_-_Development_Project_2\\Assignments\\repo\\PHP-SRePS\\PHP-SRePS-Frontend\\obj\\",
->>>>>>> 95a951932999768fa22bbc1bc9efeacefa805d66
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -392,7 +384,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
       }
     }
   }
