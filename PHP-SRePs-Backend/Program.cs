@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -10,9 +9,26 @@ namespace PHP_SRePS_Backend
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static async Task Dbconnection()
         {
-            CreateHostBuilder(args).Build().Run();
+            using (var db = new AppDb()) 
+            {
+                await db.Connection.OpenAsync();
+            }
+        
+        }
+
+        public static Task connec = Dbconnection();
+
+        public  static async Task Main(string[] args)
+        {
+          /*  using (var db = new AppDb())
+            {
+                await db.Connection.OpenAsync();
+            }*/
+          //Database connection command
+            //TODO ADD SQL SERVER CONNECTION 
+        CreateHostBuilder(args).Build().Run();
         }
 
         // Additional configuration is required to successfully run gRPC on macOS.

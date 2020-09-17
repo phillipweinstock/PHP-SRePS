@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
+using MySqlConnector;
 
 namespace PHP_SRePS_Backend
 {
@@ -21,7 +20,7 @@ namespace PHP_SRePS_Backend
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-        {
+        {            
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -32,12 +31,12 @@ namespace PHP_SRePS_Backend
             app.UseEndpoints(endpoints =>
             {
                 // TODO: Add future services here
-                endpoints.MapGrpcService<SaleService>();
                 endpoints.MapGrpcService<ItemService>();
+                endpoints.MapGrpcService<SaleService>();
 
                 endpoints.MapGet("/", async context =>
                 {
-                    await context.Response.WriteAsync("Communication with gRPC endpoints must be made through a gRPC client. To learn how to create a client, visit: https://go.microsoft.com/fwlink/?linkid=2086909");
+                    await context.Response.WriteAsync("Nice Try, if you want a webapp, you should write that in the requirements");
                 });
             });
         }

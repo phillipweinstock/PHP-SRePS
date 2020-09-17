@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Shared\\Uni\\Year 2 Semester 2\\SWE30010 - Development Project 2\\Assignments\\repo\\PHP-SRePS\\PHP-SRePS-Backend\\PHP-SRePS-Backend.csproj": {}
+    "D:\\Shared\\Uni\\Year_2_Semester_2\\SWE30010_-_Development_Project_2\\Assignments\\repo\\PHP-SRePS\\PHP-SRePS-Backend\\PHP-SRePS-Backend.csproj": {}
   },
   "projects": {
-    "D:\\Shared\\Uni\\Year 2 Semester 2\\SWE30010 - Development Project 2\\Assignments\\repo\\PHP-SRePS\\PHP-SRePS-Backend\\PHP-SRePS-Backend.csproj": {
+    "D:\\Shared\\Uni\\Year_2_Semester_2\\SWE30010_-_Development_Project_2\\Assignments\\repo\\PHP-SRePS\\PHP-SRePS-Backend\\PHP-SRePS-Backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Shared\\Uni\\Year 2 Semester 2\\SWE30010 - Development Project 2\\Assignments\\repo\\PHP-SRePS\\PHP-SRePS-Backend\\PHP-SRePS-Backend.csproj",
+        "projectUniqueName": "D:\\Shared\\Uni\\Year_2_Semester_2\\SWE30010_-_Development_Project_2\\Assignments\\repo\\PHP-SRePS\\PHP-SRePS-Backend\\PHP-SRePS-Backend.csproj",
         "projectName": "PHP-SRePS-Backend",
-        "projectPath": "D:\\Shared\\Uni\\Year 2 Semester 2\\SWE30010 - Development Project 2\\Assignments\\repo\\PHP-SRePS\\PHP-SRePS-Backend\\PHP-SRePS-Backend.csproj",
+        "projectPath": "D:\\Shared\\Uni\\Year_2_Semester_2\\SWE30010_-_Development_Project_2\\Assignments\\repo\\PHP-SRePS\\PHP-SRePS-Backend\\PHP-SRePS-Backend.csproj",
         "packagesPath": "C:\\Users\\Adam\\.nuget\\packages\\",
-        "outputPath": "D:\\Shared\\Uni\\Year 2 Semester 2\\SWE30010 - Development Project 2\\Assignments\\repo\\PHP-SRePS\\PHP-SRePS-Backend\\obj\\",
+        "outputPath": "D:\\Shared\\Uni\\Year_2_Semester_2\\SWE30010_-_Development_Project_2\\Assignments\\repo\\PHP-SRePS\\PHP-SRePS-Backend\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Adam\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -41,6 +41,10 @@
             "Grpc.AspNetCore": {
               "target": "Package",
               "version": "[2.27.0, )"
+            },
+            "MySqlConnector": {
+              "target": "Package",
+              "version": "[1.0.1, )"
             }
           },
           "imports": [
