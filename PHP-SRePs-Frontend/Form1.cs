@@ -43,17 +43,19 @@ namespace PHP_SRePS_Frontend
             //Add textbox data to the list
             salesRecordView.Rows.Add();
 
-            salesRecordView.Rows[lastRow].Cells[0].Value = itmName.Text;
+            salesRecordView.Rows[lastRow].Cells[0].Value = itmIDTxt.Text;
+            itmIDTxt.Text = "";
+            salesRecordView.Rows[lastRow].Cells[1].Value = itmName.Text;
             itmName.Text = "";
-            salesRecordView.Rows[lastRow].Cells[1].Value = price.Text;
+            salesRecordView.Rows[lastRow].Cells[2].Value = price.Text;
             price.Text = "";
-            salesRecordView.Rows[lastRow].Cells[2].Value = amtSold.Text;
+            salesRecordView.Rows[lastRow].Cells[3].Value = amtSold.Text;
             amtSold.Text = "";
 
             lastRow++;
         }
 
-        private void removeItmBtn_Click(object sender, EventArgs e)
+        private void removeItemBtn_Click(object sender, EventArgs e)
         {
             salesRecordView.Rows.RemoveAt(salesRecordView.CurrentRow.Index);
         }
