@@ -8,7 +8,7 @@ service ItemDef {
   // Gets a item from the backend
   rpc GetItem (ItemGet) returns (Item);
   // gets all items from the back end if false, or gets only items which have been updated in the meantime, this method can be used to build the clientside cache.
-  rpc GetAllItems (HasChanged) returns (ItemList);
+  rpc GetAllItems (HasChanged) returns (stream Item);
   
   //Adds a new Item to the backend server
   rpc AddItem (Item) returns (ErrorCodeReply);
@@ -45,10 +45,6 @@ message HasChanged {
   bool changed_data = 1;
 }
 
-//Returns a list of items
-message ItemList {
-  repeated Item item_list = 1;
-}
 
 // Error Code 
 message ErrorCodeReply {
