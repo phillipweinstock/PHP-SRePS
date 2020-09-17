@@ -15,12 +15,15 @@ namespace PHP_SRePS_Frontend
 {
     public partial class Form1 : Form
     {
+        GrpcChannel Channel;
+        ItemDef.ItemDefClient client;
         public Form1()
         {
             InitializeComponent();
-
-           // _ = AddSaleExample();
-           // _ = RequestSales();
+             Channel = GrpcChannel.ForAddress("https://localhost:5001");
+             client = new ItemDef.ItemDefClient(Channel);
+            // _ = AddSaleExample();
+            // _ = RequestSales();
         }
 
         /// <summary>
@@ -46,8 +49,8 @@ namespace PHP_SRePS_Frontend
         }
         private async Task GetItemExample()
         {
-            var channel = GrpcChannel.ForAddress("https://localhost:5001");
-            var client = new ItemDef.ItemDefClient(channel);
+            
+            
 
             var input = new HasChanged
             {
@@ -55,9 +58,10 @@ namespace PHP_SRePS_Frontend
                 ChangedData = false
             };
 
-            var reply = await client.GetAllItemsAsync(input);
+            var reply =   client.GetAllItems(input);
 
-            lblTest.Text = reply.ItemList_.Count.ToString();
+            string statusCode = reply.GetStatus().StatusCode.GetType().Name;
+            lblTest.Text = statusCode;
 
         }
 
@@ -104,7 +108,7 @@ namespace PHP_SRePS_Frontend
 
         private void button1_Click(object sender, EventArgs e)
         {
-            _ = GetItemExample();
+            while (true) { _ = GetItemExample(); }
         }
 
         private void Form1_Load(object sender, EventArgs e)

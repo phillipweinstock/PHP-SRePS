@@ -11,10 +11,12 @@ namespace PHP_SRePS_Backend
 {
     public class ItemService : ItemDef.ItemDefBase
     {
+        private AppDb db = new AppDb();
         private readonly ILogger<ItemService> _logger;
         public ItemService(ILogger<ItemService> logger)
         {
             _logger = logger;
+            
         }
 
         public override async Task<Item> GetItem(ItemGet request, ServerCallContext context)
@@ -22,34 +24,29 @@ namespace PHP_SRePS_Backend
 
             Item item = new Item();
             string query = $"SELECT * FROM item WHERE item_id = {request.ItemId} );";
-            using (var db = new AppDb())
-            {
                 await db.Connection.OpenAsync();
                 using var command = new MySqlCommand(query, db.Connection);
                 using var reader = await command.ExecuteReaderAsync();
-                while (await reader.ReadAsync())
-                {
-                    item.ItemId = reader.GetFieldValue<uint>(0);
-                    item.PriceId = reader.GetFieldValue<float>(1);
-                    item.NameId = reader.GetFieldValue<string>(2);
-                    item.CatagoryId = reader.GetFieldValue<uint>(3);
+                await reader.ReadAsync();
+                
+                item.ItemId =  reader.GetFieldValue<uint>(0);
+                item.PriceId = reader.GetFieldValue<float>(1);
+                item.NameId = reader.GetFieldValue<string>(2);
+                 item.CatagoryId = reader.GetFieldValue<uint>(3);
 
-                }
-            }
+                
+            
              _logger.LogError("All items requested");
-            return await Task.FromResult(item);
+             return item;
         }
-
-        public override async Task<ItemList> GetAllItems(HasChanged request, ServerCallContext context)
+        public override async Task GetAllItems(HasChanged request, IServerStreamWriter<Item> responseStream, ServerCallContext context)
         {
-            ItemList list = new ItemList();
             string query = "SELECT * FROM item ;";
-            using (var db = new AppDb())
-            {
+            
                 await db.Connection.OpenAsync();
-                using var command = new MySqlCommand(query, db.Connection);
-                using var reader = await command.ExecuteReaderAsync();
-                List<Item> temp = new List<Item>();
+                 var command = new MySqlCommand(query, db.Connection);
+                 var reader = await  command.ExecuteReaderAsync();
+                
                 while (await reader.ReadAsync())
                 {
                     Item item = new Item
@@ -59,17 +56,13 @@ namespace PHP_SRePS_Backend
                         NameId = (string)reader.GetValue(2),
                         CatagoryId = (uint)(int)reader.GetValue(3)
                     };
-
-                    temp.Add(item);
-
-
+                    await responseStream.WriteAsync(item);
                 }
-                
-                list.ItemList_.Add(temp);
-            }
-            //return  Task.FromResult(list);
-            return list;
+            await reader.CloseAsync();
+            await db.Connection.CloseAsync();
         }
+
+   
 
         public override Task<ErrorCodeReply> AddItem(Item request, ServerCallContext context)
         {
