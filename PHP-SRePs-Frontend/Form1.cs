@@ -1,4 +1,5 @@
-﻿using Grpc.Net.Client;
+﻿using Grpc.Core;
+using Grpc.Net.Client;
 using PHP_SRePS_Backend;
 using System;
 using System.Collections.Generic;
@@ -21,18 +22,105 @@ namespace PHP_SRePS_Frontend
             InitializeComponent();
             //_ = RpcTest();
 
+<<<<<<< HEAD
         }
 
         //Rpc test example
         /*private async Task RpcTest()
+=======
+           // _ = AddSaleExample();
+           // _ = RequestSales();
+        }
+
+        /// <summary>
+        /// Temporary: add a sale to the db
+        /// </summary>
+        private async Task AddSaleExample()
+>>>>>>> 95a951932999768fa22bbc1bc9efeacefa805d66
         {
             var channel = GrpcChannel.ForAddress("https://localhost:5001");
-            var client = new Greeter.GreeterClient(channel);
+            var client = new SaleDef.SaleDefClient(channel);
 
-            var input = new PHP_SRePS_Backend.HelloRequest { Name = "Bruh" };
+            var input = new AddSaleRequest {
+                // Send the list of item details
+                ItemDetails = { 
+                    new AddSaleRequest.Types.ItemDetail { ItemId = 1, Quantity = 2 }, 
+                    new AddSaleRequest.Types.ItemDetail { ItemId = 500, Quantity = 10000 } 
+                },
+                TotalBilled = 200
+            };
 
-            var reply = await client.SayHelloAsync(input);
+            var reply = await client.AddSaleAsync(input);
 
+            lblTest.Text = "Done";
+        }
+        private async Task GetItemExample()
+        {
+            var channel = GrpcChannel.ForAddress("https://localhost:5001");
+            var client = new ItemDef.ItemDefClient(channel);
+
+            var input = new HasChanged
+            {
+                // Send the list of item details
+                ChangedData = false
+            };
+
+            var reply = await client.GetAllItemsAsync(input);
+
+            lblTest.Text = reply.ItemList_.Count.ToString();
+
+        }
+
+        /// <summary>
+        /// Temporary: request sale information.
+        /// Using a date will get all sale information for that day.
+        /// Using a sale id will get only that sale information.
+        /// </summary>
+        private async Task RequestSales()
+        {
+            var channel = GrpcChannel.ForAddress("https://localhost:5001");
+            var client = new SaleDef.SaleDefClient(channel);
+
+            // This should only have 1 field: 
+            // not SaleId = num, SaleDate = "a date"
+            var input = new SaleGet
+            {
+                SaleId = 1
+            };
+
+            // Recieving a stream:
+            // each time MoveNext() is called, a new Sale will be returned
+            using (var call = client.GetSale(input)) 
+            {
+                // while there are items in the stream
+                while (await call.ResponseStream.MoveNext())
+                {
+                    // get the current sale information
+                    var currentSaleInfo = call.ResponseStream.Current;
+
+                    _ = currentSaleInfo.TotalBilled;
+
+                    // Get the item information
+                    foreach(var itemInfo in currentSaleInfo.ItemDetails)
+                    {
+                        // Do something with the item
+                        lblTest.Text = itemInfo.Name;
+                    }
+                }
+            }
+
+            lblTest.Text = "Done";
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            _ = GetItemExample();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+<<<<<<< HEAD
             lblTest.Text = reply.Message;
         }*/
 
@@ -58,6 +146,8 @@ namespace PHP_SRePS_Frontend
         private void removeItemBtn_Click(object sender, EventArgs e)
         {
             salesRecordView.Rows.RemoveAt(salesRecordView.CurrentRow.Index);
+=======
+>>>>>>> 95a951932999768fa22bbc1bc9efeacefa805d66
         }
     }
 }

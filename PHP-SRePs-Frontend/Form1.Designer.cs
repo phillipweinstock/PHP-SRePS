@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+<<<<<<< HEAD
             this.amtSold = new System.Windows.Forms.TextBox();
             this.price = new System.Windows.Forms.TextBox();
             this.itmName = new System.Windows.Forms.TextBox();
@@ -45,10 +46,15 @@
             this.itmIDLbl = new System.Windows.Forms.Label();
             this.salesRecordView = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.salesRecordView)).BeginInit();
+=======
+            this.lblTest = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+>>>>>>> 95a951932999768fa22bbc1bc9efeacefa805d66
             this.SuspendLayout();
             // 
             // amtSold
             // 
+<<<<<<< HEAD
             this.amtSold.Location = new System.Drawing.Point(120, 101);
             this.amtSold.Name = "amtSold";
             this.amtSold.Size = new System.Drawing.Size(100, 23);
@@ -162,9 +168,33 @@
             this.itmIDLbl.Text = "Item ID";
             // 
             // Home
+=======
+            this.lblTest.AutoSize = true;
+            this.lblTest.Cursor = System.Windows.Forms.Cursors.SizeNS;
+            this.lblTest.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblTest.Location = new System.Drawing.Point(15, 17);
+            this.lblTest.Name = "lblTest";
+            this.lblTest.Size = new System.Drawing.Size(173, 54);
+            this.lblTest.TabIndex = 0;
+            this.lblTest.Text = "Test Text";
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(391, 236);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(86, 31);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // Form1
+>>>>>>> 95a951932999768fa22bbc1bc9efeacefa805d66
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+<<<<<<< HEAD
             this.ClientSize = new System.Drawing.Size(596, 450);
             // 
             // salesRecordView
@@ -196,12 +226,22 @@
             this.Name = "Home";
             this.Text = "Home";
             ((System.ComponentModel.ISupportInitialize)(this.salesRecordView)).EndInit();
+=======
+            this.ClientSize = new System.Drawing.Size(914, 600);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.lblTest);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Name = "Form1";
+            this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
+>>>>>>> 95a951932999768fa22bbc1bc9efeacefa805d66
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
+<<<<<<< HEAD
         private System.Windows.Forms.TextBox amtSold;
         private System.Windows.Forms.TextBox price;
         private System.Windows.Forms.TextBox itmName;
@@ -218,5 +258,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn numSold;
         private System.Windows.Forms.TextBox itmIDTxt;
         private System.Windows.Forms.Label itmIDLbl;
+=======
+
+        private System.Windows.Forms.Label lblTest;
+        private System.Windows.Forms.Button button1;
+>>>>>>> 95a951932999768fa22bbc1bc9efeacefa805d66
     }
 }

@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+option csharp_namespace = "PHP_SRePS_Backend";
+
+import "item.proto";
+
+package backend;
+// The sales service definition.
+service SaleDef {
+	// Sends a sales insertion
+	rpc AddSale (AddSaleRequest) returns (ErrorCodeReply);
+	// Get requested sales: 
+	//	- Date = all sales added to db at date
+	//	- ID = just a single sale
+	rpc GetSale (SaleGet) returns (stream SaleInfo);
+	// Return all sales
+	rpc GetAllSales (HasChanged) returns (stream SaleInfo);
+}
+
+// The request message containing the Item Ids to be added
+message AddSaleRequest {
+	//The Item to be added to the sale, item_id is a foreign key
+	//item_id is also a foreign key for the actual item we are trying to get
+	message ItemDetail {
+		uint32 item_id = 2;
+		uint32 quantity = 1;
+	}
+	repeated ItemDetail item_details = 1;
+	float total_billed = 2;
+}
+
+// The request message for a sale, 
+// where if sale_id is sent a single sale will be returned, 
+// and if a sale_date is sent all sales made for that date are returned
+message SaleGet {
+	oneof sale_req {		// Only one value should be sent
+		uint32 sale_id = 1;
+		string sale_date = 2;
+	}
+}
+
+// The return message that contains the sale information
+message SaleInfo {
+	// Returns item information on request
+	message ItemRequestDetails {
+		uint32 item_id = 1;
+		string name = 2;
+		float price = 3;
+		uint32 quantity = 4;
+	}
+	uint32 sale_id = 1;
+	repeated ItemRequestDetails item_details = 2;
+	float total_billed = 3;
+}
