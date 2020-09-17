@@ -20,15 +20,9 @@ namespace PHP_SRePS_Backend
 
         public static Task connec = Dbconnection();
 
-        public  static async Task Main(string[] args)
+        public static void Main(string[] args)
         {
-          /*  using (var db = new AppDb())
-            {
-                await db.Connection.OpenAsync();
-            }*/
-          //Database connection command
-            //TODO ADD SQL SERVER CONNECTION 
-        CreateHostBuilder(args).Build().Run();
+            CreateHostBuilder(args).Build().Run();
         }
 
         // Additional configuration is required to successfully run gRPC on macOS.

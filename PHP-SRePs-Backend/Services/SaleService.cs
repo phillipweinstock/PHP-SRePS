@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using Grpc.Core;
+using Microsoft.AspNetCore.SignalR.Protocol;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using MySqlConnector;
@@ -17,21 +18,9 @@ namespace PHP_SRePS_Backend
         {
             _logger = logger;
         }
-        public IConfiguration Configuration
-        {
-            get; private set;
-        }
 
         public override async Task<ErrorCodeReply> AddSale(AddSaleRequest request, ServerCallContext context)
         {
-
-
-            // Print to console
-            //_logger.LogDebug($"ItemId: {request.ItemDetails.ElementAt<AddSaleRequest.Types.ItemDetail>(0).ItemId}");
-
-            // Get ItemDetails at index
-            //_ = request.ItemDetails.ElementAt<AddSaleRequest.Types.ItemDetail>(0).Quantity;
-
             // List Size of ItemDetails sent
             _logger.LogDebug($"Count: {request.ItemDetails.Count}");
 
@@ -50,8 +39,8 @@ namespace PHP_SRePS_Backend
             // Create a new sale
             cmd.CommandText = $"insert into sale (total_billed, date) Values ({request.TotalBilled}, NOW()); SELECT LAST_INSERT_ID();";
             var reader = await cmd.ExecuteReaderAsync();
+            reader.ConfigureAwait(true);
             await reader.ReadAsync();
-
             // get this saleid - used later
             int saleid = reader.GetFieldValue<int>(0);
             await reader.CloseAsync();
@@ -80,20 +69,13 @@ namespace PHP_SRePS_Backend
 
             await myTrans.CommitAsync();
             await db.CloseAsync();
-            /*while (await reader.ReadAsync())
-            {
-                saleid = (int)(reader.GetValue(0));
-                var value2 = reader.GetValue(1);
-
-                // do something with 'value'
-                _logger.LogWarning($"{saleid} : {value2}");
-            }*/
-
-            //_logger.LogCritical(Configuration.GetConnectionString("Default"));
-
-           
+            await myTrans.DisposeAsync();
+            await reader.DisposeAsync();
+            await cmd.DisposeAsync();
+            await db.DisposeAsync();
 
             _logger.LogCritical("DONE?");
+
 
             return await Task.FromResult(new ErrorCodeReply
             {
