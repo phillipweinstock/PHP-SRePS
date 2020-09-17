@@ -25,16 +25,12 @@ namespace PHP_SRePS_Backend
         public override async Task<ErrorCodeReply> AddSale(AddSaleRequest request, ServerCallContext context)
         {
 
-            foreach (var itemDetail in request.ItemDetails)
-            {
-                _logger.LogInformation($"Id : {itemDetail.ItemId}, quant : {itemDetail.Quantity}");
-            }
 
             // Print to console
-            _logger.LogDebug($"ItemId: {request.ItemDetails.ElementAt<AddSaleRequest.Types.ItemDetail>(0).ItemId}");
+            //_logger.LogDebug($"ItemId: {request.ItemDetails.ElementAt<AddSaleRequest.Types.ItemDetail>(0).ItemId}");
 
             // Get ItemDetails at index
-            _ = request.ItemDetails.ElementAt<AddSaleRequest.Types.ItemDetail>(0).Quantity;
+            //_ = request.ItemDetails.ElementAt<AddSaleRequest.Types.ItemDetail>(0).Quantity;
 
             // List Size of ItemDetails sent
             _logger.LogDebug($"Count: {request.ItemDetails.Count}");
@@ -42,69 +38,64 @@ namespace PHP_SRePS_Backend
             // db updated successfully?
             bool dbUpdateSuccess = false;
 
-            using (var db = new AppDb())
+            MySqlConnection db = new AppDb().Connection;
+            await db.OpenAsync();
+
+            var cmd = db.CreateCommand();
+            MySqlTransaction myTrans = await db.BeginTransactionAsync();
+            cmd.Transaction = myTrans;
+
+            _logger.LogDebug($"connection opened");
+
+            // Create a new sale
+            cmd.CommandText = $"insert into sale (total_billed, date) Values ({request.TotalBilled}, NOW()); SELECT LAST_INSERT_ID();";
+            var reader = await cmd.ExecuteReaderAsync();
+            await reader.ReadAsync();
+
+            // get this saleid - used later
+            int saleid = reader.GetFieldValue<int>(0);
+            await reader.CloseAsync();
+
+            _logger.LogWarning($"saleid : {saleid}");
+
+            // Loop to add items to ItemDetail table
+            foreach (var itemDetail in request.ItemDetails)
             {
-                await db.Connection.OpenAsync();
+                _logger.LogInformation($"{itemDetail.ItemName}");
 
-                _logger.LogDebug($"connection opened");
-
-                using var cmd = db.Connection.CreateCommand();
-
-                // Create a new blank sale to edit
-                cmd.CommandText = $"insert into sale (datetime) Values (NOW());";
-                await cmd.ExecuteNonQueryAsync();
-
-                var command = new MySqlCommand("SELECT sale_id FROM Sale ORDER BY sale_id DESC LIMIT 1;", db.Connection);
-                var reader = await command.ExecuteReaderAsync();
+                // Find item
+                cmd.CommandText = $"SELECT item_id FROM item WHERE name=\"{itemDetail.ItemName}\"";
+                reader = await cmd.ExecuteReaderAsync();
                 await reader.ReadAsync();
-
-                // get this saleid - used later
-                int saleid =  (reader.GetFieldValue<int>(0));
-                
-                _logger.LogWarning($"saleid : {saleid}");
-
+                int itemid = reader.GetFieldValue<int>(0);
                 await reader.CloseAsync();
 
-                //Get next Item id
-                command.CommandText = "SELECT item_detail_id FROM itemdetail ORDER BY item_detail_id DESC LIMIT 1;";
-                reader = await command.ExecuteReaderAsync();
-                await reader.ReadAsync();
-                // get this itemid
-                int itemdetailid = (reader.GetFieldValue<int>(0) + 1);
-                _logger.LogWarning($"itemdetailid : {itemdetailid}");
+                _logger.LogInformation($"Itemid: {itemid}");
 
-                await reader.CloseAsync();
-
-                // Loop to add items to ItemDetail table
-                foreach (var itemDetail in request.ItemDetails)
-                {
-                    // insert saleid into ItemDetail
-                    cmd.CommandText = $"insert into itemdetail (quantity, item_id) OUTPUT Values ({itemDetail.ItemId}, {itemDetail.Quantity})";
-
-                    await cmd.ExecuteNonQueryAsync();
-                }
-
-                // update sale
-                cmd.CommandText = $"update sale set total_billed={request.TotalBilled}, item_detail_id={itemdetailid} where sale_id={saleid};";
+                // insert saleid into ItemDetail
+                cmd.CommandText = $"insert into itemdetail (item_id, quantity, sale_id) Values ({itemid}, {itemDetail.Quantity}, {saleid})";
 
                 await cmd.ExecuteNonQueryAsync();
-
-                _logger.LogCritical("DONE?");
-
-                /*while (await reader.ReadAsync())
-                {
-                    saleid = (int)(reader.GetValue(0));
-                    var value2 = reader.GetValue(1);
-
-                    // do something with 'value'
-                    _logger.LogWarning($"{saleid} : {value2}");
-                }*/
-
-                //_logger.LogCritical(Configuration.GetConnectionString("Default"));
-
             }
 
-                return await Task.FromResult(new ErrorCodeReply
+            await myTrans.CommitAsync();
+            await db.CloseAsync();
+            /*while (await reader.ReadAsync())
+            {
+                saleid = (int)(reader.GetValue(0));
+                var value2 = reader.GetValue(1);
+
+                // do something with 'value'
+                _logger.LogWarning($"{saleid} : {value2}");
+            }*/
+
+            //_logger.LogCritical(Configuration.GetConnectionString("Default"));
+
+           
+
+            _logger.LogCritical("DONE?");
+
+            return await Task.FromResult(new ErrorCodeReply
             {
                 ErrorCode = dbUpdateSuccess
             });
@@ -117,13 +108,13 @@ namespace PHP_SRePS_Backend
             
             if(request.SaleId > 0) // saleId will be set to 0 if not specified
             {
-                _logger.LogDebug($"ID: {request.SaleId}");
+                _logger.LogDebug($"ID: {request.SaleId.ToString()}");
 
                 // TODO: Database lookup with id
 
             } else if(request.SaleDate != "")
             {
-                _logger.LogDebug($"Date: {request.SaleDate}");
+                _logger.LogDebug($"Date: {request.SaleDate.ToString()}");
 
                 // TODO: get all sales in db for date
 

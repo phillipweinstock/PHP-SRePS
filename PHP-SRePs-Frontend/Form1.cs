@@ -18,9 +18,7 @@ namespace PHP_SRePS_Frontend
         public Form1()
         {
             InitializeComponent();
-
-           // _ = AddSaleExample();
-           // _ = RequestSales();
+            //_ = RequestSales();
         }
 
         /// <summary>
@@ -34,8 +32,7 @@ namespace PHP_SRePS_Frontend
             var input = new AddSaleRequest {
                 // Send the list of item details
                 ItemDetails = { 
-                    new AddSaleRequest.Types.ItemDetail { ItemId = 1, Quantity = 2 }, 
-                    new AddSaleRequest.Types.ItemDetail { ItemId = 500, Quantity = 10000 } 
+                    new AddSaleRequest.Types.ItemDetail { ItemName = "Car", Quantity = 3 }    
                 },
                 TotalBilled = 200
             };
@@ -104,7 +101,7 @@ namespace PHP_SRePS_Frontend
 
         private void button1_Click(object sender, EventArgs e)
         {
-            _ = GetItemExample();
+            _ = AddSaleExample();
         }
 
         private void Form1_Load(object sender, EventArgs e)

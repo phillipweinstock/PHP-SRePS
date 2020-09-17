@@ -1,3 +1,4 @@
+
 CREATE TABLE Category
 (
  cat_id   int auto_increment NOT NULL ,
@@ -11,7 +12,7 @@ CREATE TABLE SALE
 (
  sale_id int auto_increment NOT NULL,
  total_billed decimal(10, 2) NOT NULL,
-
+ date datetime NOT NULL,
 PRIMARY KEY (sale_id)
 );
 
