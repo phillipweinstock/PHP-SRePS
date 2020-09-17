@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
 using Grpc.Core;
@@ -64,21 +65,51 @@ namespace PHP_SRePS_Backend
 
    
 
-        public override Task<ErrorCodeReply> AddItem(Item request, ServerCallContext context)
+        public override async Task<ErrorCodeReply> AddItem(Item request, ServerCallContext context)
         {
             
-            return Task.FromResult(new ErrorCodeReply
+            string query = $"INSERT INTO ITEM (price,name,cat_id) " +
+                           $"VALUES ({request.PriceId},{request.NameId},{request.CatagoryId});";
+
+            await db.Connection.OpenAsync();
+            var command = new MySqlCommand(query, db.Connection);
+            var reader = await command.ExecuteReaderAsync();
+            reader.ConfigureAwait(true);
+            ;
+
+            BooleanConverter boolean = new BooleanConverter() { };
+            bool recordsAffected = (reader.RecordsAffected == 1);
+            
+            await reader.CloseAsync();
+            await db.Connection.CloseAsync();
+
+
+            return (new ErrorCodeReply
             {
-                // TODO: Return stuff     
-            });
+                ErrorCode = recordsAffected
+            }) ;
         }
 
-        public override Task<ErrorCodeReply> DeleteItem(Item request, ServerCallContext context)
+        public override async Task<ErrorCodeReply> DeleteItem(Item request, ServerCallContext context)
         {
 
-            return Task.FromResult(new ErrorCodeReply
+            string query = $"DELETE FROM ITEM WHERE item_id = {request.ItemId};";
+
+            await db.Connection.OpenAsync();
+            var command = new MySqlCommand(query, db.Connection);
+            var reader = await command.ExecuteReaderAsync();
+            reader.ConfigureAwait(true);
+
+            BooleanConverter boolean = new BooleanConverter() { };
+            bool recordsAffected = (reader.RecordsAffected == 1);
+
+            await reader.CloseAsync();
+            await db.Connection.CloseAsync();
+
+
+            return (new ErrorCodeReply
             {
-                // TODO: Return stuff   
+                ErrorCode = recordsAffected
             });
         }
     }
