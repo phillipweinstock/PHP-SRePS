@@ -1,0 +1,52 @@
+syntax = "proto3";
+
+option csharp_namespace = "PHP_SRePS_Backend";
+
+package backend;
+// The Items service definition.
+service ItemDef {
+  // Gets a item from the backend
+  rpc GetItem (ItemGet) returns (Item);
+  // gets all items from the back end if false, or gets only items which have been updated in the meantime, this method can be used to build the clientside cache.
+  rpc GetAllItems (HasChanged) returns (stream Item);
+  
+  //Adds a new Item to the backend server
+  rpc AddItem (Item) returns (ErrorCodeReply);
+  //Deletes an item on the back end
+  rpc DeleteItem (Item) returns (ErrorCodeReply);
+  //Allows you to alter an existing item in the database. 
+  rpc AlterItem (AlteredItem) returns (ErrorCodeReply);
+  
+}
+//The Item to be added to the sale, item_id is a foreign key
+//item_id is also a foreign key for the actual item we are trying to get
+message Item {
+  uint32 item_id = 1;
+  string name_id = 2;
+  uint32 catagory_id = 3;
+  float  price_id= 4 ;
+}
+
+// The request message containing the Item Parameters we are looking for 
+message ItemGet {
+   uint32 item_id = 1;
+   string name_id = 2;
+}
+
+message AlteredItem{
+   Item altered_item = 1;
+   ItemGet item_original = 2;
+
+
+}
+//A message used to check whether or not the data has changed in the mean time and 
+//down load the new items 
+message HasChanged {
+  bool changed_data = 1;
+}
+
+
+// Error Code 
+message ErrorCodeReply {
+	bool error_code = 1;
+}

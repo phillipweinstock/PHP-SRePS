@@ -1,0 +1,19 @@
+{
+    "proto": "Item.proto",
+    "call": "backend.ItemDef.GetAllItems",
+    "total": 5,
+    "concurrency": 10,
+    "data": {
+        "changed_data": "false"
+    },
+    "metadata": {
+        "foo": "bar",
+        "trace_id": "{{.RequestNumber}}",
+        "timestamp": "{{.TimestampUnix}}"
+    },
+    "import-paths": [
+        ""
+    ],
+    "max-duration": "3s",
+    "host": "localhost:5001"
+}

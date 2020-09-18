@@ -1,0 +1,20 @@
+{
+    "proto": "Item.proto",
+    "call": "backend.ItemDef.GetItem",
+    "total": 1000,
+    "concurrency": 20,
+    "data": {
+        "item_id": "0",
+		"name_id": "weed"
+    },
+    "metadata": {
+        "foo": "bar",
+        "trace_id": "{{.RequestNumber}}",
+        "timestamp": "{{.TimestampUnix}}"
+    },
+    "import-paths": [
+        ""
+    ],
+    "max-duration": "10s",
+    "host": "localhost:5001"
+}

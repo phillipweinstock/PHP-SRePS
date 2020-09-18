@@ -1,0 +1,22 @@
+{
+    "proto": "Item.proto",
+    "call": "backend.ItemDef.AddItem",
+    "total": 100,
+    "concurrency": 10,
+    "data": {
+        "item_id":"",
+		"name_id":"weed",
+		"catagory_id":"1",
+		"price_id":"1.5"
+    },
+    "metadata": {
+        "foo": "bar",
+        "trace_id": "{{.RequestNumber}}",
+        "timestamp": "{{.TimestampUnix}}"
+    },
+    "import-paths": [
+        ""
+    ],
+    "max-duration": "3s",
+    "host": "localhost:5001"
+}
