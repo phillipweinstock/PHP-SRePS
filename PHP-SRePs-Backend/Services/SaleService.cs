@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
@@ -39,8 +40,8 @@ namespace PHP_SRePS_Backend
             // Create a new sale
             cmd.CommandText = $"insert into sale (total_billed, date) Values ({request.TotalBilled}, NOW()); SELECT LAST_INSERT_ID();";
             var reader = await cmd.ExecuteReaderAsync();
-            reader.ConfigureAwait(true);
             await reader.ReadAsync();
+
             // get this saleid - used later
             int saleid = reader.GetFieldValue<int>(0);
             await reader.CloseAsync();
@@ -69,10 +70,6 @@ namespace PHP_SRePS_Backend
 
             await myTrans.CommitAsync();
             await db.CloseAsync();
-            await myTrans.DisposeAsync();
-            await reader.DisposeAsync();
-            await cmd.DisposeAsync();
-            await db.DisposeAsync();
 
             _logger.LogCritical("DONE?");
 
@@ -85,31 +82,80 @@ namespace PHP_SRePS_Backend
 
         public override async Task GetSale(SaleGet request, IServerStreamWriter<SaleInfo> responseStream, ServerCallContext context)
         {
+
+            MySqlConnection db = new AppDb().Connection;
+            await db.OpenAsync();
+
+            var cmd = db.CreateCommand();
+
             // Sale information which will be returned
             SaleInfo returnInfo = new SaleInfo();
-            
-            if(request.SaleId > 0) // saleId will be set to 0 if not specified
+
+            if (request.SaleId > 0) // saleId will be set to 0 if not specified
             {
                 _logger.LogDebug($"ID: {request.SaleId.ToString()}");
 
                 // TODO: Database lookup with id
+                cmd.CommandText = $"SELECT sale_id, total_billed FROM sale WHERE sale_id={request.SaleId}";
+                var salesinfo = await cmd.ExecuteReaderAsync();
+                await salesinfo.ReadAsync();
+                
+                if (salesinfo.HasRows)
+                {
+                    uint saleid = salesinfo.GetFieldValue<uint>(0);
+
+                    await salesinfo.CloseAsync();
+
+                    cmd.CommandText = $"SELECT item_id, quantity FROM itemdetail WHERE sale_id={saleid}";
+                    var reader = await cmd.ExecuteReaderAsync();
+
+                    // get item infos
+                    List<SaleInfo.Types.ItemRequestDetails> iteminfos = new List<SaleInfo.Types.ItemRequestDetails>();
+                    while(await reader.ReadAsync())
+                    {
+                        uint itemid = reader.GetFieldValue<uint>(0);
+
+                        cmd.CommandText = $"SELECT name, price FROM item WHERE item_id={itemid}";
+                        var reader2 = await cmd.ExecuteReaderAsync();
+                        while(await reader2.ReadAsync())
+                        {
+                            iteminfos.Add(new SaleInfo.Types.ItemRequestDetails
+                            {
+                                ItemId = reader.GetFieldValue<uint>(0),
+                                Name = reader2.GetFieldValue<string>(0),
+                                Price = reader2.GetFieldValue<float>(1),
+                                Quantity = reader.GetFieldValue<uint>(1)
+                            });
+                        }
+
+                        await reader2.CloseAsync();
+                    }
+
+                    returnInfo = new SaleInfo
+                    {
+                        ItemDetails = { iteminfos },
+                        SaleId = salesinfo.GetFieldValue<uint>(0),
+                        TotalBilled = salesinfo.GetFieldValue<float>(1)
+                    };
+
+                    await reader.CloseAsync();
+                }
+                await salesinfo.CloseAsync();
 
             } else if(request.SaleDate != "")
             {
                 _logger.LogDebug($"Date: {request.SaleDate.ToString()}");
 
                 // TODO: get all sales in db for date
-
+                returnInfo = new SaleInfo();
             } else
             {
                 // No info recieved
                 _logger.LogError($"No information sent in GetSale request");
 
                 // Return 0 sale id - indicating an issue occured
-                returnInfo.SaleId = 0;
-
-                // TODO: return proper error
-                await responseStream.WriteAsync(returnInfo);
+                //returnInfo.SaleId = 0;
+                returnInfo = new SaleInfo();
             }
 
             // TODO: proper return
