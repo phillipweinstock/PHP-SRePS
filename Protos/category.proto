@@ -17,6 +17,7 @@ service CategoryDef {
 message Category{
   uint32 category_id = 1;
   string cat_desc = 2;
+  string name =3;
 }
 
 message CategoryAlterRequest{

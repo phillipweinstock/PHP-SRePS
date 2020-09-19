@@ -10,30 +10,48 @@ namespace PHP_SRePS_Backend
 {
     public class CategoryService : CategoryDef.CategoryDefBase
     {
+        private AppDb db = new AppDb();
         private readonly ILogger<ItemService> _logger;
         public CategoryService(ILogger<ItemService> logger)
         {
             _logger = logger;
         }
-
         public override async Task<ErrorCodeReply> GetCategory(Category request, ServerCallContext context)
         {
+            //Item item = new Item();
+
+            string query = $"SELECT * FROM category WHERE cat_id={request.CategoryId} );";
+            await db.Connection.OpenAsync();
+            using var command = new MySqlCommand(query, db.Connection);
+            using var reader = await command.ExecuteReaderAsync();
+            await reader.CloseAsync();
+            await db.Connection.CloseAsync();
+
             
-            uint param1 = request.CategoryId;
-            using (var db = new AppDb())
+
+
+            _logger.LogError("All items requested");
+            return (new ErrorCodeReply
             {
+                ErrorCode = false
+            });
+        }
+
+        public override async Task<ErrorCodeReply> AddCategory(Category request, ServerCallContext context)
+        {
+
+            string query = $"INSERT INTO category (name,cat_desc) values ({request.Name},{request.CatDesc});";
+
+           
                 await db.Connection.OpenAsync();
-                using var command = new MySqlCommand("INSERT INTO () VALUE ();", db.Connection);
+                using var command = new MySqlCommand(query, db.Connection);
                 using var reader = await command.ExecuteReaderAsync();
-                while (await reader.ReadAsync())
-                {
-                    var value = reader.GetValue(0);
+                
+                await reader.CloseAsync();
+                await db.Connection.CloseAsync();
+            
 
-                    // do something with 'value'
-                }
-            }
-
-            return await Task.FromResult(new ErrorCodeReply
+            return (new ErrorCodeReply
             {
                 ErrorCode = false
             });
