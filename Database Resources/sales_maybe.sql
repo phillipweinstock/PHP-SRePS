@@ -21,7 +21,7 @@ CREATE TABLE ITEM
  item_id  int auto_increment NOT NULL ,
  price decimal(10, 2) NOT NULL ,
  name varchar(45) NOT NULL ,
- cat_id   int NOT NULL ,
+ cat_id int,
 
 PRIMARY KEY (item_id),
 KEY fkIdx_14 (cat_id),
