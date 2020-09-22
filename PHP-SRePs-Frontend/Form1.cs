@@ -20,10 +20,14 @@ namespace PHP_SRePS_Frontend
         public Form1()
         {
             InitializeComponent();
+<<<<<<< HEAD
+            //_ = RequestSales();
+=======
              Channel = GrpcChannel.ForAddress("https://localhost:5001");
              client = new ItemDef.ItemDefClient(Channel);
             // _ = AddSaleExample();
             // _ = RequestSales();
+>>>>>>> master
         }
 
         /// <summary>
@@ -37,8 +41,7 @@ namespace PHP_SRePS_Frontend
             var input = new AddSaleRequest {
                 // Send the list of item details
                 ItemDetails = { 
-                    new AddSaleRequest.Types.ItemDetail { ItemId = 1, Quantity = 2 }, 
-                    new AddSaleRequest.Types.ItemDetail { ItemId = 500, Quantity = 10000 } 
+                    new AddSaleRequest.Types.ItemDetail { ItemName = "Car", Quantity = 3 }    
                 },
                 TotalBilled = 200
             };
@@ -108,7 +111,11 @@ namespace PHP_SRePS_Frontend
 
         private void button1_Click(object sender, EventArgs e)
         {
+<<<<<<< HEAD
+            _ = AddSaleExample();
+=======
             while (true) { _ = GetItemExample(); }
+>>>>>>> master
         }
 
         private void Form1_Load(object sender, EventArgs e)
