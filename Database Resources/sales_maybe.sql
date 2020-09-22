@@ -41,6 +41,17 @@ CONSTRAINT FK_28 FOREIGN KEY fkIdx_28 (item_id) REFERENCES ITEM (item_id),
 KEY fkIdx_37 (sale_id),
 CONSTRAINT FK_37 FOREIGN KEY fkIdx_37 (sale_id) REFERENCES SALE (sale_id)
 );
+CREATE TABLE ITEMSTOCK
+(
+ item_stock_id    int auto_increment NOT NULL ,
+ quantity int NOT NULL ,
+ item_id     int NOT NULL ,
+ 
+
+PRIMARY KEY (item_stock_id),
+KEY fkIdx_29 (item_id),
+CONSTRAINT FK_29 FOREIGN KEY fkIdx_29 (item_id) REFERENCES ITEM (item_id)
+);
 
 CREATE TABLE USERS(
      user_id int AUTO_INCREMENT PRIMARY KEY NOT NULL,
