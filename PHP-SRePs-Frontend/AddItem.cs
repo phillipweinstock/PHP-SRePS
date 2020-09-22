@@ -14,5 +14,11 @@ namespace PHP_SRePS_Frontend
         {
             InitializeComponent();
         }
+
+        private void btnAddItem_Click(object sender, EventArgs e)
+        {
+            //add item values to the db, item ID is generated there
+            this.Close();
+        }
     }
 }

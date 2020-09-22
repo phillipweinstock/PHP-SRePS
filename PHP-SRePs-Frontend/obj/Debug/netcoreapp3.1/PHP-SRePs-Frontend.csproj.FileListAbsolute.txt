@@ -85,3 +85,7 @@ D:\Shared\Uni\Year_2_Semester_2\SWE30010_-_Development_Project_2\Assignments\rep
 D:\Shared\Uni\Year_2_Semester_2\SWE30010_-_Development_Project_2\Assignments\repo\PHP-SRePS\PHP-SRePS-Frontend\obj\Debug\netcoreapp3.1\PHP-SRePS-Frontend.pdb
 D:\Shared\Uni\Year_2_Semester_2\SWE30010_-_Development_Project_2\Assignments\repo\PHP-SRePS\PHP-SRePS-Frontend\obj\Debug\netcoreapp3.1\PHP-SRePS-Frontend.genruntimeconfig.cache
 >>>>>>> 95a951932999768fa22bbc1bc9efeacefa805d66
+C:\Users\Kieran\Documents\PHP-SRePS\PHP-SRePS-Frontend\obj\Debug\netcoreapp3.1\PHP_SRePS_Frontend.AddItem.resources
+C:\Users\Kieran\Documents\PHP-SRePS\PHP-SRePS-Frontend\obj\Debug\netcoreapp3.1\PHP_SRePS_Frontend.AddSalesRecord.resources
+C:\Users\Kieran\Documents\PHP-SRePS\PHP-SRePS-Frontend\obj\Debug\netcoreapp3.1\PHP_SRePS_Frontend.grpcForm.resources
+C:\Users\Kieran\Documents\PHP-SRePS\PHP-SRePS-Frontend\obj\Debug\netcoreapp3.1\PHP_SRePS_Frontend.frmMainMenu.resources

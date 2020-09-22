@@ -8,16 +8,19 @@ using System.Windows.Forms;
 
 namespace PHP_SRePS_Frontend
 {
-    public partial class grpcForm : Form
+    public partial class LogIn : Form
     {
-        public grpcForm()
+        MainMenu frmMainMenu = new MainMenu();
+
+        public LogIn()
         {
             InitializeComponent();
         }
 
-        private void btnSaveTest_Click(object sender, EventArgs e)
+        private void btnLogIn_Click(object sender, EventArgs e)
         {
-            this.Close();
+            //check user Id and password against database or w/e
+            frmMainMenu.Show();
         }
     }
 }

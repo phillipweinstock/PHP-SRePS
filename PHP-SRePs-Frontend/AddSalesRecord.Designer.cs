@@ -28,134 +28,154 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.amtSold = new System.Windows.Forms.TextBox();
-            this.AmtSoldLbl = new System.Windows.Forms.Label();
-            this.btnAddSale = new System.Windows.Forms.Button();
-            this.btnRemoveSale = new System.Windows.Forms.Button();
-            this.submitRecordBtn = new System.Windows.Forms.Button();
-            this.itmIDTxt = new System.Windows.Forms.TextBox();
-            this.itmIDLbl = new System.Windows.Forms.Label();
-            this.btnNewItem = new System.Windows.Forms.Button();
-            this.dgvID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnBack = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblSalesNum = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lblDate = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.lblTime = new System.Windows.Forms.Label();
+            this.dgcItemNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvItemID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvSold = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnContinue = new System.Windows.Forms.Button();
+            this.btnAddItem = new System.Windows.Forms.Button();
+            this.btnDeleteItem = new System.Windows.Forms.Button();
             this.salesRecordView = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.salesRecordView)).BeginInit();
             this.SuspendLayout();
             // 
-            // amtSold
+            // btnBack
             // 
-            this.amtSold.Location = new System.Drawing.Point(276, 13);
-            this.amtSold.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.amtSold.Name = "amtSold";
-            this.amtSold.Size = new System.Drawing.Size(88, 23);
-            this.amtSold.TabIndex = 1;
+            this.btnBack.Location = new System.Drawing.Point(-1, -1);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(108, 39);
+            this.btnBack.TabIndex = 9;
+            this.btnBack.Text = "<--";
+            this.btnBack.UseVisualStyleBackColor = true;
             // 
-            // AmtSoldLbl
+            // label1
             // 
-            this.AmtSoldLbl.AutoSize = true;
-            this.AmtSoldLbl.Location = new System.Drawing.Point(191, 16);
-            this.AmtSoldLbl.Name = "AmtSoldLbl";
-            this.AmtSoldLbl.Size = new System.Drawing.Size(62, 15);
-            this.AmtSoldLbl.TabIndex = 6;
-            this.AmtSoldLbl.Text = "Stock Sold";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(140, 11);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(55, 15);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Sales No:";
             // 
-            // btnAddSale
+            // lblSalesNum
             // 
-            this.btnAddSale.Location = new System.Drawing.Point(552, 59);
-            this.btnAddSale.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnAddSale.Name = "btnAddSale";
-            this.btnAddSale.Size = new System.Drawing.Size(100, 28);
-            this.btnAddSale.TabIndex = 7;
-            this.btnAddSale.Text = "Add Sale";
-            this.btnAddSale.UseVisualStyleBackColor = true;
-            this.btnAddSale.Click += new System.EventHandler(this.AddItemBtn_Click);
+            this.lblSalesNum.AutoSize = true;
+            this.lblSalesNum.Location = new System.Drawing.Point(201, 11);
+            this.lblSalesNum.Name = "lblSalesNum";
+            this.lblSalesNum.Size = new System.Drawing.Size(37, 15);
+            this.lblSalesNum.TabIndex = 11;
+            this.lblSalesNum.Text = "00001";
             // 
-            // btnRemoveSale
+            // label3
             // 
-            this.btnRemoveSale.Location = new System.Drawing.Point(552, 104);
-            this.btnRemoveSale.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnRemoveSale.Name = "btnRemoveSale";
-            this.btnRemoveSale.Size = new System.Drawing.Size(100, 28);
-            this.btnRemoveSale.TabIndex = 9;
-            this.btnRemoveSale.Text = "Remove Sale";
-            this.btnRemoveSale.UseVisualStyleBackColor = true;
-            this.btnRemoveSale.Click += new System.EventHandler(this.RemoveItemBtn_Click);
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(279, 11);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(34, 15);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "Date:";
             // 
-            // submitRecordBtn
+            // lblDate
             // 
-            this.submitRecordBtn.Location = new System.Drawing.Point(552, 236);
-            this.submitRecordBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.submitRecordBtn.Name = "submitRecordBtn";
-            this.submitRecordBtn.Size = new System.Drawing.Size(100, 28);
-            this.submitRecordBtn.TabIndex = 10;
-            this.submitRecordBtn.Text = "Submit Record";
-            this.submitRecordBtn.UseVisualStyleBackColor = true;
+            this.lblDate.AutoSize = true;
+            this.lblDate.Location = new System.Drawing.Point(319, 11);
+            this.lblDate.Name = "lblDate";
+            this.lblDate.Size = new System.Drawing.Size(65, 15);
+            this.lblDate.TabIndex = 13;
+            this.lblDate.Text = "22/09/2020";
             // 
-            // itmIDTxt
+            // label5
             // 
-            this.itmIDTxt.Location = new System.Drawing.Point(75, 13);
-            this.itmIDTxt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.itmIDTxt.Name = "itmIDTxt";
-            this.itmIDTxt.Size = new System.Drawing.Size(88, 23);
-            this.itmIDTxt.TabIndex = 11;
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(427, 11);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(36, 15);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "Time:";
             // 
-            // itmIDLbl
+            // lblTime
             // 
-            this.itmIDLbl.AutoSize = true;
-            this.itmIDLbl.Location = new System.Drawing.Point(11, 16);
-            this.itmIDLbl.Name = "itmIDLbl";
-            this.itmIDLbl.Size = new System.Drawing.Size(45, 15);
-            this.itmIDLbl.TabIndex = 12;
-            this.itmIDLbl.Text = "Item ID";
+            this.lblTime.AutoSize = true;
+            this.lblTime.Location = new System.Drawing.Point(497, 11);
+            this.lblTime.Name = "lblTime";
+            this.lblTime.Size = new System.Drawing.Size(51, 15);
+            this.lblTime.TabIndex = 15;
+            this.lblTime.Text = "11:49am";
             // 
-            // btnNewItem
+            // dgcItemNo
             // 
-            this.btnNewItem.Location = new System.Drawing.Point(531, 8);
-            this.btnNewItem.Name = "btnNewItem";
-            this.btnNewItem.Size = new System.Drawing.Size(119, 28);
-            this.btnNewItem.TabIndex = 13;
-            this.btnNewItem.Text = "Create New Item";
-            this.btnNewItem.UseVisualStyleBackColor = true;
+            this.dgcItemNo.HeaderText = "Item No.";
+            this.dgcItemNo.Name = "dgcItemNo";
             // 
-            // dgvID
+            // dgvItemID
             // 
-            this.dgvID.HeaderText = "ID";
-            this.dgvID.Name = "dgvID";
+            this.dgvItemID.HeaderText = "Item ID";
+            this.dgvItemID.Name = "dgvItemID";
             // 
             // dgvName
             // 
-            this.dgvName.HeaderText = "Name";
+            this.dgvName.HeaderText = "Item Name";
             this.dgvName.Name = "dgvName";
+            // 
+            // dgvQuantity
+            // 
+            this.dgvQuantity.HeaderText = "Quantity";
+            this.dgvQuantity.Name = "dgvQuantity";
             // 
             // dgvPrice
             // 
             this.dgvPrice.HeaderText = "Price";
             this.dgvPrice.Name = "dgvPrice";
             // 
-            // dgvCategory
+            // btnContinue
             // 
-            this.dgvCategory.HeaderText = "Category";
-            this.dgvCategory.Name = "dgvCategory";
+            this.btnContinue.Location = new System.Drawing.Point(455, 297);
+            this.btnContinue.Name = "btnContinue";
+            this.btnContinue.Size = new System.Drawing.Size(93, 37);
+            this.btnContinue.TabIndex = 16;
+            this.btnContinue.Text = "Continue";
+            this.btnContinue.UseVisualStyleBackColor = true;
+            this.btnContinue.Click += new System.EventHandler(this.btnContinue_Click);
             // 
-            // dgvSold
+            // btnAddItem
             // 
-            this.dgvSold.HeaderText = "Stock Sold";
-            this.dgvSold.Name = "dgvSold";
+            this.btnAddItem.Location = new System.Drawing.Point(354, 44);
+            this.btnAddItem.Name = "btnAddItem";
+            this.btnAddItem.Size = new System.Drawing.Size(95, 37);
+            this.btnAddItem.TabIndex = 17;
+            this.btnAddItem.Text = "Add Item";
+            this.btnAddItem.UseVisualStyleBackColor = true;
+            this.btnAddItem.Click += new System.EventHandler(this.btnAddItem_Click);
+            // 
+            // btnDeleteItem
+            // 
+            this.btnDeleteItem.Location = new System.Drawing.Point(455, 44);
+            this.btnDeleteItem.Name = "btnDeleteItem";
+            this.btnDeleteItem.Size = new System.Drawing.Size(93, 37);
+            this.btnDeleteItem.TabIndex = 18;
+            this.btnDeleteItem.Text = "Delete Item";
+            this.btnDeleteItem.UseVisualStyleBackColor = true;
+            this.btnDeleteItem.Click += new System.EventHandler(this.btnDeleteItem_Click);
             // 
             // salesRecordView
             // 
             this.salesRecordView.BackgroundColor = System.Drawing.SystemColors.ControlDarkDark;
             this.salesRecordView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.salesRecordView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dgvID,
+            this.dgcItemNo,
+            this.dgvItemID,
             this.dgvName,
-            this.dgvPrice,
-            this.dgvCategory,
-            this.dgvSold});
-            this.salesRecordView.Location = new System.Drawing.Point(3, 59);
+            this.dgvQuantity,
+            this.dgvPrice});
+            this.salesRecordView.Location = new System.Drawing.Point(12, 86);
             this.salesRecordView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.salesRecordView.Name = "salesRecordView";
             this.salesRecordView.Size = new System.Drawing.Size(543, 206);
@@ -166,16 +186,18 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(663, 280);
-            this.Controls.Add(this.btnNewItem);
-            this.Controls.Add(this.itmIDLbl);
-            this.Controls.Add(this.itmIDTxt);
-            this.Controls.Add(this.submitRecordBtn);
-            this.Controls.Add(this.btnRemoveSale);
+            this.ClientSize = new System.Drawing.Size(577, 342);
+            this.Controls.Add(this.btnDeleteItem);
+            this.Controls.Add(this.btnAddItem);
+            this.Controls.Add(this.btnContinue);
+            this.Controls.Add(this.lblTime);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.lblDate);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.lblSalesNum);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.salesRecordView);
-            this.Controls.Add(this.btnAddSale);
-            this.Controls.Add(this.AmtSoldLbl);
-            this.Controls.Add(this.amtSold);
             this.Name = "AddSalesRecord";
             this.Text = "Add Sales Record";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -186,19 +208,21 @@
         }
 
         #endregion
-        private System.Windows.Forms.TextBox amtSold;
-        private System.Windows.Forms.Label AmtSoldLbl;
-        private System.Windows.Forms.Button btnAddSale;
         private System.Windows.Forms.DataGridView salesRecordView;
-        private System.Windows.Forms.Button btnRemoveSale;
-        private System.Windows.Forms.Button submitRecordBtn;
-        private System.Windows.Forms.TextBox itmIDTxt;
-        private System.Windows.Forms.Label itmIDLbl;
-        private System.Windows.Forms.Button btnNewItem;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvID;
+        private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblSalesNum;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblDate;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgcItemNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvItemID;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvQuantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvPrice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvCategory;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvSold;
+        private System.Windows.Forms.Button btnContinue;
+        private System.Windows.Forms.Button btnAddItem;
+        private System.Windows.Forms.Button btnDeleteItem;
     }
 }

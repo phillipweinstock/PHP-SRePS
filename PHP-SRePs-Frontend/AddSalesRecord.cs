@@ -15,7 +15,7 @@ namespace PHP_SRePS_Frontend
 {
     public partial class AddSalesRecord : Form
     {
-        int lastRow = 0; //store index of last row
+        AddItem frmAddItem = new AddItem();
 
         public AddSalesRecord()
         {
@@ -118,28 +118,20 @@ namespace PHP_SRePS_Frontend
             //lblTest.Text = reply.Message;
         }
 
-        
-
-        private void AddItemBtn_Click(object sender, EventArgs e)
-        {
-            //Add textbox data to the list
-            salesRecordView.Rows.Add();
-
-            salesRecordView.Rows[lastRow].Cells[0].Value = itmIDTxt.Text;
-            itmIDTxt.Text = "";
-            salesRecordView.Rows[lastRow].Cells[1].Value = itmName.Text;
-            itmName.Text = "";
-            salesRecordView.Rows[lastRow].Cells[2].Value = price.Text;
-            price.Text = "";
-            salesRecordView.Rows[lastRow].Cells[3].Value = amtSold.Text;
-            amtSold.Text = "";
-
-            lastRow++;
-        }
-
-        private void RemoveItemBtn_Click(object sender, EventArgs e)
+        private void btnDeleteItem_Click(object sender, EventArgs e)
         {
             salesRecordView.Rows.RemoveAt(salesRecordView.CurrentRow.Index);
+        }
+
+        private void btnAddItem_Click(object sender, EventArgs e)
+        {
+            frmAddItem.Show();
+        }
+
+        private void btnContinue_Click(object sender, EventArgs e)
+        {
+            //add record to db
+            this.Close();
         }
     }
 }

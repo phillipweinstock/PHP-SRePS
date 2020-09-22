@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.btnAddItem = new System.Windows.Forms.Button();
-            this.txtAddItem = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.txtPrice = new System.Windows.Forms.TextBox();
+            this.lblName = new System.Windows.Forms.Label();
+            this.lblPrice = new System.Windows.Forms.Label();
             this.cmbCategory = new System.Windows.Forms.ComboBox();
             this.lblCategory = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -45,38 +45,39 @@
             this.btnAddItem.TabIndex = 0;
             this.btnAddItem.Text = "Add Item";
             this.btnAddItem.UseVisualStyleBackColor = true;
+            this.btnAddItem.Click += new System.EventHandler(this.btnAddItem_Click);
             // 
-            // txtAddItem
+            // txtName
             // 
-            this.txtAddItem.Location = new System.Drawing.Point(90, 25);
-            this.txtAddItem.Name = "txtAddItem";
-            this.txtAddItem.Size = new System.Drawing.Size(139, 23);
-            this.txtAddItem.TabIndex = 1;
+            this.txtName.Location = new System.Drawing.Point(90, 25);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(139, 23);
+            this.txtName.TabIndex = 1;
             // 
-            // textBox4
+            // txtPrice
             // 
-            this.textBox4.Location = new System.Drawing.Point(90, 77);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(139, 23);
-            this.textBox4.TabIndex = 1;
+            this.txtPrice.Location = new System.Drawing.Point(90, 77);
+            this.txtPrice.Name = "txtPrice";
+            this.txtPrice.Size = new System.Drawing.Size(139, 23);
+            this.txtPrice.TabIndex = 1;
             // 
-            // label1
+            // lblName
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(32, 28);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(39, 15);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Name";
+            this.lblName.AutoSize = true;
+            this.lblName.Location = new System.Drawing.Point(32, 28);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(39, 15);
+            this.lblName.TabIndex = 2;
+            this.lblName.Text = "Name";
             // 
-            // label2
+            // lblPrice
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(32, 80);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(33, 15);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Price";
+            this.lblPrice.AutoSize = true;
+            this.lblPrice.Location = new System.Drawing.Point(32, 80);
+            this.lblPrice.Name = "lblPrice";
+            this.lblPrice.Size = new System.Drawing.Size(33, 15);
+            this.lblPrice.TabIndex = 3;
+            this.lblPrice.Text = "Price";
             // 
             // cmbCategory
             // 
@@ -102,13 +103,13 @@
             this.ClientSize = new System.Drawing.Size(312, 225);
             this.Controls.Add(this.lblCategory);
             this.Controls.Add(this.cmbCategory);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.txtAddItem);
+            this.Controls.Add(this.lblPrice);
+            this.Controls.Add(this.lblName);
+            this.Controls.Add(this.txtPrice);
+            this.Controls.Add(this.txtName);
             this.Controls.Add(this.btnAddItem);
             this.Name = "AddItem";
-            this.Text = "AddItem";
+            this.Text = "Add New Item";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -117,10 +118,10 @@
         #endregion
 
         private System.Windows.Forms.Button btnAddItem;
-        private System.Windows.Forms.TextBox txtAddItem;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.TextBox txtPrice;
+        private System.Windows.Forms.Label lblName;
+        private System.Windows.Forms.Label lblPrice;
         private System.Windows.Forms.ComboBox cmbCategory;
         private System.Windows.Forms.Label lblCategory;
     }
