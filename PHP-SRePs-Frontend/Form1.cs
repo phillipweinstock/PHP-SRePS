@@ -2,12 +2,6 @@
 using Grpc.Net.Client;
 using PHP_SRePS_Backend;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -20,14 +14,10 @@ namespace PHP_SRePS_Frontend
         public Form1()
         {
             InitializeComponent();
-<<<<<<< HEAD
-            //_ = RequestSales();
-=======
-             Channel = GrpcChannel.ForAddress("https://localhost:5001");
-             client = new ItemDef.ItemDefClient(Channel);
+
+            Channel = GrpcChannel.ForAddress("https://localhost:5001");
             // _ = AddSaleExample();
             // _ = RequestSales();
->>>>>>> master
         }
 
         /// <summary>
@@ -38,10 +28,11 @@ namespace PHP_SRePS_Frontend
             var channel = GrpcChannel.ForAddress("https://localhost:5001");
             var client = new SaleDef.SaleDefClient(channel);
 
-            var input = new AddSaleRequest {
+            var input = new AddSaleRequest
+            {
                 // Send the list of item details
-                ItemDetails = { 
-                    new AddSaleRequest.Types.ItemDetail { ItemName = "Car", Quantity = 3 }    
+                ItemDetails = {
+                    new AddSaleRequest.Types.ItemDetail { ItemName = "Car", Quantity = 3 }
                 },
                 TotalBilled = 200
             };
@@ -50,10 +41,10 @@ namespace PHP_SRePS_Frontend
 
             lblTest.Text = "Done";
         }
-        private async Task GetItemExample()
+        private async Task GetItemExampleAsync()
         {
-            
-            
+            var channel = GrpcChannel.ForAddress("https://localhost:5001");
+            var client = new ItemDef.ItemDefClient(channel);
 
             var input = new HasChanged
             {
@@ -61,10 +52,24 @@ namespace PHP_SRePS_Frontend
                 ChangedData = false
             };
 
-            var reply =   client.GetAllItems(input);
+            var s = new ItemGet
+            {
+                ItemId = 4
+            };
 
-            string statusCode = reply.GetStatus().StatusCode.GetType().Name;
-            lblTest.Text = statusCode;
+            var reply = await client.GetItemAsync(s);
+            lblTest.Text = reply.NameId;
+
+            /*
+            using (var call = client.GetAllItems(input))
+            {
+                while (await call.ResponseStream.MoveNext())
+                {
+                    var current = call.ResponseStream.Current;
+
+                    lblTest.Text += current.NameId;
+                }
+            }*/
 
         }
 
@@ -85,37 +90,49 @@ namespace PHP_SRePS_Frontend
                 SaleId = 1
             };
 
-            // Recieving a stream:
-            // each time MoveNext() is called, a new Sale will be returned
-            using (var call = client.GetSale(input)) 
+            // get the current sale information
+            var currentSaleInfo = await client.GetSaleAsync(input);
+
+            var totalBilled = currentSaleInfo.TotalBilled;
+
+            // Get the item information
+            foreach (var itemInfo in currentSaleInfo.ItemDetails)
             {
-                // while there are items in the stream
-                while (await call.ResponseStream.MoveNext())
-                {
-                    // get the current sale information
-                    var currentSaleInfo = call.ResponseStream.Current;
+                // Do something with the item
+                lblTest.Text = itemInfo.Name;
 
-                    _ = currentSaleInfo.TotalBilled;
-
-                    // Get the item information
-                    foreach(var itemInfo in currentSaleInfo.ItemDetails)
-                    {
-                        // Do something with the item
-                        lblTest.Text = itemInfo.Name;
-                    }
-                }
+                await Task.Delay(1000);
             }
+        
 
-            lblTest.Text = "Done";
+        /*
+        // Recieving a stream:
+        // each time MoveNext() is called, a new Sale will be returned
+        using (var call = client.GetSale(input))
+        {
+            // while there are items in the stream
+            while (await call.ResponseStream.MoveNext())
+            {
+                // get the current sale information
+                var currentSaleInfo = call.ResponseStream.Current;
+
+                var totalBilled = currentSaleInfo.TotalBilled;
+
+                // Get the item information
+                foreach (var itemInfo in currentSaleInfo.ItemDetails)
+                {
+                    // Do something with the item
+                    lblTest.Text = itemInfo.Name;
+
+                    await Task.Delay(1000);
+                }
+            }*/
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-<<<<<<< HEAD
-            _ = AddSaleExample();
-=======
-            while (true) { _ = GetItemExample(); }
->>>>>>> master
+            _ = RequestSales();
+            //GetItemExampleAsync();
         }
 
         private void Form1_Load(object sender, EventArgs e)
