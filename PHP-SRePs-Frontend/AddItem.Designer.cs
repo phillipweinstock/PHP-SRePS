@@ -28,86 +28,88 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.txtItemName = new System.Windows.Forms.TextBox();
+            this.txtItemID = new System.Windows.Forms.TextBox();
+            this.lvItems = new System.Windows.Forms.ListView();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.btnAddItem = new System.Windows.Forms.Button();
-            this.txtName = new System.Windows.Forms.TextBox();
-            this.txtPrice = new System.Windows.Forms.TextBox();
-            this.lblName = new System.Windows.Forms.Label();
-            this.lblPrice = new System.Windows.Forms.Label();
-            this.cmbCategory = new System.Windows.Forms.ComboBox();
-            this.lblCategory = new System.Windows.Forms.Label();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
+            // 
+            // txtItemName
+            // 
+            this.txtItemName.Location = new System.Drawing.Point(103, 32);
+            this.txtItemName.Name = "txtItemName";
+            this.txtItemName.Size = new System.Drawing.Size(100, 23);
+            this.txtItemName.TabIndex = 0;
+            // 
+            // txtItemID
+            // 
+            this.txtItemID.Location = new System.Drawing.Point(263, 32);
+            this.txtItemID.Name = "txtItemID";
+            this.txtItemID.Size = new System.Drawing.Size(100, 23);
+            this.txtItemID.TabIndex = 1;
+            // 
+            // lvItems
+            // 
+            this.lvItems.HideSelection = false;
+            this.lvItems.Location = new System.Drawing.Point(37, 61);
+            this.lvItems.Name = "lvItems";
+            this.lvItems.Size = new System.Drawing.Size(352, 229);
+            this.lvItems.TabIndex = 2;
+            this.lvItems.UseCompatibleStateImageBehavior = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(49, 35);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(39, 15);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Name";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(225, 35);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(18, 15);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "ID";
             // 
             // btnAddItem
             // 
-            this.btnAddItem.Location = new System.Drawing.Point(32, 179);
+            this.btnAddItem.Location = new System.Drawing.Point(103, 304);
             this.btnAddItem.Name = "btnAddItem";
-            this.btnAddItem.Size = new System.Drawing.Size(84, 34);
-            this.btnAddItem.TabIndex = 0;
+            this.btnAddItem.Size = new System.Drawing.Size(100, 23);
+            this.btnAddItem.TabIndex = 5;
             this.btnAddItem.Text = "Add Item";
             this.btnAddItem.UseVisualStyleBackColor = true;
             this.btnAddItem.Click += new System.EventHandler(this.btnAddItem_Click);
             // 
-            // txtName
+            // btnCancel
             // 
-            this.txtName.Location = new System.Drawing.Point(90, 25);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(139, 23);
-            this.txtName.TabIndex = 1;
-            // 
-            // txtPrice
-            // 
-            this.txtPrice.Location = new System.Drawing.Point(90, 77);
-            this.txtPrice.Name = "txtPrice";
-            this.txtPrice.Size = new System.Drawing.Size(139, 23);
-            this.txtPrice.TabIndex = 1;
-            // 
-            // lblName
-            // 
-            this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(32, 28);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(39, 15);
-            this.lblName.TabIndex = 2;
-            this.lblName.Text = "Name";
-            // 
-            // lblPrice
-            // 
-            this.lblPrice.AutoSize = true;
-            this.lblPrice.Location = new System.Drawing.Point(32, 80);
-            this.lblPrice.Name = "lblPrice";
-            this.lblPrice.Size = new System.Drawing.Size(33, 15);
-            this.lblPrice.TabIndex = 3;
-            this.lblPrice.Text = "Price";
-            // 
-            // cmbCategory
-            // 
-            this.cmbCategory.FormattingEnabled = true;
-            this.cmbCategory.Location = new System.Drawing.Point(161, 127);
-            this.cmbCategory.Name = "cmbCategory";
-            this.cmbCategory.Size = new System.Drawing.Size(139, 23);
-            this.cmbCategory.TabIndex = 4;
-            // 
-            // lblCategory
-            // 
-            this.lblCategory.AutoSize = true;
-            this.lblCategory.Location = new System.Drawing.Point(32, 130);
-            this.lblCategory.Name = "lblCategory";
-            this.lblCategory.Size = new System.Drawing.Size(112, 15);
-            this.lblCategory.TabIndex = 5;
-            this.lblCategory.Text = "Category (Optional)";
+            this.btnCancel.Location = new System.Drawing.Point(263, 304);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(100, 23);
+            this.btnCancel.TabIndex = 6;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // AddItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(312, 225);
-            this.Controls.Add(this.lblCategory);
-            this.Controls.Add(this.cmbCategory);
-            this.Controls.Add(this.lblPrice);
-            this.Controls.Add(this.lblName);
-            this.Controls.Add(this.txtPrice);
-            this.Controls.Add(this.txtName);
+            this.ClientSize = new System.Drawing.Size(427, 339);
+            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnAddItem);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lvItems);
+            this.Controls.Add(this.txtItemID);
+            this.Controls.Add(this.txtItemName);
             this.Name = "AddItem";
             this.Text = "Add New Item";
             this.ResumeLayout(false);
@@ -117,12 +119,12 @@
 
         #endregion
 
+        private System.Windows.Forms.TextBox txtItemName;
+        private System.Windows.Forms.TextBox txtItemID;
+        private System.Windows.Forms.ListView lvItems;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnAddItem;
-        private System.Windows.Forms.TextBox txtName;
-        private System.Windows.Forms.TextBox txtPrice;
-        private System.Windows.Forms.Label lblName;
-        private System.Windows.Forms.Label lblPrice;
-        private System.Windows.Forms.ComboBox cmbCategory;
-        private System.Windows.Forms.Label lblCategory;
+        private System.Windows.Forms.Button btnCancel;
     }
 }

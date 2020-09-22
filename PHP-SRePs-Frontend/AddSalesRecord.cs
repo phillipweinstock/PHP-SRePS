@@ -15,12 +15,15 @@ namespace PHP_SRePS_Frontend
 {
     public partial class AddSalesRecord : Form
     {
-        AddItem frmAddItem = new AddItem();
+        AddItem frmAddItem;
+        MainMenu frmMainMenu;
 
-        public AddSalesRecord()
+        public AddSalesRecord(MainMenu form)
         {
             InitializeComponent();
             _ = RpcTest();
+            frmAddItem = new AddItem(this);
+            frmMainMenu = form;
         }
 
         //Rpc test example
@@ -131,6 +134,12 @@ namespace PHP_SRePS_Frontend
         private void btnContinue_Click(object sender, EventArgs e)
         {
             //add record to db
+            this.Close();
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            frmMainMenu.Show();
             this.Close();
         }
     }

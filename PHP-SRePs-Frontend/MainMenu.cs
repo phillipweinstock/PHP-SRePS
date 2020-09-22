@@ -10,32 +10,35 @@ namespace PHP_SRePS_Frontend
 {
     public partial class MainMenu : Form
     {
-        LogIn frmLogIn = new LogIn();
-        AddSalesRecord frmAddSalesRecord = new AddSalesRecord();
+        LogIn frmLogIn;
+        AddSalesRecord frmAddSalesRecord;
+        Inventory frmInventory;
 
         public MainMenu()
         {
             InitializeComponent();
+            frmAddSalesRecord = new AddSalesRecord(this);
+            frmInventory = new Inventory(this);
         }
 
         private void btnAddSale_Click(object sender, EventArgs e)
         {
             frmAddSalesRecord.Show();
-            this.Hide();
+            this.Close();
         }
         private void btnCheckStock_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            //frmCheckStock.Show();
+            this.Close();
+            frmInventory.Show();
         }
         private void btnAnalysis_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
             //frmAnalysis.Show();
         }
         private void btnLogOut_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
             frmLogIn.Show();
         }
 

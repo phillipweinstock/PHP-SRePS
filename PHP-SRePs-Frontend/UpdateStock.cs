@@ -8,19 +8,23 @@ using System.Windows.Forms;
 
 namespace PHP_SRePS_Frontend
 {
-    public partial class CheckStock : Form
+    public partial class UpdateStock : Form
     {
         Inventory frmInventory;
+        AddStock frmAddStock;
 
-        public CheckStock(Inventory form)
+        public UpdateStock(Inventory form)
         {
             InitializeComponent();
             frmInventory = form;
+            frmAddStock = new AddStock();
+            frmAddStock.Name = "Update Stock";
+            frmAddStock.btnAddStock.Text = "Save";
         }
 
-        private void CheckStock_Load(object sender, EventArgs e)
+        private void btnUpdate_Click(object sender, EventArgs e)
         {
-
+            frmAddStock.Show();
         }
 
         private void btnBack_Click(object sender, EventArgs e)

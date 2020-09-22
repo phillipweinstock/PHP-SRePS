@@ -8,22 +8,16 @@ using System.Windows.Forms;
 
 namespace PHP_SRePS_Frontend
 {
-    public partial class AddItem : Form
+    public partial class AddStock : Form
     {
-        AddSalesRecord frmAddSalesRecord;
-
-        public AddItem(AddSalesRecord form)
+        public AddStock()
         {
             InitializeComponent();
-
-            frmAddSalesRecord = form;
         }
 
-        private void btnAddItem_Click(object sender, EventArgs e)
+        private void btnAddStock_Click(object sender, EventArgs e)
         {
-            //add item to bill
-            txtItemID.Text = "";
-            txtItemName.Text = "";
+            //add item to database
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
