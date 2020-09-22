@@ -32,12 +32,13 @@ namespace PHP_SRePS_Backend
 
 
 
-            _logger.LogError("All items requested");
+            _logger.LogInformation("All items requested");
             return item;
         }
+
         public override async Task GetAllItems(HasChanged request, IServerStreamWriter<Item> responseStream, ServerCallContext context)
         {
-            string query = "SELECT * FROM item ;";
+            string query = "SELECT * FROM item;";
 
             await db.Connection.OpenAsync();
             var command = new MySqlCommand(query, db.Connection);
@@ -70,7 +71,6 @@ namespace PHP_SRePS_Backend
             var command = new MySqlCommand(query, db.Connection);
             var reader = await command.ExecuteReaderAsync();
             reader.ConfigureAwait(true);
-            ;
 
 
             bool recordsAffected = (reader.RecordsAffected == 1);

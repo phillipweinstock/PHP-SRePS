@@ -103,35 +103,48 @@ namespace PHP_SRePS_Frontend
 
                 await Task.Delay(1000);
             }
-        
+        }
 
-        /*
-        // Recieving a stream:
-        // each time MoveNext() is called, a new Sale will be returned
-        using (var call = client.GetSale(input))
+        private async Task RequestAllSales()
         {
-            // while there are items in the stream
-            while (await call.ResponseStream.MoveNext())
+            var channel = GrpcChannel.ForAddress("https://localhost:5001");
+            var client = new SaleDef.SaleDefClient(channel);
+
+            var input = new HasChanged
             {
-                // get the current sale information
-                var currentSaleInfo = call.ResponseStream.Current;
+                // Send the list of item details
+                ChangedData = false
+            };
 
-                var totalBilled = currentSaleInfo.TotalBilled;
-
-                // Get the item information
-                foreach (var itemInfo in currentSaleInfo.ItemDetails)
+            // Recieving a stream:
+            // each time MoveNext() is called, a new Sale will be returned
+            using (var call = client.GetAllSales(input))
+            {
+                // while there are items in the stream
+                while (await call.ResponseStream.MoveNext())
                 {
-                    // Do something with the item
-                    lblTest.Text = itemInfo.Name;
+                    // get the current sale information
+                    var currentSaleInfo = call.ResponseStream.Current;
 
-                    await Task.Delay(1000);
+                    var totalBilled = currentSaleInfo.TotalBilled;
+
+                    // Get the item information
+                    foreach (var itemInfo in currentSaleInfo.ItemDetails)
+                    {
+                        // Do something with the item
+                        //lblTest.Text = itemInfo.Name;
+                    }
+
+                    lblTest.Text += currentSaleInfo.SaleId.ToString();
                 }
-            }*/
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            _ = RequestSales();
+            _ = RequestAllSales();
+
+            //_ = RequestSales();
             //GetItemExampleAsync();
         }
 
