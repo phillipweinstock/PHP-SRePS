@@ -8,12 +8,12 @@ package backend;
 // The sales service definition.
 service SaleDef {
 	// Sends a sales insertion
-	rpc AddSale (AddSaleRequest) returns (ErrorCodeReply);
+	rpc AddSale     (AddSaleRequest) returns (ErrorCodeReply);
 	// Get requested sales: 
 	//	ID = just a single sale
-	rpc GetSale (SaleGet) returns (SaleInfo);
+	rpc GetSale     (SaleGet)        returns (SaleInfo);
 	// Return all sales
-	rpc GetAllSales (HasChanged) returns (stream SaleInfo);
+	rpc GetAllSales (HasChanged)     returns (stream SaleInfo);
 }
 
 // The request message containing the Item Ids to be added

@@ -33,6 +33,25 @@ namespace PHP_SRePS_Backend
                 ErrorCode = false
             });
         }
+        public override async Task<ErrorCodeReply> DeleteCategory(Category request, ServerCallContext context)
+        {
+  
+            string query = $"DELETE FROM category WHERE cat_id={request.CategoryId} );";
+            await db.Connection.OpenAsync();
+            using var command = new MySqlCommand(query, db.Connection);
+            using var reader = await command.ExecuteReaderAsync();
+            await reader.CloseAsync();
+            await db.Connection.CloseAsync();
+
+            ErrorCodeReply error = new ErrorCodeReply
+            {
+                ErrorCode =!( reader.RecordsAffected == 1)
+            };
+
+
+            _logger.LogError("Delete Category");
+            return error ;
+        }
 
         public override async Task<ErrorCodeReply> AddCategory(Category request, ServerCallContext context)
         {

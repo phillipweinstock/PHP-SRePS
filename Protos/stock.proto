@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+option csharp_namespace = "PHP_SRePS_Backend";
+
+import "item.proto";
+
+package backend;
+// The StockTake service definition.
+service StockDef {
+
+	// Get requested StockTake: 
+	rpc GetStock     (Item)       returns (StockInfo);
+	// Return all Stocks
+	rpc GetAllStocks (HasChanged) returns (stream StockInfo);
+	//Remove a quantity of stock 
+	rpc ChangeStock  (StockTake)  returns (StockInfo);
+	
+}
+
+// The return message that contains the sale information
+message StockInfo {
+	int32 stock = 1;
+}
+message StockTake {
+	Item item =1;
+	StockInfo info = 2;
+}
