@@ -1,14 +1,9 @@
-using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Threading.Tasks;
 using Grpc.Core;
-using Microsoft.AspNetCore.SignalR.Protocol;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using MySqlConnector;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using static PHP_SRePS_Backend.SaleInfo.Types;
 
 namespace PHP_SRePS_Backend
 {
@@ -80,7 +75,7 @@ namespace PHP_SRePS_Backend
             });
         }
 
-        public override async Task GetSale(SaleGet request, IServerStreamWriter<SaleInfo> responseStream, ServerCallContext context)
+        public override async Task<SaleInfo> GetSale(SaleGet request, ServerCallContext context)
         {
 
             MySqlConnection db = new AppDb().Connection;
@@ -88,84 +83,109 @@ namespace PHP_SRePS_Backend
 
             var cmd = db.CreateCommand();
 
-            // Sale information which will be returned
-            SaleInfo returnInfo = new SaleInfo();
+            // Database lookup with id
+            cmd.CommandText = "SELECT ITEM.item_id, ITEM.name, ITEM.price, ITEMDETAIL.quantity, SALE.total_billed " +
+                                   "FROM ITEMDETAIL " +
+                                   "JOIN ITEM ON ITEMDETAIL.item_id = ITEM.item_id " +
+                                   "JOIN SALE ON sale.sale_id = ITEMDETAIL.sale_id " +
+                                   $"WHERE SALE.sale_id = {request.SaleId};";
 
-            if (request.SaleId > 0) // saleId will be set to 0 if not specified
+
+            var salesinfo = await cmd.ExecuteReaderAsync();
+            var totalBilled = 0f;
+
+            // get item infos
+            List<ItemRequestDetails> iteminfos = new List<ItemRequestDetails>();
+            while (await salesinfo.ReadAsync())
             {
-                _logger.LogDebug($"ID: {request.SaleId.ToString()}");
-
-                // TODO: Database lookup with id
-                cmd.CommandText = $"SELECT sale_id, total_billed FROM sale WHERE sale_id={request.SaleId}";
-                var salesinfo = await cmd.ExecuteReaderAsync();
-                await salesinfo.ReadAsync();
-                
-                if (salesinfo.HasRows)
+                iteminfos.Add(new ItemRequestDetails
                 {
-                    uint saleid = salesinfo.GetFieldValue<uint>(0);
+                    ItemId = salesinfo.GetFieldValue<uint>(0),
+                    Name = salesinfo.GetFieldValue<string>(1),
+                    Price = salesinfo.GetFieldValue<float>(2),
+                    Quantity = salesinfo.GetFieldValue<uint>(3)
+                });
 
-                    await salesinfo.CloseAsync();
-
-                    cmd.CommandText = $"SELECT item_id, quantity FROM itemdetail WHERE sale_id={saleid}";
-                    var reader = await cmd.ExecuteReaderAsync();
-
-                    // get item infos
-                    List<SaleInfo.Types.ItemRequestDetails> iteminfos = new List<SaleInfo.Types.ItemRequestDetails>();
-                    while(await reader.ReadAsync())
-                    {
-                        uint itemid = reader.GetFieldValue<uint>(0);
-
-                        cmd.CommandText = $"SELECT name, price FROM item WHERE item_id={itemid}";
-                        var reader2 = await cmd.ExecuteReaderAsync();
-                        while(await reader2.ReadAsync())
-                        {
-                            iteminfos.Add(new SaleInfo.Types.ItemRequestDetails
-                            {
-                                ItemId = reader.GetFieldValue<uint>(0),
-                                Name = reader2.GetFieldValue<string>(0),
-                                Price = reader2.GetFieldValue<float>(1),
-                                Quantity = reader.GetFieldValue<uint>(1)
-                            });
-                        }
-
-                        await reader2.CloseAsync();
-                    }
-
-                    returnInfo = new SaleInfo
-                    {
-                        ItemDetails = { iteminfos },
-                        SaleId = salesinfo.GetFieldValue<uint>(0),
-                        TotalBilled = salesinfo.GetFieldValue<float>(1)
-                    };
-
-                    await reader.CloseAsync();
-                }
-                await salesinfo.CloseAsync();
-
-            } else if(request.SaleDate != "")
-            {
-                _logger.LogDebug($"Date: {request.SaleDate.ToString()}");
-
-                // TODO: get all sales in db for date
-                returnInfo = new SaleInfo();
-            } else
-            {
-                // No info recieved
-                _logger.LogError($"No information sent in GetSale request");
-
-                // Return 0 sale id - indicating an issue occured
-                //returnInfo.SaleId = 0;
-                returnInfo = new SaleInfo();
+                totalBilled = salesinfo.GetFieldValue<float>(4);
             }
 
+            await salesinfo.CloseAsync();
+
+            await db.CloseAsync();
+            await db.DisposeAsync();
+
             // TODO: proper return
-            await responseStream.WriteAsync(returnInfo);
+            return await Task.FromResult(new SaleInfo
+            {
+                ItemDetails = { iteminfos },
+                SaleId = request.SaleId,
+                TotalBilled = totalBilled
+            });
         }
 
         public override async Task GetAllSales(HasChanged request, IServerStreamWriter<SaleInfo> responseStream, ServerCallContext context)
         {
-            // TODO: Do stuff
-            await base.GetAllSales(request, responseStream, context);
+            MySqlConnection db = new AppDb().Connection;
+            await db.OpenAsync();
+
+            var cmd = db.CreateCommand();
+
+            // TODO: Database lookup with id
+            cmd.CommandText = "SELECT SALE.sale_id, ITEM.item_id, ITEM.name, ITEM.price, ITEMDETAIL.quantity, SALE.total_billed " +
+                                   "FROM ITEMDETAIL " +
+                                   "JOIN ITEM ON ITEMDETAIL.item_id = ITEM.item_id " +
+                                   "JOIN SALE ON sale.sale_id = ITEMDETAIL.sale_id " +
+                                   "ORDER BY SALE.sale_id";
+
+            var reader = await cmd.ExecuteReaderAsync();
+
+            // initialise
+            uint saleId = 0;
+            float totalBill = 0f;
+            List<ItemRequestDetails> itemInfos = new List<ItemRequestDetails>();
+
+            while (await reader.ReadAsync())
+            {
+                // if the current id does not equal the previous id
+                if (reader.GetFieldValue<uint>(0) != saleId)
+                {
+                    // send the data
+                    if(saleId != 0)
+                        await responseStream.WriteAsync(new SaleInfo
+                        {
+                            SaleId = saleId,
+                            ItemDetails = { itemInfos },
+                            TotalBilled = totalBill
+                        });
+
+                    // reset to current info
+                    saleId = reader.GetFieldValue<uint>(0);
+                    totalBill = reader.GetFieldValue<float>(5);
+                    itemInfos.Clear();
+                }
+
+                // Add item information
+                itemInfos.Add(new ItemRequestDetails
+                {
+                    ItemId = reader.GetFieldValue<uint>(1),
+                    Name = reader.GetFieldValue<string>(2),
+                    Price = reader.GetFieldValue<float>(3),
+                    Quantity = reader.GetFieldValue<uint>(4)
+                });
+            }
+
+            // Final send - last sale id
+            await responseStream.WriteAsync(new SaleInfo
+            {
+                SaleId = saleId,
+                ItemDetails = { itemInfos },
+                TotalBilled = totalBill
+            });
+
+            await reader.CloseAsync();
+
+            await db.CloseAsync();
+            await db.DisposeAsync();
         }
     }
 }

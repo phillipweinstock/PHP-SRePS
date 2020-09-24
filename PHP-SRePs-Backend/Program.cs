@@ -1,9 +1,6 @@
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
+using System.Threading.Tasks;
 
 namespace PHP_SRePS_Backend
 {
@@ -11,11 +8,11 @@ namespace PHP_SRePS_Backend
     {
         public static async Task Dbconnection()
         {
-            using (var db = new AppDb()) 
+            using (var db = new AppDb())
             {
                 await db.Connection.OpenAsync();
             }
-        
+
         }
 
         public static Task connec = Dbconnection();
