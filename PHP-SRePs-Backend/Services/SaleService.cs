@@ -66,9 +66,6 @@ namespace PHP_SRePS_Backend
             await myTrans.CommitAsync();
             await db.CloseAsync();
 
-            _logger.LogCritical("DONE?");
-
-
             return await Task.FromResult(new ErrorCodeReply
             {
                 ErrorCode = dbUpdateSuccess
@@ -130,7 +127,7 @@ namespace PHP_SRePS_Backend
 
             var cmd = db.CreateCommand();
 
-            // TODO: Database lookup with id
+            // Database lookup with id
             cmd.CommandText = "SELECT SALE.sale_id, ITEM.item_id, ITEM.name, ITEM.price, ITEMDETAIL.quantity, SALE.total_billed " +
                                    "FROM ITEMDETAIL " +
                                    "JOIN ITEM ON ITEMDETAIL.item_id = ITEM.item_id " +
@@ -186,6 +183,42 @@ namespace PHP_SRePS_Backend
 
             await db.CloseAsync();
             await db.DisposeAsync();
+        }
+
+
+        public override async Task<ErrorCodeReply> DeleteSale(SaleGet request, ServerCallContext context)
+        {
+            
+
+            return await base.DeleteSale(request, context);
+        }
+
+        public override async Task<ErrorCodeReply> AlterSale(EditSaleRequest request, ServerCallContext context)
+        {
+            _logger.LogInformation($"LOG INFO: {request.SaleId}, {request.TotalBilled}");
+
+            if(request.SaleId <= 0 || request.TotalBilled < 0)
+            {
+                return await Task.FromResult(new ErrorCodeReply
+                {
+                    ErrorCode = false
+                });
+            }
+
+            
+
+            foreach(var itemDetail in request.ItemDetails)
+            {
+                _logger.LogInformation($"LOG INFO ITEM DETAIL: {itemDetail.ItemName}, {itemDetail.Quantity}");
+            }
+
+            
+
+
+            return await Task.FromResult(new ErrorCodeReply
+            {
+                ErrorCode = true
+            });
         }
     }
 }

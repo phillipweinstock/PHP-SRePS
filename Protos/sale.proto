@@ -14,6 +14,10 @@ service SaleDef {
 	rpc GetSale     (SaleGet)        returns (SaleInfo);
 	// Return all sales
 	rpc GetAllSales (HasChanged)     returns (stream SaleInfo);
+	// Delete a sale
+	rpc DeleteSale (SaleGet) returns (ErrorCodeReply);
+	// Alter a sale 
+	rpc AlterSale (EditSaleRequest) returns (ErrorCodeReply);
 }
 
 // The request message containing the Item Ids to be added
@@ -45,5 +49,12 @@ message SaleInfo {
 	}
 	uint32 sale_id = 1;
 	repeated ItemRequestDetails item_details = 2;
+	float total_billed = 3;
+}
+
+// The request message to edit a sale - uses sale ID
+message EditSaleRequest {
+	uint32 sale_id = 1;
+	repeated AddSaleRequest.ItemDetail item_details = 2;
 	float total_billed = 3;
 }

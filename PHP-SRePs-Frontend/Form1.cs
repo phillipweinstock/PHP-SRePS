@@ -140,9 +140,28 @@ namespace PHP_SRePS_Frontend
             }
         }
 
+        private async Task AlterSale()
+        {
+            var channel = GrpcChannel.ForAddress("https://localhost:5001");
+            var client = new SaleDef.SaleDefClient(channel);
+
+            var input = new EditSaleRequest
+            {
+                SaleId = 1,
+                // Send the list of item details
+                ItemDetails = {
+                }
+            };
+
+            var reply = await client.AlterSaleAsync(input);
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
-            _ = RequestAllSales();
+
+            _ = AlterSale();
+
+            //_ = RequestAllSales();
 
             //_ = RequestSales();
             //GetItemExampleAsync();
