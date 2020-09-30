@@ -63,8 +63,10 @@ namespace PHP_SRePS_Backend
 
         public override async Task<ErrorCodeReply> AddItem(Item request, ServerCallContext context)
         {
+            _logger.LogInformation($"{request.PriceId},{request.NameId},{request.CatagoryId}");
+
             string query = $"INSERT INTO ITEM (price,name,cat_id) " +
-                           $"VALUES ({request.PriceId},{request.NameId},{request.CatagoryId});";
+                           $"VALUES ({request.PriceId},\"{request.NameId}\",{request.CatagoryId});";
 
             await db.Connection.OpenAsync();
             var command = new MySqlCommand(query, db.Connection);
