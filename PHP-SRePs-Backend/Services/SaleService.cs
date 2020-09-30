@@ -123,6 +123,8 @@ namespace PHP_SRePS_Backend
 
         public override async Task GetAllSales(HasChanged request, IServerStreamWriter<SaleInfo> responseStream, ServerCallContext context)
         {
+            _logger.LogInformation("All sales requested");
+
             MySqlConnection db = new AppDb().Connection;
             await db.OpenAsync();
 
@@ -184,6 +186,8 @@ namespace PHP_SRePS_Backend
 
             await db.CloseAsync();
             await db.DisposeAsync();
+
+            _logger.LogInformation("All sales sent");
         }
 
 
