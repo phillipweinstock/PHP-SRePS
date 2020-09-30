@@ -1,4 +1,7 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PHP_SRePS_Frontend
@@ -14,7 +17,8 @@ namespace PHP_SRePS_Frontend
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            new LogIn().Show();
+            Application.Run();
         }
     }
 }

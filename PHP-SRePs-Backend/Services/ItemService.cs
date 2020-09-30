@@ -63,7 +63,6 @@ namespace PHP_SRePS_Backend
 
         public override async Task<ErrorCodeReply> AddItem(Item request, ServerCallContext context)
         {
-
             string query = $"INSERT INTO ITEM (price,name,cat_id) " +
                            $"VALUES ({request.PriceId},{request.NameId},{request.CatagoryId});";
 
