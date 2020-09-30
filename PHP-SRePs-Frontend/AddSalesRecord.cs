@@ -64,7 +64,10 @@ namespace PHP_SRePS_Frontend
                 }
             }
 
-            await AddSale(itemInfos);
+            if (itemInfos.Count > 0)
+            {
+                await AddSale(itemInfos);
+            }
 
             frmMainMenu.Show();
             this.Close();
