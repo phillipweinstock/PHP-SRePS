@@ -29,8 +29,9 @@ namespace PHP_SRePS_Frontend
         }
         private void btnAnalysis_Click(object sender, EventArgs e)
         {
+            CheckSales frmCheckSales = new CheckSales(this);
+            frmCheckSales.Show();
             this.Hide();
-            //frmAnalysis.Show();
         }
         private void btnLogOut_Click(object sender, EventArgs e)
         {

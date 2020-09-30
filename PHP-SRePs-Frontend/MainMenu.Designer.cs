@@ -74,7 +74,7 @@
             this.btnAnalysis.Name = "btnAnalysis";
             this.btnAnalysis.Size = new System.Drawing.Size(158, 48);
             this.btnAnalysis.TabIndex = 3;
-            this.btnAnalysis.Text = "Analysis";
+            this.btnAnalysis.Text = "Check Sales";
             this.btnAnalysis.UseVisualStyleBackColor = true;
             this.btnAnalysis.Click += new System.EventHandler(this.btnAnalysis_Click);
             // 
@@ -89,7 +89,7 @@
             this.btnLogOut.UseVisualStyleBackColor = true;
             this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
-            // frmMainMenu
+            // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -99,7 +99,7 @@
             this.Controls.Add(this.btnCheckStock);
             this.Controls.Add(this.btnAddSale);
             this.Controls.Add(this.label1);
-            this.Name = "frmMainMenu";
+            this.Name = "MainMenu";
             this.Text = "Main Menu";
             this.ResumeLayout(false);
             this.PerformLayout();
