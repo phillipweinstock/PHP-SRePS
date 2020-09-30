@@ -10,36 +10,33 @@ namespace PHP_SRePS_Frontend
 {
     public partial class Inventory : Form
     {
-        CheckStock frmCheckStock;
-        UpdateStock frmUpdateStock;
-        RemoveStock frmRemoveStock;
         MainMenu frmMainMenu;
 
         public Inventory(MainMenu form)
         {
             InitializeComponent();
             frmMainMenu = form;
-            frmCheckStock = new CheckStock(this);
-            frmRemoveStock = new RemoveStock(this);
-            frmUpdateStock = new UpdateStock(this);
         }
 
         private void btnCheckStock_Click(object sender, EventArgs e)
         {
+            CheckStock frmCheckStock = new CheckStock(this);
             frmCheckStock.Show();
             this.Hide();
         }
 
         private void btnUpdateStock_Click(object sender, EventArgs e)
         {
+            UpdateStock frmUpdateStock = new UpdateStock(this);
             frmUpdateStock.Show();
             this.Hide();
         }
 
         private void btnRemoveItem_Click(object sender, EventArgs e)
         {
+            RemoveStock frmRemoveStock = new RemoveStock(this);
             frmRemoveStock.Show();
-            this.Close();
+            this.Hide();
         }
 
         private void btnCreateItem_Click(object sender, EventArgs e)
