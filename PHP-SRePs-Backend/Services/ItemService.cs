@@ -32,12 +32,14 @@ namespace PHP_SRePS_Backend
 
 
 
-            _logger.LogInformation("All items requested");
+            _logger.LogInformation("Items requested");
             return item;
         }
 
         public override async Task GetAllItems(HasChanged request, IServerStreamWriter<Item> responseStream, ServerCallContext context)
         {
+            _logger.LogInformation("All items requested");
+
             string query = "SELECT * FROM item;";
 
             await db.Connection.OpenAsync();
@@ -57,6 +59,8 @@ namespace PHP_SRePS_Backend
             }
             await reader.CloseAsync();
             await db.Connection.CloseAsync();
+
+            _logger.LogInformation("All items sent");
         }
 
 
