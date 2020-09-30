@@ -63,8 +63,6 @@ namespace PHP_SRePS_Backend
 
         public override async Task<ErrorCodeReply> AddItem(Item request, ServerCallContext context)
         {
-            _logger.LogInformation($"{request.PriceId},{request.NameId},{request.CatagoryId}");
-
             string query = $"INSERT INTO ITEM (price,name,cat_id) " +
                            $"VALUES ({request.PriceId},\"{request.NameId}\",{request.CatagoryId});";
 
@@ -79,6 +77,7 @@ namespace PHP_SRePS_Backend
             await reader.CloseAsync();
             await db.Connection.CloseAsync();
 
+            _logger.LogInformation($"Added item '{request.NameId}' to item table");
 
             return (new ErrorCodeReply
             {
@@ -102,6 +101,7 @@ namespace PHP_SRePS_Backend
             await reader.CloseAsync();
             await db.Connection.CloseAsync();
 
+            _logger.LogInformation($"Removed item from item table");
 
             return (new ErrorCodeReply
             {
