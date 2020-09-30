@@ -89,7 +89,7 @@ namespace PHP_SRePS_Backend
         public override async Task<ErrorCodeReply> DeleteItem(Item request, ServerCallContext context)
         {
 
-            string query = $"DELETE FROM ITEM WHERE item_id = {request.ItemId} OR name ={request.NameId} ;";
+            string query = $"DELETE FROM ITEM WHERE item_id = {request.ItemId} OR name = \"{request.NameId}\" ;";
 
             await db.Connection.OpenAsync();
             var command = new MySqlCommand(query, db.Connection);
