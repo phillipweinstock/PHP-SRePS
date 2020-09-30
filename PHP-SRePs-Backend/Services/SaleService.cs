@@ -17,9 +17,6 @@ namespace PHP_SRePS_Backend
 
         public override async Task<ErrorCodeReply> AddSale(AddSaleRequest request, ServerCallContext context)
         {
-            // List Size of ItemDetails sent
-            _logger.LogDebug($"Count: {request.ItemDetails.Count}");
-
             // db updated successfully?
             bool dbUpdateSuccess = false;
 
@@ -30,10 +27,8 @@ namespace PHP_SRePS_Backend
             MySqlTransaction myTrans = await db.BeginTransactionAsync();
             cmd.Transaction = myTrans;
 
-            _logger.LogDebug($"connection opened");
-
             // Create a new sale
-            cmd.CommandText = $"insert into sale (total_billed, date) Values ({request.TotalBilled}, NOW()); SELECT LAST_INSERT_ID();";
+            cmd.CommandText = $"insert into sale (total_billed, date) Values (0, NOW()); SELECT LAST_INSERT_ID();";
             var reader = await cmd.ExecuteReaderAsync();
             await reader.ReadAsync();
 
@@ -41,21 +36,19 @@ namespace PHP_SRePS_Backend
             int saleid = reader.GetFieldValue<int>(0);
             await reader.CloseAsync();
 
-            _logger.LogWarning($"saleid : {saleid}");
-
+            float totalBilled = 0f;
             // Loop to add items to ItemDetail table
             foreach (var itemDetail in request.ItemDetails)
             {
-                _logger.LogInformation($"{itemDetail.ItemName}");
-
                 // Find item
-                cmd.CommandText = $"SELECT item_id FROM item WHERE name=\"{itemDetail.ItemName}\"";
+                cmd.CommandText = $"SELECT item_id, price FROM item WHERE name=\"{itemDetail.ItemName}\"";
                 reader = await cmd.ExecuteReaderAsync();
                 await reader.ReadAsync();
-                int itemid = reader.GetFieldValue<int>(0);
-                await reader.CloseAsync();
 
-                _logger.LogInformation($"Itemid: {itemid}");
+                int itemid = reader.GetFieldValue<int>(0);
+                totalBilled += reader.GetFieldValue<float>(1) * itemDetail.Quantity;
+
+                await reader.CloseAsync();
 
                 // insert saleid into ItemDetail
                 cmd.CommandText = $"insert into itemdetail (item_id, quantity, sale_id) Values ({itemid}, {itemDetail.Quantity}, {saleid})";
@@ -63,8 +56,16 @@ namespace PHP_SRePS_Backend
                 await cmd.ExecuteNonQueryAsync();
             }
 
+            // update saleid to proper 
+            cmd.CommandText = $"UPDATE sale SET total_billed = {totalBilled} WHERE sale_id = {saleid}";
+            reader = await cmd.ExecuteReaderAsync();
+            await reader.ReadAsync();
+            await reader.CloseAsync();
+
             await myTrans.CommitAsync();
             await db.CloseAsync();
+
+            _logger.LogInformation($"Sale with id {saleid}, successfully added to the database");
 
             return await Task.FromResult(new ErrorCodeReply
             {
