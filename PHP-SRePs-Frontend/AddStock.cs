@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -27,7 +28,7 @@ namespace PHP_SRePS_Frontend
             var txtPrice = this.txtPrice;
             var txtQuant = this.txtQuantity;
 
-            await AddItem(uint.Parse(txtCat.Text.Trim()), txtName.Text.Trim(), float.Parse(txtPrice.Text.Trim()));
+            await AddItem(UInt32.Parse(txtCat.Text.Trim()), txtName.Text.Trim(), float.Parse(txtPrice.Text.Trim(), CultureInfo.InvariantCulture));
 
             this.Close();
         }
@@ -44,6 +45,7 @@ namespace PHP_SRePS_Frontend
 
             var input = new Item
             {
+                ItemId = 0,
                 CatagoryId = categoryid,
                 NameId = name,
                 PriceId = price
