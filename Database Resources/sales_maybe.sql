@@ -21,11 +21,13 @@ CREATE TABLE ITEM
  item_id  int auto_increment NOT NULL ,
  price decimal(10, 2) NOT NULL ,
  name varchar(45) NOT NULL ,
- cat_id int,
+ cat_id   int NOT NULL ,
 
 PRIMARY KEY (item_id),
 KEY fkIdx_14 (cat_id),
 CONSTRAINT FK_14 FOREIGN KEY fkIdx_14 (cat_id) REFERENCES Category (cat_id)
+       ON DELETE CASCADE
+       ON UPDATE CASCADE
 );
 
 CREATE TABLE ITEMDETAIL
@@ -37,20 +39,13 @@ CREATE TABLE ITEMDETAIL
 
 PRIMARY KEY (item_detail_id),
 KEY fkIdx_28 (item_id),
-CONSTRAINT FK_28 FOREIGN KEY fkIdx_28 (item_id) REFERENCES ITEM (item_id),
+CONSTRAINT FK_28 FOREIGN KEY fkIdx_28 (item_id) REFERENCES ITEM (item_id)
+       ON DELETE CASCADE
+       ON UPDATE CASCADE,
 KEY fkIdx_37 (sale_id),
 CONSTRAINT FK_37 FOREIGN KEY fkIdx_37 (sale_id) REFERENCES SALE (sale_id)
-);
-CREATE TABLE ITEMSTOCK
-(
- item_stock_id    int auto_increment NOT NULL ,
- quantity int NOT NULL ,
- item_id     int NOT NULL ,
- 
-
-PRIMARY KEY (item_stock_id),
-KEY fkIdx_29 (item_id),
-CONSTRAINT FK_29 FOREIGN KEY fkIdx_29 (item_id) REFERENCES ITEM (item_id)
+       ON DELETE CASCADE
+       ON UPDATE CASCADE
 );
 
 CREATE TABLE USERS(

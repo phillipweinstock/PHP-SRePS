@@ -8,25 +8,34 @@ package backend;
 // The sales service definition.
 service SaleDef {
 	// Sends a sales insertion
-	rpc AddSale (AddSaleRequest) returns (ErrorCodeReply);
+	rpc AddSale     (AddSaleRequest) returns (ErrorCodeReply);
 	// Get requested sales: 
+<<<<<<< HEAD
 	//	- Date = all sales added to db at date
 	//	- ID = just a single sale
 	rpc GetSale (SaleGet) returns (stream SaleInfo);
+=======
+	//	ID = just a single sale
+	rpc GetSale     (SaleGet)        returns (SaleInfo);
+>>>>>>> a0444af1d44370021400c67c035bbfa27519efdf
 	// Return all sales
-	rpc GetAllSales (HasChanged) returns (stream SaleInfo);
+	rpc GetAllSales (HasChanged)     returns (stream SaleInfo);
+	// Delete a sale
+	rpc DeleteSale (SaleGet) returns (ErrorCodeReply);
+	// Alter a sale 
+	rpc AlterSale (EditSaleRequest) returns (ErrorCodeReply);
+}
+
+//The Item to be added to the sale, item_id is a foreign key
+//item_id is also a foreign key for the actual item we are trying to get
+message ItemDetail {
+	string item_name = 1;
+	uint32 quantity = 2;
 }
 
 // The request message containing the Item Ids to be added
 message AddSaleRequest {
-	//The Item to be added to the sale, item_id is a foreign key
-	//item_id is also a foreign key for the actual item we are trying to get
-	message ItemDetail {
-		string item_name = 1;
-		uint32 quantity = 2;
-	}
 	repeated ItemDetail item_details = 1;
-	float total_billed = 2;
 }
 
 // The request message for a sale, 
@@ -50,5 +59,12 @@ message SaleInfo {
 	}
 	uint32 sale_id = 1;
 	repeated ItemRequestDetails item_details = 2;
+	float total_billed = 3;
+}
+
+// The request message to edit a sale - uses sale ID
+message EditSaleRequest {
+	uint32 sale_id = 1;
+	repeated ItemDetail item_details = 2;
 	float total_billed = 3;
 }

@@ -1,48 +1,36 @@
-<<<<<<< HEAD
-﻿using System;
-=======
 ﻿using Grpc.Core;
 using Grpc.Net.Client;
 using PHP_SRePS_Backend;
 using System;
->>>>>>> a0444af1d44370021400c67c035bbfa27519efdf
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Text;
-<<<<<<< HEAD
-=======
 using System.Threading.Tasks;
->>>>>>> a0444af1d44370021400c67c035bbfa27519efdf
 using System.Windows.Forms;
 
 namespace PHP_SRePS_Frontend
 {
-    public partial class CheckStock : Form
+    public partial class CheckSales : Form
     {
-        Inventory frmInventory;
+        MainMenu frmMainMenu;
 
-        public CheckStock(Inventory form)
+        public CheckSales(MainMenu form)
         {
             InitializeComponent();
-            frmInventory = form;
+            frmMainMenu = form;
         }
 
-<<<<<<< HEAD
-        private void CheckStock_Load(object sender, EventArgs e)
+        private async void CheckSales_Load(object sender, EventArgs e)
         {
-
-=======
-        private async void CheckStock_Load(object sender, EventArgs e)
-        {
-            await GetAllItems();
+            await GetAllSales();
         }
 
-        private async Task GetAllItems()
+        private async Task GetAllSales()
         {
             var channel = GrpcChannel.ForAddress("https://localhost:5001");
-            var client = new ItemDef.ItemDefClient(channel);
+            var client = new SaleDef.SaleDefClient(channel);
 
             var input = new HasChanged
             {
@@ -51,11 +39,11 @@ namespace PHP_SRePS_Frontend
             };
 
 
-            var dvg = this.dgvStockSearch;
+            var dvg = this.dgvSalesSearch;
 
             // Recieving a stream:
             // each time MoveNext() is called, a new Sale will be returned
-            using (var call = client.GetAllItems(input))
+            using (var call = client.GetAllSales(input))
             {
                 int current = 1;
                 // while there are items in the stream
@@ -64,22 +52,26 @@ namespace PHP_SRePS_Frontend
                     // get the current sale information
                     var currentSaleInfo = call.ResponseStream.Current;
 
-                    var catid = currentSaleInfo.CatagoryId;
-                    var itemid = currentSaleInfo.ItemId;
-                    var name = currentSaleInfo.NameId;
-                    var price = currentSaleInfo.PriceId;
+                    var saleid = currentSaleInfo.SaleId;
+                    var total = currentSaleInfo.TotalBilled;
 
-                    dvg.Rows.Add(current.ToString(), itemid, name, price, 2*current, catid);                    
+                    // Get the item information
+                    foreach (var itemInfo in currentSaleInfo.ItemDetails)
+                    {
+                        // Do something with the item
+                        //lblTest.Text = itemInfo.Name;
+                    }
+
+                    dvg.Rows.Add(current, saleid, total);                    
 
                     current++;
                 }
             }
->>>>>>> a0444af1d44370021400c67c035bbfa27519efdf
         }
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            frmInventory.Show();
+            frmMainMenu.Show();
             this.Close();
         }
     }

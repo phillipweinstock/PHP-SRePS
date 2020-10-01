@@ -109,13 +109,39 @@ namespace PHP_SRePS_Frontend
             lblTest.Text = "Done";
         }
 
+        private async Task AlterSale()
+        {
+            var channel = GrpcChannel.ForAddress("https://localhost:5001");
+            var client = new SaleDef.SaleDefClient(channel);
+
+            var input = new EditSaleRequest
+            {
+                SaleId = 1,
+                // Send the list of item details
+                ItemDetails = {
+                }
+            };
+
+            var reply = await client.AlterSaleAsync(input);
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
+<<<<<<< HEAD
 <<<<<<< HEAD
             _ = AddSaleExample();
 =======
             while (true) { _ = GetItemExample(); }
 >>>>>>> master
+=======
+
+            _ = AlterSale();
+
+            //_ = RequestAllSales();
+
+            //_ = RequestSales();
+            //GetItemExampleAsync();
+>>>>>>> a0444af1d44370021400c67c035bbfa27519efdf
         }
 
         private void Form1_Load(object sender, EventArgs e)

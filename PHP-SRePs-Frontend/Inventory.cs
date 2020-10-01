@@ -20,32 +20,32 @@ namespace PHP_SRePS_Frontend
         {
             InitializeComponent();
             frmMainMenu = form;
-            frmCheckStock = new CheckStock(this);
-            frmRemoveStock = new RemoveStock(this);
-            frmUpdateStock = new UpdateStock(this);
-            frmAddStock = new AddStock();
         }
 
         private void btnCheckStock_Click(object sender, EventArgs e)
         {
+            CheckStock frmCheckStock = new CheckStock(this);
             frmCheckStock.Show();
-            this.Close();
+            this.Hide();
         }
 
         private void btnUpdateStock_Click(object sender, EventArgs e)
         {
+            UpdateStock frmUpdateStock = new UpdateStock(this);
             frmUpdateStock.Show();
-            this.Close();
+            this.Hide();
         }
 
         private void btnRemoveItem_Click(object sender, EventArgs e)
         {
+            RemoveStock frmRemoveStock = new RemoveStock(this);
             frmRemoveStock.Show();
-            this.Close();
+            this.Hide();
         }
 
         private void btnCreateItem_Click(object sender, EventArgs e)
         {
+            AddStock frmAddStock = new AddStock();
             frmAddStock.Show();
         }
 

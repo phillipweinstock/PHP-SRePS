@@ -24,6 +24,7 @@ namespace PHP_SRePS_Backend
         {
 
             Item item = new Item();
+<<<<<<< HEAD
             string query = $"SELECT * FROM item WHERE item_id = {request.ItemId} OR name={request.NameId} );";
                 await db.Connection.OpenAsync();
                 using var command = new MySqlCommand(query, db.Connection);
@@ -39,9 +40,27 @@ namespace PHP_SRePS_Backend
             
              _logger.LogError("All items requested");
              return  item;
+=======
+            string query = $"SELECT * FROM item WHERE item_id={request.ItemId} OR name='{request.NameId}';";
+            await db.Connection.OpenAsync();
+            using var command = new MySqlCommand(query, db.Connection);
+            using var reader = await command.ExecuteReaderAsync();
+            await reader.ReadAsync();
+
+            item.ItemId = reader.GetFieldValue<uint>(0);
+            item.PriceId = reader.GetFieldValue<float>(1);
+            item.NameId = reader.GetFieldValue<string>(2);
+            item.CatagoryId = reader.GetFieldValue<uint>(3);
+
+
+
+            _logger.LogInformation("Items requested");
+            return item;
+>>>>>>> a0444af1d44370021400c67c035bbfa27519efdf
         }
         public override async Task GetAllItems(HasChanged request, IServerStreamWriter<Item> responseStream, ServerCallContext context)
         {
+<<<<<<< HEAD
             string query = "SELECT * FROM item ;";
             
                 await db.Connection.OpenAsync();
@@ -49,6 +68,19 @@ namespace PHP_SRePS_Backend
                  var reader = await  command.ExecuteReaderAsync();
                 
                 while (await reader.ReadAsync())
+=======
+            _logger.LogInformation("All items requested");
+
+            string query = "SELECT * FROM item;";
+
+            await db.Connection.OpenAsync();
+            var command = new MySqlCommand(query, db.Connection);
+            var reader = await command.ExecuteReaderAsync();
+
+            while (await reader.ReadAsync())
+            {
+                Item item = new Item
+>>>>>>> a0444af1d44370021400c67c035bbfa27519efdf
                 {
                     Item item = new Item
                     {
@@ -61,15 +93,20 @@ namespace PHP_SRePS_Backend
                 }
             await reader.CloseAsync();
             await db.Connection.CloseAsync();
+
+            _logger.LogInformation("All items sent");
         }
 
    
 
         public override async Task<ErrorCodeReply> AddItem(Item request, ServerCallContext context)
         {
+<<<<<<< HEAD
             
+=======
+>>>>>>> a0444af1d44370021400c67c035bbfa27519efdf
             string query = $"INSERT INTO ITEM (price,name,cat_id) " +
-                           $"VALUES ({request.PriceId},{request.NameId},{request.CatagoryId});";
+                           $"VALUES ({request.PriceId},\"{request.NameId}\",{request.CatagoryId});";
 
             await db.Connection.OpenAsync();
             var command = new MySqlCommand(query, db.Connection);
@@ -83,6 +120,7 @@ namespace PHP_SRePS_Backend
             await reader.CloseAsync();
             await db.Connection.CloseAsync();
 
+            _logger.LogInformation($"Added item '{request.NameId}' to item table");
 
             return (new ErrorCodeReply
             {
@@ -93,7 +131,7 @@ namespace PHP_SRePS_Backend
         public override async Task<ErrorCodeReply> DeleteItem(Item request, ServerCallContext context)
         {
 
-            string query = $"DELETE FROM ITEM WHERE item_id = {request.ItemId} OR name ={request.NameId} ;";
+            string query = $"DELETE FROM ITEM WHERE item_id = {request.ItemId} OR name = \"{request.NameId}\" ;";
 
             await db.Connection.OpenAsync();
             var command = new MySqlCommand(query, db.Connection);
@@ -106,6 +144,7 @@ namespace PHP_SRePS_Backend
             await reader.CloseAsync();
             await db.Connection.CloseAsync();
 
+            _logger.LogInformation($"Removed item from item table");
 
             return (new ErrorCodeReply
             {

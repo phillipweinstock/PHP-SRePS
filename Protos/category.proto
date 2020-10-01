@@ -9,9 +9,10 @@ package backend;
 // The sales service definition.
 service CategoryDef {
 	// Sends a sales insertion
-	rpc GetCategory (Category) returns (ErrorCodeReply);
-	rpc AddCategory (Category) returns (ErrorCodeReply);
-	rpc AlterCategory (CategoryAlterRequest) returns  (ErrorCodeReply);
+	rpc GetCategory    (Category)             returns (ErrorCodeReply);
+	rpc AddCategory    (Category)             returns (ErrorCodeReply);
+	rpc AlterCategory  (CategoryAlterRequest) returns (ErrorCodeReply);
+	rpc DeleteCategory (Category)             returns (ErrorCodeReply);
 }
 
 message Category{

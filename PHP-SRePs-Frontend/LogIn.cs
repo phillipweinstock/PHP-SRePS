@@ -21,6 +21,7 @@ namespace PHP_SRePS_Frontend
         {
             //check user Id and password against database or w/e
             frmMainMenu.Show();
+            this.Close();
         }
     }
 }

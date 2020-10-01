@@ -143,6 +143,7 @@
             this.btnContinue.Size = new System.Drawing.Size(93, 37);
             this.btnContinue.TabIndex = 16;
             this.btnContinue.Text = "Continue";
+            this.btnContinue.Text = "Add Sale";
             this.btnContinue.UseVisualStyleBackColor = true;
             this.btnContinue.Click += new System.EventHandler(this.btnContinue_Click);
             // 
@@ -202,6 +203,7 @@
             this.Name = "AddSalesRecord";
             this.Text = "Add Sales Record";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.AddSalesRecord_Load);
             ((System.ComponentModel.ISupportInitialize)(this.salesRecordView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -17,29 +17,34 @@ namespace PHP_SRePS_Frontend
         public MainMenu()
         {
             InitializeComponent();
-            frmAddSalesRecord = new AddSalesRecord(this);
-            frmInventory = new Inventory(this);
         }
 
         private void btnAddSale_Click(object sender, EventArgs e)
         {
+            AddSalesRecord frmAddSalesRecord = new AddSalesRecord(this);
             frmAddSalesRecord.Show();
-            this.Close();
+            this.Hide();
         }
+
         private void btnCheckStock_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Inventory frmInventory = new Inventory(this);
             frmInventory.Show();
+            this.Hide();
         }
+
         private void btnAnalysis_Click(object sender, EventArgs e)
         {
-            this.Close();
-            //frmAnalysis.Show();
+            CheckSales frmCheckSales = new CheckSales(this);
+            frmCheckSales.Show();
+            this.Hide();
         }
+
         private void btnLogOut_Click(object sender, EventArgs e)
         {
-            this.Close();
+            LogIn frmLogIn = new LogIn();
             frmLogIn.Show();
+            this.Close();
         }
 
         

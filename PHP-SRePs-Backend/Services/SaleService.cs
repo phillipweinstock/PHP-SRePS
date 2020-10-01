@@ -22,9 +22,6 @@ namespace PHP_SRePS_Backend
 
         public override async Task<ErrorCodeReply> AddSale(AddSaleRequest request, ServerCallContext context)
         {
-            // List Size of ItemDetails sent
-            _logger.LogDebug($"Count: {request.ItemDetails.Count}");
-
             // db updated successfully?
             bool dbUpdateSuccess = false;
 
@@ -35,10 +32,8 @@ namespace PHP_SRePS_Backend
             MySqlTransaction myTrans = await db.BeginTransactionAsync();
             cmd.Transaction = myTrans;
 
-            _logger.LogDebug($"connection opened");
-
             // Create a new sale
-            cmd.CommandText = $"insert into sale (total_billed, date) Values ({request.TotalBilled}, NOW()); SELECT LAST_INSERT_ID();";
+            cmd.CommandText = $"insert into sale (total_billed, date) Values (0, NOW()); SELECT LAST_INSERT_ID();";
             var reader = await cmd.ExecuteReaderAsync();
             await reader.ReadAsync();
 
@@ -46,21 +41,19 @@ namespace PHP_SRePS_Backend
             int saleid = reader.GetFieldValue<int>(0);
             await reader.CloseAsync();
 
-            _logger.LogWarning($"saleid : {saleid}");
-
+            float totalBilled = 0f;
             // Loop to add items to ItemDetail table
             foreach (var itemDetail in request.ItemDetails)
             {
-                _logger.LogInformation($"{itemDetail.ItemName}");
-
                 // Find item
-                cmd.CommandText = $"SELECT item_id FROM item WHERE name=\"{itemDetail.ItemName}\"";
+                cmd.CommandText = $"SELECT item_id, price FROM item WHERE name=\"{itemDetail.ItemName}\"";
                 reader = await cmd.ExecuteReaderAsync();
                 await reader.ReadAsync();
-                int itemid = reader.GetFieldValue<int>(0);
-                await reader.CloseAsync();
 
-                _logger.LogInformation($"Itemid: {itemid}");
+                int itemid = reader.GetFieldValue<int>(0);
+                totalBilled += reader.GetFieldValue<float>(1) * itemDetail.Quantity;
+
+                await reader.CloseAsync();
 
                 // insert saleid into ItemDetail
                 cmd.CommandText = $"insert into itemdetail (item_id, quantity, sale_id) Values ({itemid}, {itemDetail.Quantity}, {saleid})";
@@ -68,11 +61,16 @@ namespace PHP_SRePS_Backend
                 await cmd.ExecuteNonQueryAsync();
             }
 
+            // update saleid to proper 
+            cmd.CommandText = $"UPDATE sale SET total_billed = {totalBilled} WHERE sale_id = {saleid}";
+            reader = await cmd.ExecuteReaderAsync();
+            await reader.ReadAsync();
+            await reader.CloseAsync();
+
             await myTrans.CommitAsync();
             await db.CloseAsync();
 
-            _logger.LogCritical("DONE?");
-
+            _logger.LogInformation($"Sale with id {saleid}, successfully added to the database");
 
             return await Task.FromResult(new ErrorCodeReply
             {
@@ -102,12 +100,55 @@ namespace PHP_SRePS_Backend
                 
                 if (salesinfo.HasRows)
                 {
+<<<<<<< HEAD
                     uint saleid = salesinfo.GetFieldValue<uint>(0);
+=======
+                    ItemId = salesinfo.GetFieldValue<uint>(0),
+                    Name = salesinfo.GetFieldValue<string>(1),
+                    Price = salesinfo.GetFieldValue<float>(2),
+                    Quantity = salesinfo.GetFieldValue<uint>(3)
+                });
+
+                totalBilled = salesinfo.GetFieldValue<float>(4);
+            }
+
+            await salesinfo.CloseAsync();
+
+            await db.CloseAsync();
+            await db.DisposeAsync();
+
+            // TODO: proper return
+            return await Task.FromResult(new SaleInfo
+            {
+                ItemDetails = { iteminfos },
+                SaleId = request.SaleId,
+                TotalBilled = totalBilled
+            });
+        }
+
+        public override async Task GetAllSales(HasChanged request, IServerStreamWriter<SaleInfo> responseStream, ServerCallContext context)
+        {
+            _logger.LogInformation("All sales requested");
+
+            MySqlConnection db = new AppDb().Connection;
+            await db.OpenAsync();
+>>>>>>> a0444af1d44370021400c67c035bbfa27519efdf
 
                     await salesinfo.CloseAsync();
 
+<<<<<<< HEAD
                     cmd.CommandText = $"SELECT item_id, quantity FROM itemdetail WHERE sale_id={saleid}";
                     var reader = await cmd.ExecuteReaderAsync();
+=======
+            // Database lookup with id
+            cmd.CommandText = "SELECT SALE.sale_id, ITEM.item_id, ITEM.name, ITEM.price, ITEMDETAIL.quantity, SALE.total_billed " +
+                                   "FROM ITEMDETAIL " +
+                                   "JOIN ITEM ON ITEMDETAIL.item_id = ITEM.item_id " +
+                                   "JOIN SALE ON sale.sale_id = ITEMDETAIL.sale_id " +
+                                   "ORDER BY SALE.sale_id";
+
+            var reader = await cmd.ExecuteReaderAsync();
+>>>>>>> a0444af1d44370021400c67c035bbfa27519efdf
 
                     // get item infos
                     List<SaleInfo.Types.ItemRequestDetails> iteminfos = new List<SaleInfo.Types.ItemRequestDetails>();
@@ -158,6 +199,7 @@ namespace PHP_SRePS_Backend
                 returnInfo = new SaleInfo();
             }
 
+<<<<<<< HEAD
             // TODO: proper return
             await responseStream.WriteAsync(returnInfo);
         }
@@ -166,6 +208,48 @@ namespace PHP_SRePS_Backend
         {
             // TODO: Do stuff
             await base.GetAllSales(request, responseStream, context);
+=======
+            await db.CloseAsync();
+            await db.DisposeAsync();
+
+            _logger.LogInformation("All sales sent");
+        }
+
+
+        public override async Task<ErrorCodeReply> DeleteSale(SaleGet request, ServerCallContext context)
+        {
+            
+
+            return await base.DeleteSale(request, context);
+        }
+
+        public override async Task<ErrorCodeReply> AlterSale(EditSaleRequest request, ServerCallContext context)
+        {
+            _logger.LogInformation($"LOG INFO: {request.SaleId}, {request.TotalBilled}");
+
+            if(request.SaleId <= 0 || request.TotalBilled < 0)
+            {
+                return await Task.FromResult(new ErrorCodeReply
+                {
+                    ErrorCode = false
+                });
+            }
+
+            
+
+            foreach(var itemDetail in request.ItemDetails)
+            {
+                _logger.LogInformation($"LOG INFO ITEM DETAIL: {itemDetail.ItemName}, {itemDetail.Quantity}");
+            }
+
+            
+
+
+            return await Task.FromResult(new ErrorCodeReply
+            {
+                ErrorCode = true
+            });
+>>>>>>> a0444af1d44370021400c67c035bbfa27519efdf
         }
     }
 }
