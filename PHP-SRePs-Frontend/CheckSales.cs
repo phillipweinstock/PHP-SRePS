@@ -6,9 +6,11 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static PHP_SRePS_Backend.SaleInfo.Types;
 
 namespace PHP_SRePS_Frontend
 {
@@ -25,7 +27,14 @@ namespace PHP_SRePS_Frontend
         private async void CheckSales_Load(object sender, EventArgs e)
         {
             await GetAllSales();
+            //AllocConsole();
         }
+        
+        
+        [DllImport("kernel32.dll", SetLastError = true)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        static extern bool AllocConsole();
+        
 
         private async Task GetAllSales()
         {
@@ -55,13 +64,6 @@ namespace PHP_SRePS_Frontend
                     var saleid = currentSaleInfo.SaleId;
                     var total = currentSaleInfo.TotalBilled;
 
-                    // Get the item information
-                    foreach (var itemInfo in currentSaleInfo.ItemDetails)
-                    {
-                        // Do something with the item
-                        //lblTest.Text = itemInfo.Name;
-                    }
-
                     dvg.Rows.Add(current, saleid, total);                    
 
                     current++;
@@ -73,6 +75,38 @@ namespace PHP_SRePS_Frontend
         {
             frmMainMenu.Show();
             this.Close();
+        }
+
+        private async void dgvSalesSearch_SelectionChanged(object sender, EventArgs e)
+        {
+            if(this.dgvSalesSearch.SelectedRows.Count > 0)
+            {
+                var dvg = this.dgvSalesSearch;
+                
+                var channel = GrpcChannel.ForAddress("https://localhost:5001");
+                var client = new SaleDef.SaleDefClient(channel);
+
+                // This should only have 1 field: 
+                // not SaleId = num, SaleDate = "a date"
+                var input = new SaleGet
+                {
+                    SaleId = UInt32.Parse(dvg.SelectedRows[0].Cells[1].Value.ToString())
+                };
+
+                // get the current sale information
+                var currentSaleInfo = await client.GetSaleAsync(input);
+
+                var dvgItems = this.dvgItemInfo;
+                dvgItems.Rows.Clear();
+
+                // Get the item information
+                foreach (var itemInfo in currentSaleInfo.ItemDetails)
+                {
+                    dvgItems.Rows.Add(itemInfo.ItemId, itemInfo.Name, itemInfo.Price, itemInfo.Quantity);
+                }
+
+                dvgItems.Refresh();
+            }
         }
     }
 }
