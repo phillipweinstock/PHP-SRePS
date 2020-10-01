@@ -1,4 +1,4 @@
-using Grpc.Net.Client;
+﻿using Grpc.Net.Client;
 using PHP_SRePS_Backend;
 using System;
 using System.Collections.Generic;
@@ -26,6 +26,7 @@ namespace PHP_SRePS_Frontend
             frmInventory.Show();
             this.Close();
         }
+
         private async void btnRemove_Click(object sender, EventArgs e)
         {
             var txtName = this.txtName;

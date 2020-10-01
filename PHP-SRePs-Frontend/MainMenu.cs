@@ -10,10 +10,6 @@ namespace PHP_SRePS_Frontend
 {
     public partial class MainMenu : Form
     {
-        LogIn frmLogIn;
-        AddSalesRecord frmAddSalesRecord;
-        Inventory frmInventory;
-
         public MainMenu()
         {
             InitializeComponent();
@@ -25,21 +21,18 @@ namespace PHP_SRePS_Frontend
             frmAddSalesRecord.Show();
             this.Hide();
         }
-
         private void btnCheckStock_Click(object sender, EventArgs e)
         {
             Inventory frmInventory = new Inventory(this);
             frmInventory.Show();
             this.Hide();
         }
-
         private void btnAnalysis_Click(object sender, EventArgs e)
         {
             CheckSales frmCheckSales = new CheckSales(this);
             frmCheckSales.Show();
             this.Hide();
         }
-
         private void btnLogOut_Click(object sender, EventArgs e)
         {
             LogIn frmLogIn = new LogIn();

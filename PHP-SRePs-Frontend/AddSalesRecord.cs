@@ -17,13 +17,11 @@ namespace PHP_SRePS_Frontend
 {
     public partial class AddSalesRecord : Form
     {
-        AddItem frmAddItem;
         MainMenu frmMainMenu;
 
         public AddSalesRecord(MainMenu form)
         {
             InitializeComponent();
-            frmAddItem = new AddItem(this);
             frmMainMenu = form;
         }
 
@@ -39,6 +37,7 @@ namespace PHP_SRePS_Frontend
 
         private void btnAddItem_Click(object sender, EventArgs e)
         {
+            AddItem frmAddItem = new AddItem(this);
             frmAddItem.Show();
         }
 
@@ -73,7 +72,6 @@ namespace PHP_SRePS_Frontend
             frmMainMenu.Show();
             this.Close();
         }
-
         private async Task AddSale(List<ItemDetail> itemInfos)
         {
             var channel = GrpcChannel.ForAddress("https://localhost:5001");

@@ -1,20 +1,13 @@
-<<<<<<< HEAD
-﻿using System;
-=======
 ﻿using Grpc.Core;
 using Grpc.Net.Client;
 using PHP_SRePS_Backend;
 using System;
->>>>>>> a0444af1d44370021400c67c035bbfa27519efdf
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Text;
-<<<<<<< HEAD
-=======
 using System.Threading.Tasks;
->>>>>>> a0444af1d44370021400c67c035bbfa27519efdf
 using System.Windows.Forms;
 
 namespace PHP_SRePS_Frontend
@@ -29,11 +22,6 @@ namespace PHP_SRePS_Frontend
             frmInventory = form;
         }
 
-<<<<<<< HEAD
-        private void CheckStock_Load(object sender, EventArgs e)
-        {
-
-=======
         private async void CheckStock_Load(object sender, EventArgs e)
         {
             await GetAllItems();
@@ -74,7 +62,6 @@ namespace PHP_SRePS_Frontend
                     current++;
                 }
             }
->>>>>>> a0444af1d44370021400c67c035bbfa27519efdf
         }
 
         private void btnBack_Click(object sender, EventArgs e)

@@ -10,10 +10,6 @@ namespace PHP_SRePS_Frontend
 {
     public partial class Inventory : Form
     {
-        CheckStock frmCheckStock;
-        UpdateStock frmUpdateStock;
-        RemoveStock frmRemoveStock;
-        AddStock frmAddStock;
         MainMenu frmMainMenu;
 
         public Inventory(MainMenu form)

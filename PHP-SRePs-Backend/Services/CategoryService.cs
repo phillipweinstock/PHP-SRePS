@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Grpc.Core;
+﻿using Grpc.Core;
 using Microsoft.Extensions.Logging;
 using MySqlConnector;
+using System.Threading.Tasks;
 
 namespace PHP_SRePS_Backend
 {
@@ -27,7 +24,7 @@ namespace PHP_SRePS_Backend
             await reader.CloseAsync();
             await db.Connection.CloseAsync();
 
-            
+
 
 
             _logger.LogError("All items requested");
@@ -61,14 +58,14 @@ namespace PHP_SRePS_Backend
 
             string query = $"INSERT INTO category (name,cat_desc) values ({request.Name},{request.CatDesc});";
 
-           
-                await db.Connection.OpenAsync();
-                using var command = new MySqlCommand(query, db.Connection);
-                using var reader = await command.ExecuteReaderAsync();
-                
-                await reader.CloseAsync();
-                await db.Connection.CloseAsync();
-            
+
+            await db.Connection.OpenAsync();
+            using var command = new MySqlCommand(query, db.Connection);
+            using var reader = await command.ExecuteReaderAsync();
+
+            await reader.CloseAsync();
+            await db.Connection.CloseAsync();
+
 
             return (new ErrorCodeReply
             {

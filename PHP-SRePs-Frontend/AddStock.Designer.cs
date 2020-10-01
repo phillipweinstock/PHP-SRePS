@@ -147,6 +147,7 @@
         }
 
         #endregion
+
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.TextBox txtPrice;
         private System.Windows.Forms.TextBox txtCategory;

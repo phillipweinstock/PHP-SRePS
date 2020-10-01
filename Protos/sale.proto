@@ -10,14 +10,8 @@ service SaleDef {
 	// Sends a sales insertion
 	rpc AddSale     (AddSaleRequest) returns (ErrorCodeReply);
 	// Get requested sales: 
-<<<<<<< HEAD
-	//	- Date = all sales added to db at date
-	//	- ID = just a single sale
-	rpc GetSale (SaleGet) returns (stream SaleInfo);
-=======
 	//	ID = just a single sale
 	rpc GetSale     (SaleGet)        returns (SaleInfo);
->>>>>>> a0444af1d44370021400c67c035bbfa27519efdf
 	// Return all sales
 	rpc GetAllSales (HasChanged)     returns (stream SaleInfo);
 	// Delete a sale
@@ -39,13 +33,9 @@ message AddSaleRequest {
 }
 
 // The request message for a sale, 
-// where if sale_id is sent a single sale will be returned, 
-// and if a sale_date is sent all sales made for that date are returned
+// using the sale id - that sale will be returned
 message SaleGet {
-	oneof sale_req {		// Only one value should be sent
-		uint32 sale_id = 1;
-		string sale_date = 2;
-	}
+	uint32 sale_id = 1;
 }
 
 // The return message that contains the sale information

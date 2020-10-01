@@ -99,7 +99,7 @@
             this.Controls.Add(this.btnCheckStock);
             this.Controls.Add(this.btnAddSale);
             this.Controls.Add(this.label1);
-            this.Name = "frmMainMenu";
+            this.Name = "MainMenu";
             this.Text = "Main Menu";
             this.ResumeLayout(false);
             this.PerformLayout();
