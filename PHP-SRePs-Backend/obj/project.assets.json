@@ -719,19 +719,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Adam\\.nuget\\packages\\": {}
+    "C:\\Users\\pip43\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Shared\\Uni\\Year 2 Semester 2\\SWE30010 - Development Project 2\\Assignments\\repo\\PHP-SRePS\\PHP-SRePS-Backend\\PHP-SRePS-Backend.csproj",
+      "projectUniqueName": "C:\\Users\\pip43\\source\\repos\\phillipweinstock\\PHP-SRePS\\PHP-SRePS-Backend\\PHP-SRePS-Backend.csproj",
       "projectName": "PHP-SRePS-Backend",
-      "projectPath": "D:\\Shared\\Uni\\Year 2 Semester 2\\SWE30010 - Development Project 2\\Assignments\\repo\\PHP-SRePS\\PHP-SRePS-Backend\\PHP-SRePS-Backend.csproj",
-      "packagesPath": "C:\\Users\\Adam\\.nuget\\packages\\",
-      "outputPath": "D:\\Shared\\Uni\\Year 2 Semester 2\\SWE30010 - Development Project 2\\Assignments\\repo\\PHP-SRePS\\PHP-SRePS-Backend\\obj\\",
+      "projectPath": "C:\\Users\\pip43\\source\\repos\\phillipweinstock\\PHP-SRePS\\PHP-SRePS-Backend\\PHP-SRePS-Backend.csproj",
+      "packagesPath": "C:\\Users\\pip43\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\pip43\\source\\repos\\phillipweinstock\\PHP-SRePS\\PHP-SRePS-Backend\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Adam\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\pip43\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

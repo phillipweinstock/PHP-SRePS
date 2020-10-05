@@ -11,6 +11,10 @@ namespace PHP_SRePS_Backend
 {
         private AppDb db = new AppDb();
 
+        public override StockInfo GetAllStocks(HasChanged request,IServerStreamWriter<StockTake>, ServerCallContext context)
+        {
+            return (new StockInfo());
+        }
         public override async Task<StockInfo> GetStock(Item request, ServerCallContext context)
         {
 

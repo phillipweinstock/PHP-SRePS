@@ -8,10 +8,13 @@ package backend;
 // The StockTake service definition.
 service StockDef {
 
+// Return all Stocks
+
+	rpc GetAllStocks (HasChanged) returns (Stream StockTake);
+
 	// Get requested StockTake: 
 	rpc GetStock     (Item)       returns (StockInfo);
-	// Return all Stocks
-	rpc GetAllStocks (HasChanged) returns (stream StockInfo);
+	
 	//Remove a quantity of stock 
 	rpc ChangeStock  (StockTake)  returns (StockInfo);
 	
