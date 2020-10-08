@@ -10,7 +10,7 @@ service StockDef {
 
 // Return all Stocks
 
-	rpc GetAllStocks (HasChanged) returns (Stream StockTake);
+	rpc GetAllStocks (HasChanged) returns (stream StockTake);
 
 	// Get requested StockTake: 
 	rpc GetStock     (Item)       returns (StockInfo);

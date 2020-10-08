@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\pip43\\source\\repos\\phillipweinstock\\PHP-SRePS\\PHP-SRePS-Backend\\PHP-SRePS-Backend.csproj": {}
+    "C:\\Users\\pip43\\source\\repos\\phillipweinstock\\PHP-SRePs\\PHP-SRePS-Backend\\PHP-SRePS-Backend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\pip43\\source\\repos\\phillipweinstock\\PHP-SRePS\\PHP-SRePS-Backend\\PHP-SRePS-Backend.csproj": {
+    "C:\\Users\\pip43\\source\\repos\\phillipweinstock\\PHP-SRePs\\PHP-SRePS-Backend\\PHP-SRePS-Backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pip43\\source\\repos\\phillipweinstock\\PHP-SRePS\\PHP-SRePS-Backend\\PHP-SRePS-Backend.csproj",
+        "projectUniqueName": "C:\\Users\\pip43\\source\\repos\\phillipweinstock\\PHP-SRePs\\PHP-SRePS-Backend\\PHP-SRePS-Backend.csproj",
         "projectName": "PHP-SRePS-Backend",
-        "projectPath": "C:\\Users\\pip43\\source\\repos\\phillipweinstock\\PHP-SRePS\\PHP-SRePS-Backend\\PHP-SRePS-Backend.csproj",
+        "projectPath": "C:\\Users\\pip43\\source\\repos\\phillipweinstock\\PHP-SRePs\\PHP-SRePS-Backend\\PHP-SRePS-Backend.csproj",
         "packagesPath": "C:\\Users\\pip43\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pip43\\source\\repos\\phillipweinstock\\PHP-SRePS\\PHP-SRePS-Backend\\obj\\",
+        "outputPath": "C:\\Users\\pip43\\source\\repos\\phillipweinstock\\PHP-SRePs\\PHP-SRePS-Backend\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

@@ -1,7 +1,9 @@
 ﻿using Grpc.Core;
+using Microsoft.AspNetCore.WebUtilities;
 using MySqlConnector;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -11,43 +13,50 @@ namespace PHP_SRePS_Backend
 {
         private AppDb db = new AppDb();
 
-        public override StockInfo GetAllStocks(HasChanged request,IServerStreamWriter<StockTake>, ServerCallContext context)
+/*        public override async Task<StockTake> GetAllStocks(HasChanged request,IServerStreamWriter<StockTake> responseStream, ServerCallContext context)
         {
-            return (new StockInfo());
-        }
+            string query = "SELECT * FROM STOCKS;";
+
+            await db.Connection.OpenAsync();
+            var command = new MySqlCommand(query, db.Connection);
+            var reader = await command.ExecuteReaderAsync();
+
+            while (await reader.ReadAsync())
+            {
+                var Stocktake = new StockTake();
+                {
+                    StockTake. = (uint)(int)reader.GetValueAs(0);
+                };
+                await responseStream.WriteAsync();
+        }*/
         public override async Task<StockInfo> GetStock(Item request, ServerCallContext context)
         {
 
             
-            //await db.Connection.OpenAsync();
+            await db.Connection.OpenAsync();
 
-         //   var cmd = db.Connection.
+            var cmd = db.Connection.CreateCommand();
 
             // Database lookup with id
-          /*  cmd.CommandText = "SELECT ITEM.item_id, ITEM.name, ITEM.price, ITEMDETAIL.quantity, SALE.total_billed " +
-                                   "FROM ITEMDETAIL " +
-                                   "JOIN ITEM ON ITEMDETAIL.item_id = ITEM.item_id " +
-                                   "JOIN SALE ON sale.sale_id = ITEMDETAIL.sale_id " +
-                                   $"WHERE SALE.sale_id = {request.SaleId};";*/
+            cmd.CommandText = $"SELECT * FROM STOCK WHERE Item_id={request.ItemId};";
 
-/*
-            var salesinfo = await cmd.ExecuteReaderAsync();
+
+            var Stock = await cmd.ExecuteReaderAsync();
+
+            var Stockinfo = new StockInfo();
+            await Stock.ReadAsync();
+
+
+            Stockinfo.Stock =  Stock.GetFieldValue<int>(2);
+
+                
             
-           
-            while (await salesinfo.ReadAsync())
-            {
-               
 
-                totalBilled = salesinfo.GetFieldValue<float>(4);
-            }
+            await Stock.CloseAsync();
+            await Stock.DisposeAsync();
 
-            await salesinfo.CloseAsync();
-
-            await db.CloseAsync();
-            await db.DisposeAsync();
-*/
           
-            return (new StockInfo());
+            return (Stockinfo);
         }
 
     }
