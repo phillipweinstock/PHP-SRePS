@@ -13,7 +13,13 @@ namespace PHP_SRePS_Backend
 {
         private AppDb db = new AppDb();
 
+<<<<<<< HEAD
 /*        public override async Task<StockTake> GetAllStocks(HasChanged request,IServerStreamWriter<StockTake> responseStream, ServerCallContext context)
+=======
+        //public override 
+
+        public override StockInfo GetAllStocks(HasChanged request,IServerStreamWriter<StockTake>, ServerCallContext context)
+>>>>>>> 76ca9473530439e4493eb657e71df5be196dd9d1
         {
             string query = "SELECT * FROM STOCKS;";
 
