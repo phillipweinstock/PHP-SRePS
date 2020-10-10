@@ -7,13 +7,8 @@ import "item.proto";
 package backend;
 // The StockTake service definition.
 service StockDef {
-<<<<<<< HEAD
-
 // Return all Stocks
-
-=======
 	// Return all Stocks
->>>>>>> 76ca9473530439e4493eb657e71df5be196dd9d1
 	rpc GetAllStocks (HasChanged) returns (stream StockTake);
 
 	// Get requested StockTake: 
@@ -29,6 +24,6 @@ message StockInfo {
 	int32 stock = 1;
 }
 message StockTake {
-	Item item =1;
+	Item item = 1;
 	StockInfo info = 2;
 }
