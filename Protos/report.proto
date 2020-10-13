@@ -5,7 +5,7 @@ option csharp_namespace = "PHP_SRePS_Backend";
 package backend;
 // The sales service definition.
 service ReportDef {
-	rpc GetMontlyReport (MonthGet) returns (stream MontlySalesReport);
+	rpc GetMontlyReport (MonthGet) returns (stream MonthlyItemInfo);
 }
 
 message MonthGet {
@@ -13,7 +13,7 @@ message MonthGet {
 	int32 year = 2; 
 }
 
-message MontlySalesReport {
+message MonthlyItemInfo {
 	uint32 item_id = 1;
 	string item_name = 2;
 	float qty_sold = 3;
