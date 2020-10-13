@@ -193,9 +193,22 @@ namespace PHP_SRePS_Backend
 
         public override async Task<ErrorCodeReply> DeleteSale(SaleGet request, ServerCallContext context)
         {
-            
+            MySqlConnection db = new AppDb().Connection;
+            await db.OpenAsync();
 
-            return await base.DeleteSale(request, context);
+            var cmd = db.CreateCommand();
+
+            // Database lookup with id
+            cmd.CommandText = $"DELETE FROM sale WHERE sale_id = {request.SaleId}";
+
+            var reader = await cmd.ExecuteReaderAsync();
+
+            bool recordsAffected = (reader.RecordsAffected == 1);
+
+            return (new ErrorCodeReply
+            {
+                ErrorCode = recordsAffected
+            });
         }
 
         public override async Task<ErrorCodeReply> AlterSale(EditSaleRequest request, ServerCallContext context)
