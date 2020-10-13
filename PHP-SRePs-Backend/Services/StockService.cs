@@ -22,6 +22,44 @@ namespace PHP_SRePS_Backend
         private AppDb db = new AppDb();
 
         private ItemService itemService;
+        public override async Task<StockInfo> ChangeStock(StockTake request, ServerCallContext context)
+        {
+
+            await db.Connection.OpenAsync();
+
+            var cmd = db.Connection.CreateCommand();
+
+            // Database lookup with id
+             cmd.CommandText = $"UPDATE STOCK SET item_stock={request.Info.Stock} WHERE item_id={request.Item.ItemId};";
+
+            
+            _ = await cmd.ExecuteReaderAsync();
+            await cmd.DisposeAsync();
+
+         
+
+            //await Stock.CloseAsync();
+           // await Stock.DisposeAsync();
+
+
+           cmd.CommandText = $"SELECT * FROM STOCK WHERE item_id={request.Item.ItemId};";
+
+
+            var Stock = await cmd.ExecuteReaderAsync();
+
+            var Stockinfo = new StockInfo();
+            await Stock.ReadAsync();
+
+
+            Stockinfo.Stock = Stock.GetFieldValue<int>(2);
+
+            await Stock.CloseAsync();
+            await Stock.DisposeAsync();
+
+
+            return (Stockinfo);
+
+        }
 
         public override async Task GetAllStocks(HasChanged request, IServerStreamWriter<StockTake> responseStream, ServerCallContext context)
 
