@@ -18,6 +18,9 @@ namespace PHP_SRePS_Frontend
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             new LogIn().Show();
+            
+            //new TestForm().Show();
+            
             Application.Run();
         }
     }
