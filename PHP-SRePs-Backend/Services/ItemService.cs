@@ -112,5 +112,30 @@ namespace PHP_SRePS_Backend
                 ErrorCode = recordsAffected
             });
         }
+        public override async Task<ErrorCodeReply> AlterItem(AlteredItem request, ServerCallContext context)
+        {
+
+            string query = $"UPDATE ITEM " +
+                           $"SET name=;{request.AlteredItem_.NameId},price={request.AlteredItem_.PriceId}" +
+                           $",cat_id{request.AlteredItem_.CatagoryId} " +
+                           $"WHERE item_id={request.ItemOriginal.ItemId}";
+            await db.Connection.OpenAsync();
+            var command = new MySqlCommand(query, db.Connection);
+            var reader = await command.ExecuteReaderAsync();
+            reader.ConfigureAwait(true);
+
+
+            bool recordsAffected = (reader.RecordsAffected == 1);
+
+            await reader.CloseAsync();
+            await db.Connection.CloseAsync();
+
+            _logger.LogInformation($"Removed item from item table");
+
+            return (new ErrorCodeReply
+            {
+                ErrorCode = recordsAffected
+            });
+        }
     }
 }
