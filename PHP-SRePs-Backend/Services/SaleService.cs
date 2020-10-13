@@ -193,17 +193,21 @@ namespace PHP_SRePS_Backend
 
         public override async Task<ErrorCodeReply> DeleteSale(SaleGet request, ServerCallContext context)
         {
+
+
             MySqlConnection db = new AppDb().Connection;
             await db.OpenAsync();
 
             var cmd = db.CreateCommand();
 
-            // Database lookup with id
             cmd.CommandText = $"DELETE FROM sale WHERE sale_id = {request.SaleId}";
 
             var reader = await cmd.ExecuteReaderAsync();
+            await reader.CloseAsync();
 
-            bool recordsAffected = (reader.RecordsAffected == 1);
+            bool recordsAffected = (reader.RecordsAffected >= 1);
+
+            _logger.LogInformation($"Deleted sale with id: {request.SaleId} from database");
 
             return (new ErrorCodeReply
             {
@@ -213,25 +217,46 @@ namespace PHP_SRePS_Backend
 
         public override async Task<ErrorCodeReply> AlterSale(EditSaleRequest request, ServerCallContext context)
         {
-            _logger.LogInformation($"LOG INFO: {request.SaleId}, {request.TotalBilled}");
+            //_logger.LogInformation($"LOG INFO: {request.SaleId}, {request.TotalBilled}");
 
-            if(request.SaleId <= 0 || request.TotalBilled < 0)
+            if(request.SaleId <= 0)
             {
-                return await Task.FromResult(new ErrorCodeReply
+                return new ErrorCodeReply
                 {
                     ErrorCode = false
-                });
+                };
             }
 
-            
+            MySqlConnection db = new AppDb().Connection;
+            await db.OpenAsync();
 
-            foreach(var itemDetail in request.ItemDetails)
+            var cmd = db.CreateCommand();
+
+            cmd.CommandText = $"DELETE FROM itemdetail where sale_id={request.SaleId}";
+            await cmd.ExecuteNonQueryAsync();
+
+            var totalBilled = 0f;
+
+            foreach (var itemDetail in request.ItemDetails)
             {
-                _logger.LogInformation($"LOG INFO ITEM DETAIL: {itemDetail.ItemName}, {itemDetail.Quantity}");
+                // Find item
+                cmd.CommandText = $"SELECT item_id, price FROM item WHERE name=\"{itemDetail.ItemName}\"";
+                var reader = await cmd.ExecuteReaderAsync();
+                await reader.ReadAsync();
+
+                int itemid = reader.GetFieldValue<int>(0);
+                totalBilled += reader.GetFieldValue<float>(1) * itemDetail.Quantity;
+
+                await reader.CloseAsync();
+
+                // insert saleid into ItemDetail
+                cmd.CommandText = $"INSERT INTO itemdetail (item_id, quantity, sale_id) VALUES ({itemid}, {itemDetail.Quantity}, {request.SaleId})";
+
+                await cmd.ExecuteNonQueryAsync();
             }
 
-            
-
+            cmd.CommandText = $"UPDATE sale SET total_billed = {totalBilled} WHERE sale_id = {request.SaleId}";
+            await cmd.ExecuteNonQueryAsync();
 
             return await Task.FromResult(new ErrorCodeReply
             {

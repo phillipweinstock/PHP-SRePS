@@ -72,6 +72,7 @@ namespace PHP_SRePS_Frontend
             frmMainMenu.Show();
             this.Close();
         }
+
         private async Task AddSale(List<ItemDetail> itemInfos)
         {
             var channel = GrpcChannel.ForAddress("https://localhost:5001");
