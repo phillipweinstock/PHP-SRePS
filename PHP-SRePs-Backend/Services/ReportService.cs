@@ -70,7 +70,10 @@ namespace PHP_SRePS_Backend
 
             var reader = await cmd.ExecuteReaderAsync();
 
-            List<string> csvRows = new List<string>();
+            List<string> csvRows = new List<string>
+            {
+                "Item Id, Item Name, Quantity Sold, Revenue"
+            };
 
             while (await reader.ReadAsync())
             {
