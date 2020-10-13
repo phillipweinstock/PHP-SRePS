@@ -70,8 +70,6 @@ namespace PHP_SRePS_Backend
             var command = new MySqlCommand(query, db.Connection);
             var reader = await command.ExecuteReaderAsync();
 
-
-
             while (await reader.ReadAsync())
             {
                 // Use item service to get the item

@@ -32,6 +32,7 @@ namespace PHP_SRePS_Backend
                 endpoints.MapGrpcService<SaleService>();
                 endpoints.MapGrpcService<CategoryService>();
                 endpoints.MapGrpcService<StockService>();
+                endpoints.MapGrpcService<ReportService>();
 
                 endpoints.MapGet("/", async context =>
                 {
