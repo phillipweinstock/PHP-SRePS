@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option csharp_namespace = "PHP_SRePS_Backend";
+
+package backend;
+// The sales service definition.
+service ReportDef {
+	rpc GetMontlyReport (MonthGet) returns (stream MontlySalesReport);
+}
+
+message MonthGet {
+	int32 month = 1;
+	int32 year = 2; 
+}
+
+message MontlySalesReport {
+	uint32 item_id = 1;
+	string item_name = 2;
+	float qty_sold = 3;
+	float item_revenue = 4;
+}
