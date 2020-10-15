@@ -53,8 +53,8 @@ message SaleInfo {
 }
 
 // The request message to edit a sale - uses sale ID
+// total_billed is recalculated automatically
 message EditSaleRequest {
 	uint32 sale_id = 1;
 	repeated ItemDetail item_details = 2;
-	float total_billed = 3;
 }

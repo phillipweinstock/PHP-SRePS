@@ -1,4 +1,3 @@
-
 CREATE TABLE Category
 (
  cat_id   int auto_increment NOT NULL ,
@@ -28,6 +27,19 @@ KEY fkIdx_14 (cat_id),
 CONSTRAINT FK_14 FOREIGN KEY fkIdx_14 (cat_id) REFERENCES Category (cat_id)
        ON DELETE CASCADE
        ON UPDATE CASCADE
+);
+
+CREATE TABLE STOCK
+(
+ stock_id int auto_increment NOT NULL,
+ item_id int NOT NULL,
+ item_stock int NOT NULL,
+ 
+ PRIMARY KEY (stock_id),
+ KEY fkIdx_100 (item_id),
+ CONSTRAINT FK_100 FOREIGN KEY fkIdx_100 (item_id) REFERENCES Item (item_id)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
 );
 
 CREATE TABLE ITEMDETAIL
