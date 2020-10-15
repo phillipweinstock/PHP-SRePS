@@ -20,8 +20,20 @@ namespace PHP_SRePS_Frontend
         private void btnLogIn_Click(object sender, EventArgs e)
         {
             //check user Id and password against database or w/e
-            frmMainMenu.Show();
-            this.Close();
+          
+            Label mssg = new Label();
+            mssg.Text = "Please enter correct password";
+            if (txtUsername.Text == "Admin" && txtPassword.Text =="LEGENDARY")
+            {
+                frmMainMenu.Show();
+                this.Close();
+            }
+            else
+            {
+                txtPassword.Text = mssg.Text;
+            }
+           
+            
         }
     }
 }

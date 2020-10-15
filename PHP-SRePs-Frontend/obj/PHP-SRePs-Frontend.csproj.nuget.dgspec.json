@@ -1,21 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Shared\\Uni\\Year 2 Semester 2\\SWE30010 - Development Project 2\\Assignments\\repo\\PHP-SRePS\\PHP-SRePS-Frontend\\PHP-SRePS-Frontend.csproj": {}
+    "C:\\Users\\Lenovo\\OneDrive - Swinburne University\\Study-SEM-3\\SWE30010 Development project 2 - Design, planning and management\\PHPSRePS\\PHP-SRePS\\PHP-SRePS-Frontend\\PHP-SRePS-Frontend.csproj": {}
   },
   "projects": {
-    "D:\\Shared\\Uni\\Year 2 Semester 2\\SWE30010 - Development Project 2\\Assignments\\repo\\PHP-SRePS\\PHP-SRePS-Frontend\\PHP-SRePS-Frontend.csproj": {
+    "C:\\Users\\Lenovo\\OneDrive - Swinburne University\\Study-SEM-3\\SWE30010 Development project 2 - Design, planning and management\\PHPSRePS\\PHP-SRePS\\PHP-SRePS-Frontend\\PHP-SRePS-Frontend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Shared\\Uni\\Year 2 Semester 2\\SWE30010 - Development Project 2\\Assignments\\repo\\PHP-SRePS\\PHP-SRePS-Frontend\\PHP-SRePS-Frontend.csproj",
+        "projectUniqueName": "C:\\Users\\Lenovo\\OneDrive - Swinburne University\\Study-SEM-3\\SWE30010 Development project 2 - Design, planning and management\\PHPSRePS\\PHP-SRePS\\PHP-SRePS-Frontend\\PHP-SRePS-Frontend.csproj",
         "projectName": "PHP-SRePS-Frontend",
-        "projectPath": "D:\\Shared\\Uni\\Year 2 Semester 2\\SWE30010 - Development Project 2\\Assignments\\repo\\PHP-SRePS\\PHP-SRePS-Frontend\\PHP-SRePS-Frontend.csproj",
-        "packagesPath": "C:\\Users\\Adam\\.nuget\\packages\\",
-        "outputPath": "D:\\Shared\\Uni\\Year 2 Semester 2\\SWE30010 - Development Project 2\\Assignments\\repo\\PHP-SRePS\\PHP-SRePS-Frontend\\obj\\",
+        "projectPath": "C:\\Users\\Lenovo\\OneDrive - Swinburne University\\Study-SEM-3\\SWE30010 Development project 2 - Design, planning and management\\PHPSRePS\\PHP-SRePS\\PHP-SRePS-Frontend\\PHP-SRePS-Frontend.csproj",
+        "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Lenovo\\OneDrive - Swinburne University\\Study-SEM-3\\SWE30010 Development project 2 - Design, planning and management\\PHPSRePS\\PHP-SRePS\\PHP-SRePS-Frontend\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Adam\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -71,7 +75,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
         }
       }
     }
