@@ -14,5 +14,10 @@ namespace PHP_SRePS_Frontend
         {
             InitializeComponent();
         }
+
+        private void btnContinue_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -32,9 +32,7 @@
             this.dvgSaleId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvTotalBill = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
-            this.lblSearchDate = new System.Windows.Forms.Label();
             this.txtIDSearch = new System.Windows.Forms.TextBox();
-            this.txtNameSearch = new System.Windows.Forms.TextBox();
             this.btnBack = new System.Windows.Forms.Button();
             this.dgvSalesSearch = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
@@ -66,34 +64,18 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 63);
+            this.label1.Location = new System.Drawing.Point(12, 94);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(78, 15);
             this.label1.TabIndex = 1;
             this.label1.Text = "Search by ID :";
             // 
-            // lblSearchDate
-            // 
-            this.lblSearchDate.AutoSize = true;
-            this.lblSearchDate.Location = new System.Drawing.Point(12, 105);
-            this.lblSearchDate.Name = "lblSearchDate";
-            this.lblSearchDate.Size = new System.Drawing.Size(88, 15);
-            this.lblSearchDate.TabIndex = 2;
-            this.lblSearchDate.Text = "Search by Date:";
-            // 
             // txtIDSearch
             // 
-            this.txtIDSearch.Location = new System.Drawing.Point(114, 60);
+            this.txtIDSearch.Location = new System.Drawing.Point(114, 91);
             this.txtIDSearch.Name = "txtIDSearch";
             this.txtIDSearch.Size = new System.Drawing.Size(100, 23);
             this.txtIDSearch.TabIndex = 3;
-            // 
-            // txtNameSearch
-            // 
-            this.txtNameSearch.Location = new System.Drawing.Point(114, 102);
-            this.txtNameSearch.Name = "txtNameSearch";
-            this.txtNameSearch.Size = new System.Drawing.Size(100, 23);
-            this.txtNameSearch.TabIndex = 4;
             // 
             // btnBack
             // 
@@ -161,12 +143,6 @@
             this.ItemQuantity.Name = "ItemQuantity";
             this.ItemQuantity.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
-            // CheckSales
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(811, 463);
-            // 
             // dvgItemInfo
             // 
             this.dvgItemInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -180,13 +156,17 @@
             this.dvgItemInfo.Size = new System.Drawing.Size(447, 284);
             this.dvgItemInfo.TabIndex = 6;
             this.dvgItemInfo.Text = "dataGridView1";
+            // 
+            // CheckSales
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(811, 463);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dvgItemInfo);
             this.Controls.Add(this.btnBack);
-            this.Controls.Add(this.txtNameSearch);
             this.Controls.Add(this.txtIDSearch);
-            this.Controls.Add(this.lblSearchDate);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvSalesSearch);
             this.Name = "CheckSales";
@@ -205,12 +185,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dvgSaleId;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvTotalBill;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label lblSearchDate;
         private System.Windows.Forms.TextBox txtIDSearch;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.DataGridView dgvSalesSearch;
-        private System.Windows.Forms.TextBox txtNameSearch;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView dvgItemInfo;

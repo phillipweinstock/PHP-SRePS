@@ -103,6 +103,7 @@
             this.btnContinue.TabIndex = 7;
             this.btnContinue.Text = "Continue";
             this.btnContinue.UseVisualStyleBackColor = true;
+            this.btnContinue.Click += new System.EventHandler(this.btnContinue_Click);
             // 
             // ConfirmPayment
             // 

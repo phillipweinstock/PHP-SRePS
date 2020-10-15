@@ -131,12 +131,6 @@
             this.itemRevenue.HeaderText = "Revenue";
             this.itemRevenue.Name = "itemRevenue";
             // 
-            // MonthlyReport
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(487, 411);
-            // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -150,6 +144,13 @@
             this.dataGridView1.Size = new System.Drawing.Size(443, 196);
             this.dataGridView1.TabIndex = 5;
             this.dataGridView1.Text = "dataGridView1";
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // MonthlyReport
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(487, 411);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.dataGridView1);

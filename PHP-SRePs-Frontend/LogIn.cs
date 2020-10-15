@@ -21,8 +21,7 @@ namespace PHP_SRePS_Frontend
         {
             //check user Id and password against database or w/e
           
-            Label mssg = new Label();
-            mssg.Text = "Please enter correct password";
+            string mssg = "Username and/or Password is incorrect";
             if (txtUsername.Text == "Admin" && txtPassword.Text =="LEGENDARY")
             {
                 frmMainMenu.Show();
@@ -30,7 +29,7 @@ namespace PHP_SRePS_Frontend
             }
             else
             {
-                txtPassword.Text = mssg.Text;
+                label4.Text = mssg;
             }
            
             

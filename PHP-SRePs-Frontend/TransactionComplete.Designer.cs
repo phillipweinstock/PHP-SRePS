@@ -145,6 +145,7 @@
             this.button3.TabIndex = 18;
             this.button3.Text = "Print Bill";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // dgcItemName
             // 
@@ -170,12 +171,6 @@
             this.label8.TabIndex = 20;
             this.label8.Text = "Total:";
             // 
-            // TransactionComplete
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(645, 450);
-            // 
             // dgvTransaction
             // 
             this.dgvTransaction.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -188,6 +183,12 @@
             this.dgvTransaction.TabIndex = 19;
             this.dgvTransaction.Text = "dataGridView1";
             this.dgvTransaction.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // TransactionComplete
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(645, 450);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.dgvTransaction);
             this.Controls.Add(this.button3);
