@@ -19,12 +19,12 @@ namespace PHP_SRePS_Frontend
 
         }
 
-<<<<<<< HEAD
+//<<<<<<< HEAD
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
-=======
+//=======
         private async void btnGenerateReport_Click(object sender, EventArgs e)
         {
             await getMonthlySale();
@@ -68,6 +68,6 @@ namespace PHP_SRePS_Frontend
             }
         }
 
->>>>>>> 2198bdf97efd5a9e400c94e288bb8afab187c0fc
+//>>>>>>> 2198bdf97efd5a9e400c94e288bb8afab187c0fc
     }
 }

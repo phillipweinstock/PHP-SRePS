@@ -137,11 +137,7 @@
             this.itemRevenue.HeaderText = "Revenue";
             this.itemRevenue.Name = "itemRevenue";
             // 
-<<<<<<< HEAD
-            // dataGridView1
-=======
             // dvgSalesReport
->>>>>>> 2198bdf97efd5a9e400c94e288bb8afab187c0fc
             // 
             this.dvgSalesReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dvgSalesReport.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -149,14 +145,6 @@
             this.itemName,
             this.itemQtySold,
             this.itemRevenue});
-<<<<<<< HEAD
-            this.dataGridView1.Location = new System.Drawing.Point(12, 138);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(443, 196);
-            this.dataGridView1.TabIndex = 5;
-            this.dataGridView1.Text = "dataGridView1";
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-=======
             this.dvgSalesReport.Location = new System.Drawing.Point(11, 192);
             this.dvgSalesReport.Name = "dvgSalesReport";
             this.dvgSalesReport.Size = new System.Drawing.Size(443, 213);
@@ -217,16 +205,11 @@
             this.btnGenerateReport.Text = "Generate Report";
             this.btnGenerateReport.UseVisualStyleBackColor = true;
             this.btnGenerateReport.Click += new System.EventHandler(this.btnGenerateReport_Click);
->>>>>>> 2198bdf97efd5a9e400c94e288bb8afab187c0fc
             // 
             // MonthlyReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-<<<<<<< HEAD
-            this.ClientSize = new System.Drawing.Size(487, 411);
-            this.Controls.Add(this.label4);
-=======
             this.ClientSize = new System.Drawing.Size(466, 466);
             this.Controls.Add(this.btnGenerateReport);
             this.Controls.Add(this.label7);
@@ -235,7 +218,6 @@
             this.Controls.Add(this.txtMonth);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.lblTotalPrice);
->>>>>>> 2198bdf97efd5a9e400c94e288bb8afab187c0fc
             this.Controls.Add(this.label3);
             this.Controls.Add(this.dvgSalesReport);
             this.Controls.Add(this.textBox2);
