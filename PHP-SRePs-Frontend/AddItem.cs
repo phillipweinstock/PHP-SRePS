@@ -24,16 +24,8 @@ namespace PHP_SRePS_Frontend
 
             frmAddSalesRecord = form;
 
-            AllocConsole();
-
             DisplayAllItems();
-            /*            this.txtItemID.TextChanged += txtItemID_TextChanged;
-                        frmAddSalesRecord = form;*/
         }
-
-        [DllImport("kernel32.dll", SetLastError = true)]
-        [return: MarshalAs(UnmanagedType.Bool)]
-        static extern bool AllocConsole();
 
         private async Task DisplayAllItems()
         {
@@ -65,35 +57,6 @@ namespace PHP_SRePS_Frontend
                     lbItems.Items.Add(name);
                 }
             }
-        }
-
-        private void txtItemID_TextChanged(object sender, EventArgs e)
-        {
-            /*bool enteredLetter = false;
-            Queue<char> text = new Queue<char>();
-            foreach (var ch in this.txtItemID.Text)
-            {
-                if (char.IsDigit(ch))
-                {
-                    text.Enqueue(ch);
-                }
-                else
-                {
-                    enteredLetter = true;
-                }
-            }
-
-            if (enteredLetter)
-            {
-                StringBuilder sb = new StringBuilder();
-                while (text.Count > 0)
-                {
-                    sb.Append(text.Dequeue());
-                }
-
-                this.txtItemID.Text = sb.ToString();
-                this.txtItemID.SelectionStart = this.txtItemID.Text.Length;
-            }*/
         }
 
         private void btnAddItem_Click(object sender, EventArgs e)

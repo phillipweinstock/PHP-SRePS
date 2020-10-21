@@ -44,9 +44,17 @@ namespace PHP_SRePS_Frontend
             List<ItemDetail> itemInfos = new List<ItemDetail>();
             foreach (DataGridViewRow row in salesDataView.Rows)
             {
-                if (row.Cells[2].Value != null && row.Cells[3].Value != null) {
-                    var itemname = row.Cells[2].Value.ToString().Trim();
-                    var quantity = UInt32.Parse(row.Cells[3].Value.ToString().Trim());
+                if (row.Cells[1].Value != null && row.Cells[2].Value != null) {
+                    var itemname = row.Cells[1].Value.ToString().Trim();
+                    var quantity = UInt32.Parse(row.Cells[2].Value.ToString().Trim());
+
+                    /*
+                     * Item id = 0
+                     * Item name = 1
+                     * quantity = 2
+                     * price = 3
+                     */
+
 
                     if (itemname != "")
                     {
