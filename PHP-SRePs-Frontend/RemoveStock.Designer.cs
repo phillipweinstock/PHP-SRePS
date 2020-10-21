@@ -39,9 +39,11 @@
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnRemove = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.Itemid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dvgItems = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dvgItems)).BeginInit();
             this.SuspendLayout();
             // 
             // btnBack
@@ -116,15 +118,6 @@
             this.dataGridViewTextBoxColumn6.HeaderText = "Category";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 147);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(644, 260);
-            this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.Text = "dataGridView1";
-            // 
             // btnRemove
             // 
             this.btnRemove.Location = new System.Drawing.Point(549, 98);
@@ -135,13 +128,39 @@
             this.btnRemove.UseVisualStyleBackColor = true;
             this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
+            // Itemid
+            // 
+            this.Itemid.HeaderText = "Item ID";
+            this.Itemid.Name = "Itemid";
+            this.Itemid.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Itemid.Width = 80;
+            // 
+            // ItemName
+            // 
+            this.ItemName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ItemName.HeaderText = "Item Name";
+            this.ItemName.Name = "ItemName";
+            this.ItemName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
             // RemoveStock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(675, 450);
+            // 
+            // dvgItems
+            // 
+            this.dvgItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dvgItems.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Itemid,
+            this.ItemName});
+            this.dvgItems.Location = new System.Drawing.Point(12, 147);
+            this.dvgItems.Name = "dvgItems";
+            this.dvgItems.Size = new System.Drawing.Size(644, 260);
+            this.dvgItems.TabIndex = 0;
+            this.dvgItems.Text = "dataGridView1";
             this.Controls.Add(this.btnRemove);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dvgItems);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtId);
@@ -149,7 +168,7 @@
             this.Controls.Add(this.btnBack);
             this.Name = "RemoveStock";
             this.Text = "RemoveStock";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dvgItems)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -168,7 +187,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dvgItems;
         private System.Windows.Forms.Button btnRemove;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Itemid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ItemName;
     }
 }

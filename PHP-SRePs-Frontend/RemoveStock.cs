@@ -1,4 +1,5 @@
-﻿using Grpc.Net.Client;
+﻿using Grpc.Core;
+using Grpc.Net.Client;
 using PHP_SRePS_Backend;
 using System;
 using System.Collections.Generic;
@@ -19,7 +20,45 @@ namespace PHP_SRePS_Frontend
         {
             InitializeComponent();
             frmInventory = form;
+
+            GetAllItems();
         }
+
+
+        private async Task GetAllItems()
+        {
+            var channel = GrpcChannel.ForAddress("https://localhost:5001");
+            var client = new ItemDef.ItemDefClient(channel);
+
+            var input = new HasChanged
+            {
+                // Send the list of item details
+                ChangedData = false
+            };
+
+            var dvg = dvgItems;
+
+            // Recieving a stream:
+            // each time MoveNext() is called, a new Sale will be returned
+            using (var call = client.GetAllItems(input))
+            {
+                // while there are items in the stream
+                while (await call.ResponseStream.MoveNext())
+                {
+                    // get the current sale information
+                    var currentSaleInfo = call.ResponseStream.Current;
+
+                    var catid = currentSaleInfo.CatagoryId;
+                    var itemid = currentSaleInfo.ItemId;
+                    var name = currentSaleInfo.NameId;
+                    var price = currentSaleInfo.PriceId;
+
+                    dvg.Rows.Add(itemid, name);
+                }
+            }
+        }
+
+
 
         private void btnBack_Click(object sender, EventArgs e)
         {
@@ -29,27 +68,24 @@ namespace PHP_SRePS_Frontend
 
         private async void btnRemove_Click(object sender, EventArgs e)
         {
-            var txtName = this.txtName;
-            var txtId = this.txtId;
+            try
+            {
+                var itemid = dvgItems.CurrentRow.Cells[0].Value.ToString();
 
-            if(txtName.Text != "")
-            {
-                await RemoveItem(txtName.Text.Trim());
-            } else
-            {
-                await RemoveItem(id: uint.Parse(txtId.Text.Trim()));
-            }
+                await RemoveItem(uint.Parse(itemid));
+
+                dvgItems.Rows.RemoveAt(dvgItems.CurrentRow.Index);
+            } catch { }
         }
 
-        private async Task RemoveItem(string name = "", uint id = 0)
+        private async Task RemoveItem(uint id)
         {
             var channel = GrpcChannel.ForAddress("https://localhost:5001");
             var client = new ItemDef.ItemDefClient(channel);
 
             var input = new Item
             {
-                ItemId = id,
-                NameId = name
+                ItemId = id
             };
 
             var reply = await client.DeleteItemAsync(input);
