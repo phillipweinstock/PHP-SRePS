@@ -58,11 +58,6 @@ namespace PHP_SRePS_Backend
             _logger = logger;
         }
 
-
-
-
-
-
         public override async Task<LinearItemInfo> GetPredictionReport(LinearGet request, ServerCallContext context)
         {
             _logger.LogInformation($"Requested month: {request.DateInfo.Month}, year: {request.DateInfo.Year}");
@@ -73,12 +68,12 @@ namespace PHP_SRePS_Backend
             var cmd = db.CreateCommand();
 
             cmd.CommandText = $"SELECT SUM(ITEMDETAIL.quantity) as QtySold" +
-                $"FROM ITEMDETAIL" +
-                $"JOIN ITEM ON ITEMDETAIL.item_id = ITEM.item_id" +
-                $"JOIN SALE ON sale.sale_id = ITEMDETAIL.sale_id" +
-                $"WHERE ITEM.item_id ={request.ItemId} AND month(date)={request.DateInfo.Month} AND year(date)={request.DateInfo.Year}" +
-                "GROUP BY ITEM.item_id, day(date)" +
-                "ORDER BY SALE.sale_id; ";
+                $" FROM ITEMDETAIL" +
+                $" JOIN ITEM ON ITEMDETAIL.item_id = ITEM.item_id" +
+                $" JOIN SALE ON sale.sale_id = ITEMDETAIL.sale_id" +
+                $" WHERE ITEM.item_id ={request.ItemId} AND month(date)={request.DateInfo.Month} AND year(date)={request.DateInfo.Year}" +
+                " GROUP BY ITEM.item_id, day(date)" +
+                " ORDER BY SALE.sale_id; ";
             var reader = await cmd.ExecuteReaderAsync();
             List<double> sales = new List<double>();
             while (await reader.ReadAsync())
@@ -95,14 +90,14 @@ namespace PHP_SRePS_Backend
            // yvals = sales.ToArray();
             //double rsquared, yint, slope;
             //LinearRegression(xvals, yvals, 0, sales.Count, out rsquared, out yint, out slope);
-            List<ReducedItemInfo> item_info = new List<ReducedItemInfo>();
-            item_info.AddRange((IEnumerable<ReducedItemInfo>)sales.AsEnumerable());//May cause error
+/*            List<double> item_info = new List<double>();
+            item_info.AddRange((IEnumerable<double>)sales.AsEnumerable());//May cause error*/
             return (new LinearItemInfo()
             {
                 //YIntercept = yint,
                // BSlope = slope,
                 //Rsquared = rsquared,
-                Sales = { item_info }
+                Sales = { sales.ToArray() }
 
             }) ;
         }
