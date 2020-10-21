@@ -11,7 +11,7 @@ namespace PHP_SRePS_Backend
 {
     public class ReportService : ReportDef.ReportDefBase
     {
-        public static void LinearRegression(double[] xVals, double[] yVals,
+     /*   public static void LinearRegression(double[] xVals, double[] yVals,
                                         int inclusiveStart, int exclusiveEnd,
                                         out double rsquared, out double yintercept,
                                         out double slope)
@@ -50,7 +50,7 @@ namespace PHP_SRePS_Backend
             rsquared = dblR * dblR;
             yintercept = meanY - ((sCo / ssX) * meanX);
             slope = sCo / ssX;
-        }
+        }*/
         private AppDb db = new AppDb();
         private readonly ILogger<ReportService> _logger;
         public ReportService(ILogger<ReportService> logger)
@@ -85,23 +85,23 @@ namespace PHP_SRePS_Backend
             {
                 sales.Add(reader.GetFieldValue<double>(0)); //List of Y values, with X as the index
             }
-            double[] xvals = new double[sales.Count];
-            double[] yvals = new double[sales.Count];
+          //  double[] xvals = new double[sales.Count];
+          //  double[] yvals = new double[sales.Count];
 
-            for (int i =0; i < sales.Count -1; i++)
-            {
-                xvals[i] = i + 1;
-            }
-            yvals = sales.ToArray();
-            double rsquared, yint, slope;
-            LinearRegression(xvals, yvals, 0, sales.Count, out rsquared, out yint, out slope);
+           // for (int i =0; i < sales.Count -1; i++)
+          //  {
+          //      xvals[i] = i + 1;
+          //  }
+           // yvals = sales.ToArray();
+            //double rsquared, yint, slope;
+            //LinearRegression(xvals, yvals, 0, sales.Count, out rsquared, out yint, out slope);
             List<ReducedItemInfo> item_info = new List<ReducedItemInfo>();
             item_info.AddRange((IEnumerable<ReducedItemInfo>)sales.AsEnumerable());//May cause error
             return (new LinearItemInfo()
             {
-                YIntercept = yint,
-                BSlope = slope,
-                Rsquared = rsquared,
+                //YIntercept = yint,
+               // BSlope = slope,
+                //Rsquared = rsquared,
                 Sales = { item_info }
 
             }) ;
