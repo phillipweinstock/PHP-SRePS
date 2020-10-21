@@ -31,5 +31,12 @@ namespace PHP_SRePS_Frontend
             menuForm.Show();
             this.Close();
         }
+
+        private void btnPredictSales_Click(object sender, EventArgs e)
+        {
+            PredictItem pi = new PredictItem(this);
+            pi.Show();
+            this.Hide();
+        }
     }
 }

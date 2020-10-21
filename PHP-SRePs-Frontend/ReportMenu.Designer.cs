@@ -31,6 +31,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnMonthly = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
+            this.btnPredictSales = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -65,11 +66,23 @@
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
+            // btnPredictSales
+            // 
+            this.btnPredictSales.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnPredictSales.Location = new System.Drawing.Point(262, 178);
+            this.btnPredictSales.Name = "btnPredictSales";
+            this.btnPredictSales.Size = new System.Drawing.Size(270, 48);
+            this.btnPredictSales.TabIndex = 2;
+            this.btnPredictSales.Text = "Predict Sales";
+            this.btnPredictSales.UseVisualStyleBackColor = true;
+            this.btnPredictSales.Click += new System.EventHandler(this.btnPredictSales_Click);
+            // 
             // ReportMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnPredictSales);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnMonthly);
             this.Controls.Add(this.label1);
@@ -85,5 +98,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnMonthly;
         private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.Button btnPredictSales;
     }
 }
