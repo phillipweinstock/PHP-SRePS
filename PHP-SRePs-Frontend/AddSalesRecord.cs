@@ -51,14 +51,6 @@ namespace PHP_SRePS_Frontend
                     var itemname = row.Cells[1].Value.ToString().Trim();
                     var quantity = UInt32.Parse(row.Cells[2].Value.ToString().Trim());
 
-                    /*
-                     * Item id = 0
-                     * Item name = 1
-                     * quantity = 2
-                     * price = 3
-                     */
-
-
                     if (itemname != "")
                     {
                         itemInfos.Add(new ItemDetail
