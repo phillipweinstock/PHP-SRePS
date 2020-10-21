@@ -3,6 +3,7 @@ syntax = "proto3";
 option csharp_namespace = "PHP_SRePS_Backend";
 
 import "item.proto";
+import "google/protobuf/empty.proto";
 
 package backend;
 // The StockTake service definition.
@@ -16,6 +17,8 @@ service StockDef {
 	
 	//Remove a quantity of stock 
 	rpc ChangeStock  (StockTake)  returns (StockInfo);
+	//Add a stock
+	rpc AddStock (StockTake) returns (google.protobuf.Empty);
 	
 }
 
