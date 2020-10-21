@@ -22,12 +22,9 @@ namespace PHP_SRePS_Frontend
         public AddSalesRecord(SaleMenu form)
         {
             InitializeComponent();
-<<<<<<< HEAD
             formMenu = form;
-=======
+
             _ = Gprc_channel_instance.GetInstance();
-            frmMainMenu = form;
->>>>>>> b1fba50... Replaced all channels, with a singleton class,
         }
 
         private void btnDeleteItem_Click(object sender, EventArgs e)

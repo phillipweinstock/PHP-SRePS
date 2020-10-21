@@ -47,31 +47,37 @@
             // 
             this.dgvItemNo.HeaderText = "No.";
             this.dgvItemNo.Name = "dgvItemNo";
+            this.dgvItemNo.ReadOnly = true;
             // 
             // dgvItemID
             // 
             this.dgvItemID.HeaderText = "ID";
             this.dgvItemID.Name = "dgvItemID";
+            this.dgvItemID.ReadOnly = true;
             // 
             // dgvItemName
             // 
             this.dgvItemName.HeaderText = "Name";
             this.dgvItemName.Name = "dgvItemName";
+            this.dgvItemName.ReadOnly = true;
             // 
             // dgvPrice
             // 
             this.dgvPrice.HeaderText = "Price";
             this.dgvPrice.Name = "dgvPrice";
+            this.dgvPrice.ReadOnly = true;
             // 
             // dgvStock
             // 
             this.dgvStock.HeaderText = "Available";
             this.dgvStock.Name = "dgvStock";
+            this.dgvStock.ReadOnly = true;
             // 
             // dgvCategory
             // 
             this.dgvCategory.HeaderText = "Category";
             this.dgvCategory.Name = "dgvCategory";
+            this.dgvCategory.ReadOnly = true;
             // 
             // label1
             // 
@@ -115,14 +121,10 @@
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
-            // CheckStock
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(647, 450);
-            // 
             // dgvStockSearch
             // 
+            this.dgvStockSearch.AllowUserToAddRows = false;
+            this.dgvStockSearch.AllowUserToDeleteRows = false;
             this.dgvStockSearch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvStockSearch.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dgvItemNo,
@@ -133,9 +135,16 @@
             this.dgvCategory});
             this.dgvStockSearch.Location = new System.Drawing.Point(2, 154);
             this.dgvStockSearch.Name = "dgvStockSearch";
+            this.dgvStockSearch.ReadOnly = true;
             this.dgvStockSearch.Size = new System.Drawing.Size(644, 260);
             this.dgvStockSearch.TabIndex = 0;
             this.dgvStockSearch.Text = "dataGridView1";
+            // 
+            // CheckStock
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(647, 450);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.txtNameSearch);
             this.Controls.Add(this.txtIDSearch);

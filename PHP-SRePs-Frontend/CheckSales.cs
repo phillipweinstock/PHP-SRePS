@@ -22,6 +22,8 @@ namespace PHP_SRePS_Frontend
         {
             InitializeComponent();
             formMenu = form;
+
+            _ = Gprc_channel_instance.GetInstance();
         }
 
         private async void CheckSales_Load(object sender, EventArgs e)
@@ -73,28 +75,17 @@ namespace PHP_SRePS_Frontend
         {
             try
             {
-<<<<<<< HEAD
                 if (this.dgvSalesSearch.SelectedRows.Count > 0)
-=======
-                var dvg = this.dgvSalesSearch;
-
-                var client = Gprc_channel_instance.SaleClient;
-
-                // This should only have 1 field: 
-                // not SaleId = num, SaleDate = "a date"
-                var input = new SaleGet
->>>>>>> b1fba50... Replaced all channels, with a singleton class,
                 {
                     var dvg = this.dgvSalesSearch;
 
-                    var channel = GrpcChannel.ForAddress("https://localhost:5001");
-                    var client = new SaleDef.SaleDefClient(channel);
+                    var client = Gprc_channel_instance.SaleClient;
 
                     // This should only have 1 field: 
-                    // not SaleId = num, SaleDate = "a date"
+                    // not SaleId = num, SaleDate = "a date"                      
                     var input = new SaleGet
                     {
-                        SaleId = UInt32.Parse(dvg.SelectedRows[0].Cells[1].Value.ToString())
+                        SaleId = uint.Parse(dvg.SelectedRows[0].Cells[1].Value.ToString())
                     };
 
                     // get the current sale information

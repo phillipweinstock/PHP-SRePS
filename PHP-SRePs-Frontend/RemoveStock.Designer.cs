@@ -132,6 +132,7 @@
             // 
             this.Itemid.HeaderText = "Item ID";
             this.Itemid.Name = "Itemid";
+            this.Itemid.ReadOnly = true;
             this.Itemid.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Itemid.Width = 80;
             // 
@@ -140,25 +141,29 @@
             this.ItemName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.ItemName.HeaderText = "Item Name";
             this.ItemName.Name = "ItemName";
+            this.ItemName.ReadOnly = true;
             this.ItemName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // RemoveStock
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(675, 450);
             // 
             // dvgItems
             // 
+            this.dvgItems.AllowUserToAddRows = false;
+            this.dvgItems.AllowUserToDeleteRows = false;
             this.dvgItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dvgItems.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Itemid,
             this.ItemName});
             this.dvgItems.Location = new System.Drawing.Point(12, 147);
             this.dvgItems.Name = "dvgItems";
+            this.dvgItems.ReadOnly = true;
             this.dvgItems.Size = new System.Drawing.Size(644, 260);
             this.dvgItems.TabIndex = 0;
             this.dvgItems.Text = "dataGridView1";
+            // 
+            // RemoveStock
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(675, 450);
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.dvgItems);
             this.Controls.Add(this.label2);

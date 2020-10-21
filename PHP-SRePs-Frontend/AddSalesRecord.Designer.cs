@@ -167,14 +167,7 @@
             // 
             this.dgvPrice.HeaderText = "Price";
             this.dgvPrice.Name = "dgvPrice";
-            this.dgvPrice.ReadOnly = true;
             this.dgvPrice.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // AddSalesRecord
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(577, 342);
             // 
             // salesRecordView
             // 
@@ -191,6 +184,12 @@
             this.salesRecordView.Size = new System.Drawing.Size(543, 206);
             this.salesRecordView.TabIndex = 8;
             this.salesRecordView.Text = "dataGridView1";
+            // 
+            // AddSalesRecord
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(577, 342);
             this.Controls.Add(this.btnDeleteItem);
             this.Controls.Add(this.btnAddItem);
             this.Controls.Add(this.btnContinue);

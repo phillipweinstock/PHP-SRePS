@@ -50,16 +50,19 @@
             // 
             this.dgvItemNo.HeaderText = "No.";
             this.dgvItemNo.Name = "dgvItemNo";
+            this.dgvItemNo.ReadOnly = true;
             // 
             // dvgSaleId
             // 
             this.dvgSaleId.HeaderText = "ID";
             this.dvgSaleId.Name = "dvgSaleId";
+            this.dvgSaleId.ReadOnly = true;
             // 
             // dgvTotalBill
             // 
             this.dgvTotalBill.HeaderText = "Total Billed";
             this.dgvTotalBill.Name = "dgvTotalBill";
+            this.dgvTotalBill.ReadOnly = true;
             // 
             // label1
             // 
@@ -89,6 +92,8 @@
             // 
             // dgvSalesSearch
             // 
+            this.dgvSalesSearch.AllowUserToAddRows = false;
+            this.dgvSalesSearch.AllowUserToDeleteRows = false;
             this.dgvSalesSearch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSalesSearch.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dgvItemNo,
@@ -96,6 +101,7 @@
             this.dgvTotalBill});
             this.dgvSalesSearch.Location = new System.Drawing.Point(2, 154);
             this.dgvSalesSearch.Name = "dgvSalesSearch";
+            this.dgvSalesSearch.ReadOnly = true;
             this.dgvSalesSearch.Size = new System.Drawing.Size(343, 284);
             this.dgvSalesSearch.TabIndex = 0;
             this.dgvSalesSearch.Text = "dataGridView1";
@@ -123,28 +129,34 @@
             // 
             this.ItemId.HeaderText = "Item Id";
             this.ItemId.Name = "ItemId";
+            this.ItemId.ReadOnly = true;
             this.ItemId.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // ItemName
             // 
             this.ItemName.HeaderText = "Item Name";
             this.ItemName.Name = "ItemName";
+            this.ItemName.ReadOnly = true;
             this.ItemName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // ItemPrice
             // 
             this.ItemPrice.HeaderText = "Item Price";
             this.ItemPrice.Name = "ItemPrice";
+            this.ItemPrice.ReadOnly = true;
             this.ItemPrice.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // ItemQuantity
             // 
             this.ItemQuantity.HeaderText = "Quantity";
             this.ItemQuantity.Name = "ItemQuantity";
+            this.ItemQuantity.ReadOnly = true;
             this.ItemQuantity.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // dvgItemInfo
             // 
+            this.dvgItemInfo.AllowUserToAddRows = false;
+            this.dvgItemInfo.AllowUserToDeleteRows = false;
             this.dvgItemInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dvgItemInfo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ItemId,
@@ -153,6 +165,7 @@
             this.ItemQuantity});
             this.dvgItemInfo.Location = new System.Drawing.Point(352, 154);
             this.dvgItemInfo.Name = "dvgItemInfo";
+            this.dvgItemInfo.ReadOnly = true;
             this.dvgItemInfo.Size = new System.Drawing.Size(447, 284);
             this.dvgItemInfo.TabIndex = 6;
             this.dvgItemInfo.Text = "dataGridView1";

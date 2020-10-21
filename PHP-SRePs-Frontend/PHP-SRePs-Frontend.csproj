@@ -16,6 +16,8 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="ScottPlot" Version="4.0.42" />
+    <PackageReference Include="ScottPlot.WinForms" Version="4.0.42" />
   </ItemGroup>
 
 

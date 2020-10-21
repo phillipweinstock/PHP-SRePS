@@ -38,7 +38,6 @@ namespace PHP_SRePS_Frontend
                 ChangedData = false
             };
 
-
             var dvg = this.dgvStockSearch;
 
             // Recieving a stream:
@@ -57,7 +56,17 @@ namespace PHP_SRePS_Frontend
                     var name = currentSaleInfo.NameId;
                     var price = currentSaleInfo.PriceId;
 
-                    dvg.Rows.Add(current.ToString(), itemid, name, price, 2*current, catid);                    
+                    // Get the stock for the item
+                    var stockClient = Gprc_channel_instance.StockClient;
+
+                    var itemIn = new Item
+                    {
+                        ItemId = itemid
+                    };
+
+                    var available = await stockClient.GetStockAsync(itemIn);
+
+                    dvg.Rows.Add(current.ToString(), itemid, name, price, available.Stock, catid);                    
 
                     current++;
                 }

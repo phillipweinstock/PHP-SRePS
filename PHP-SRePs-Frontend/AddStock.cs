@@ -30,7 +30,17 @@ namespace PHP_SRePS_Frontend
             var txtPrice = this.txtPrice;
             var txtQuant = this.txtQuantity;
 
-            await AddItem(UInt32.Parse(txtCat.Text.Trim()), txtName.Text.Trim(), float.Parse(txtPrice.Text.Trim(), CultureInfo.InvariantCulture));
+            var catid = 1u;
+
+            if(txtName.Text != "" && txtPrice.Text != "" && txtQuant.Text != "")
+            {
+                if(txtCat.Text != "")
+                {
+                    catid = uint.Parse(txtCat.Text.Trim());
+                }
+
+                await AddItem(catid, txtName.Text.Trim(), float.Parse(txtPrice.Text.Trim(), CultureInfo.InvariantCulture), int.Parse(txtQuant.Text.Trim()));
+            }
 
             this.Close();
         }
@@ -40,7 +50,7 @@ namespace PHP_SRePS_Frontend
             this.Close();
         }
 
-        private async Task AddItem(uint categoryid, string name, float price)
+        private async Task AddItem(uint categoryid, string name, float price, int quantity)
         {
 
             var client = Gprc_channel_instance.ItemClient;
@@ -53,7 +63,27 @@ namespace PHP_SRePS_Frontend
                 PriceId = price
             };
 
-            var reply = await client.AddItemAsync(input);
+            await client.AddItemAsync(input);
+
+            var getId = new ItemGet
+            {
+                NameId = name
+            };
+
+            var reply = await client.GetItemAsync(getId);
+
+            var itemid = reply.ItemId;
+
+            var stockClient = Gprc_channel_instance.StockClient;
+
+            var addStock = new StockTake
+            {
+                Item = new Item { ItemId = itemid },
+                Info = new StockInfo { Stock = quantity}
+            };
+
+            await stockClient.AddStockAsync(addStock);
+
         }
     }
 }

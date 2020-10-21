@@ -101,25 +101,31 @@
             // 
             this.itemID.HeaderText = "ID";
             this.itemID.Name = "itemID";
+            this.itemID.ReadOnly = true;
             this.itemID.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // itemName
             // 
             this.itemName.HeaderText = "Name";
             this.itemName.Name = "itemName";
+            this.itemName.ReadOnly = true;
             // 
             // itemQtySold
             // 
             this.itemQtySold.HeaderText = "Quantity Sold";
             this.itemQtySold.Name = "itemQtySold";
+            this.itemQtySold.ReadOnly = true;
             // 
             // itemRevenue
             // 
             this.itemRevenue.HeaderText = "Revenue";
             this.itemRevenue.Name = "itemRevenue";
+            this.itemRevenue.ReadOnly = true;
             // 
             // dvgSalesReport
             // 
+            this.dvgSalesReport.AllowUserToAddRows = false;
+            this.dvgSalesReport.AllowUserToDeleteRows = false;
             this.dvgSalesReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dvgSalesReport.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.itemID,
@@ -128,6 +134,7 @@
             this.itemRevenue});
             this.dvgSalesReport.Location = new System.Drawing.Point(11, 147);
             this.dvgSalesReport.Name = "dvgSalesReport";
+            this.dvgSalesReport.ReadOnly = true;
             this.dvgSalesReport.Size = new System.Drawing.Size(443, 258);
             this.dvgSalesReport.TabIndex = 5;
             this.dvgSalesReport.Text = "dataGridView1";
@@ -202,7 +209,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(453, 466);
+            this.ClientSize = new System.Drawing.Size(468, 466);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnGenerateReport);
             this.Controls.Add(this.label7);
