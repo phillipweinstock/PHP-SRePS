@@ -35,14 +35,13 @@
             this.lblDate = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.lblTime = new System.Windows.Forms.Label();
-            this.dgcItemNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnContinue = new System.Windows.Forms.Button();
+            this.btnAddItem = new System.Windows.Forms.Button();
+            this.btnDeleteItem = new System.Windows.Forms.Button();
             this.dgvItemID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnContinue = new System.Windows.Forms.Button();
-            this.btnAddItem = new System.Windows.Forms.Button();
-            this.btnDeleteItem = new System.Windows.Forms.Button();
             this.salesRecordView = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.salesRecordView)).BeginInit();
             this.SuspendLayout();
@@ -111,31 +110,6 @@
             this.lblTime.TabIndex = 15;
             this.lblTime.Text = "11:49am";
             // 
-            // dgcItemNo
-            // 
-            this.dgcItemNo.HeaderText = "Item No.";
-            this.dgcItemNo.Name = "dgcItemNo";
-            // 
-            // dgvItemID
-            // 
-            this.dgvItemID.HeaderText = "Item ID";
-            this.dgvItemID.Name = "dgvItemID";
-            // 
-            // dgvName
-            // 
-            this.dgvName.HeaderText = "Item Name";
-            this.dgvName.Name = "dgvName";
-            // 
-            // dgvQuantity
-            // 
-            this.dgvQuantity.HeaderText = "Quantity";
-            this.dgvQuantity.Name = "dgvQuantity";
-            // 
-            // dgvPrice
-            // 
-            this.dgvPrice.HeaderText = "Price";
-            this.dgvPrice.Name = "dgvPrice";
-            // 
             // btnContinue
             // 
             this.btnContinue.Location = new System.Drawing.Point(455, 297);
@@ -166,12 +140,47 @@
             this.btnDeleteItem.UseVisualStyleBackColor = true;
             this.btnDeleteItem.Click += new System.EventHandler(this.btnDeleteItem_Click);
             // 
+            // dgvItemID
+            // 
+            this.dgvItemID.Frozen = true;
+            this.dgvItemID.HeaderText = "Item ID";
+            this.dgvItemID.Name = "dgvItemID";
+            this.dgvItemID.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // dgvName
+            // 
+            this.dgvName.FillWeight = 200F;
+            this.dgvName.Frozen = true;
+            this.dgvName.HeaderText = "Item Name";
+            this.dgvName.Name = "dgvName";
+            this.dgvName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvName.Width = 200;
+            // 
+            // dgvQuantity
+            // 
+            this.dgvQuantity.Frozen = true;
+            this.dgvQuantity.HeaderText = "Quantity";
+            this.dgvQuantity.Name = "dgvQuantity";
+            this.dgvQuantity.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // dgvPrice
+            // 
+            this.dgvPrice.HeaderText = "Price";
+            this.dgvPrice.Name = "dgvPrice";
+            this.dgvPrice.ReadOnly = true;
+            this.dgvPrice.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // AddSalesRecord
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(577, 342);
+            // 
             // salesRecordView
             // 
             this.salesRecordView.BackgroundColor = System.Drawing.SystemColors.ControlDarkDark;
             this.salesRecordView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.salesRecordView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dgcItemNo,
             this.dgvItemID,
             this.dgvName,
             this.dgvQuantity,
@@ -182,12 +191,6 @@
             this.salesRecordView.Size = new System.Drawing.Size(543, 206);
             this.salesRecordView.TabIndex = 8;
             this.salesRecordView.Text = "dataGridView1";
-            // 
-            // AddSalesRecord
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(577, 342);
             this.Controls.Add(this.btnDeleteItem);
             this.Controls.Add(this.btnAddItem);
             this.Controls.Add(this.btnContinue);
@@ -201,7 +204,6 @@
             this.Controls.Add(this.salesRecordView);
             this.Name = "AddSalesRecord";
             this.Text = "Add Sales Record";
-            this.Load += new System.EventHandler(this.AddSalesRecord_Load);
             ((System.ComponentModel.ISupportInitialize)(this.salesRecordView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -217,13 +219,12 @@
         private System.Windows.Forms.Label lblDate;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lblTime;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgcItemNo;
+        private System.Windows.Forms.Button btnContinue;
+        private System.Windows.Forms.Button btnAddItem;
+        private System.Windows.Forms.Button btnDeleteItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvItemID;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvName;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvQuantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvPrice;
-        private System.Windows.Forms.Button btnContinue;
-        private System.Windows.Forms.Button btnAddItem;
-        private System.Windows.Forms.Button btnDeleteItem;
     }
 }

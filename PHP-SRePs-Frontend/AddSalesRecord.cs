@@ -25,11 +25,6 @@ namespace PHP_SRePS_Frontend
             frmMainMenu = form;
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            //lblTest.Text = reply.Message;
-        }
-
         private void btnDeleteItem_Click(object sender, EventArgs e)
         {
             salesRecordView.Rows.RemoveAt(salesRecordView.CurrentRow.Index);
@@ -93,15 +88,23 @@ namespace PHP_SRePS_Frontend
             this.Close();
         }
 
-        private void AddSalesRecord_Load(object sender, EventArgs e)
+        public async Task AddItem(string itemName)
         {
-            // Lines after this are for creating a console
-            //AllocConsole();
+            var dvg = this.salesRecordView;
+
+            var channel = GrpcChannel.ForAddress("https://localhost:5001");
+            var client = new ItemDef.ItemDefClient(channel);
+
+            var input = new ItemGet
+            {
+                NameId = itemName
+            };
+
+            var reply = await client.GetItemAsync(input);
+
+
+            dvg.Rows.Add(reply.ItemId, reply.NameId, "", reply.PriceId);
         }
 
-        /*
-        [DllImport("kernel32.dll", SetLastError = true)]
-        [return: MarshalAs(UnmanagedType.Bool)]
-        static extern bool AllocConsole();*/
     }
 }

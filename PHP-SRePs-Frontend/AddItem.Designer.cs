@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.txtItemName = new System.Windows.Forms.TextBox();
-            this.lvItems = new System.Windows.Forms.ListView();
             this.label1 = new System.Windows.Forms.Label();
             this.btnAddItem = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.txtItemID = new System.Windows.Forms.TextBox();
+            this.lbItems = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // txtItemName
@@ -43,15 +43,6 @@
             this.txtItemName.Name = "txtItemName";
             this.txtItemName.Size = new System.Drawing.Size(100, 23);
             this.txtItemName.TabIndex = 0;
-            // 
-            // lvItems
-            // 
-            this.lvItems.HideSelection = false;
-            this.lvItems.Location = new System.Drawing.Point(37, 61);
-            this.lvItems.Name = "lvItems";
-            this.lvItems.Size = new System.Drawing.Size(352, 229);
-            this.lvItems.TabIndex = 2;
-            this.lvItems.UseCompatibleStateImageBehavior = false;
             // 
             // label1
             // 
@@ -78,9 +69,9 @@
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(100, 23);
             this.btnCancel.TabIndex = 6;
-            this.btnCancel.Text = "Cancel";
+            this.btnCancel.Text = "Close";
             this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click_1);
             // 
             // label2
             // 
@@ -97,18 +88,26 @@
             this.txtItemID.Name = "txtItemID";
             this.txtItemID.Size = new System.Drawing.Size(100, 23);
             this.txtItemID.TabIndex = 1;
-            this.txtItemID.TextChanged += new System.EventHandler(this.txtItemID_TextChanged);
+            // 
+            // lbItems
+            // 
+            this.lbItems.FormattingEnabled = true;
+            this.lbItems.ItemHeight = 15;
+            this.lbItems.Location = new System.Drawing.Point(49, 71);
+            this.lbItems.Name = "lbItems";
+            this.lbItems.Size = new System.Drawing.Size(314, 214);
+            this.lbItems.TabIndex = 7;
             // 
             // AddItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(427, 339);
+            this.Controls.Add(this.lbItems);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnAddItem);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.lvItems);
             this.Controls.Add(this.txtItemID);
             this.Controls.Add(this.txtItemName);
             this.Name = "AddItem";
@@ -121,11 +120,11 @@
         #endregion
 
         private System.Windows.Forms.TextBox txtItemName;
-        private System.Windows.Forms.ListView lvItems;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnAddItem;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtItemID;
+        private System.Windows.Forms.ListBox lbItems;
     }
 }
