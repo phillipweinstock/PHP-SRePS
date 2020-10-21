@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnCSV = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -49,16 +49,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.dvgSalesReport)).BeginInit();
             this.SuspendLayout();
             // 
-            // button1
+            // btnCSV
             // 
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button1.Location = new System.Drawing.Point(316, 408);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(138, 47);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Generate CSV File";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnCSV.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnCSV.Location = new System.Drawing.Point(316, 408);
+            this.btnCSV.Name = "btnCSV";
+            this.btnCSV.Size = new System.Drawing.Size(138, 47);
+            this.btnCSV.TabIndex = 0;
+            this.btnCSV.Text = "Generate CSV File";
+            this.btnCSV.UseVisualStyleBackColor = true;
+            this.btnCSV.Click += new System.EventHandler(this.btnCSV_Click);
             // 
             // label1
             // 
@@ -224,7 +224,7 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnCSV);
             this.Name = "MonthlyReport";
             this.Text = "MonthlyReport";
             ((System.ComponentModel.ISupportInitialize)(this.dvgSalesReport)).EndInit();
@@ -235,7 +235,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnCSV;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox1;

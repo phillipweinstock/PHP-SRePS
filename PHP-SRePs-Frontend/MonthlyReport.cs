@@ -2,6 +2,7 @@
 using Grpc.Net.Client;
 using PHP_SRePS_Backend;
 using System;
+using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -14,17 +15,6 @@ namespace PHP_SRePS_Frontend
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-//<<<<<<< HEAD
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-//=======
         private async void btnGenerateReport_Click(object sender, EventArgs e)
         {
             await getMonthlySale();
@@ -68,6 +58,28 @@ namespace PHP_SRePS_Frontend
             }
         }
 
-//>>>>>>> 2198bdf97efd5a9e400c94e288bb8afab187c0fc
+        private async void btnCSV_Click(object sender, EventArgs e)
+        {
+            var channel = GrpcChannel.ForAddress("https://localhost:5001");
+            var client = new ReportDef.ReportDefClient(channel);
+
+            var input = new DateGet
+            {
+                Month = Int32.Parse(txtMonth.Text),
+                Year = Int32.Parse(txtYear.Text)
+            };
+
+            var csvInfo = await client.GetMonthlyReportAsCSVAsync(input);
+
+
+            using (var w = new StreamWriter($".\\sale-report-{txtMonth.Text}-{txtYear.Text}.csv"))
+            {
+                foreach (var r in csvInfo.CsvRow)
+                {
+                    w.WriteLine(r);
+                    w.Flush();
+                }
+            }
+        }
     }
 }
