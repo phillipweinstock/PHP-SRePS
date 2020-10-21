@@ -25,12 +25,9 @@ message MonthlyItemInfo {
 	float qty_sold = 3;
 	float item_revenue = 4;
 }
-message ReducedItemInfo {
-	double qty_sold = 1;
-}
+
 message LinearItemInfo{
-	repeated ReducedItemInfo sales =1;
-	
+	repeated double sales = 1;
 }
 
 message MonthlyCSV {
