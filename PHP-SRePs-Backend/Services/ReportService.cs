@@ -96,7 +96,7 @@ namespace PHP_SRePS_Backend
             double rsquared, yint, slope;
             LinearRegression(xvals, yvals, 0, sales.Count - 1, out rsquared, out yint, out slope);
             List<ReducedItemInfo> item_info = new List<ReducedItemInfo>();
-            item_info.AddRange((IEnumerable<ReducedItemInfo>)sales.AsEnumerable());
+            item_info.AddRange((IEnumerable<ReducedItemInfo>)sales.AsEnumerable());//May cause error
             return (new LinearItemInfo()
             {
                 YIntercept = yint,
