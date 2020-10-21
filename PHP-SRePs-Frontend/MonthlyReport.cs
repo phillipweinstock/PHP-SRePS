@@ -10,9 +10,13 @@ namespace PHP_SRePS_Frontend
 {
     public partial class MonthlyReport : Form
     {
-        public MonthlyReport()
+        ReportMenu menuForm;
+
+        public MonthlyReport(ReportMenu form)
         {
             InitializeComponent();
+
+            menuForm = form;
         }
 
         private async void btnGenerateReport_Click(object sender, EventArgs e)
@@ -80,6 +84,12 @@ namespace PHP_SRePS_Frontend
                     w.Flush();
                 }
             }
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            menuForm.Show();
+            this.Close();
         }
     }
 }

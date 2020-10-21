@@ -1,6 +1,6 @@
 ﻿namespace PHP_SRePS_Frontend
 {
-    partial class Inventory
+    partial class StockMenu
     {
         /// <summary>
         /// Required designer variable.
@@ -31,7 +31,6 @@
             this.btnCreateItem = new System.Windows.Forms.Button();
             this.btnRemoveItem = new System.Windows.Forms.Button();
             this.btnCheckStock = new System.Windows.Forms.Button();
-            this.btnUpdateStock = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.btnBack = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -39,7 +38,7 @@
             // btnCreateItem
             // 
             this.btnCreateItem.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnCreateItem.Location = new System.Drawing.Point(305, 295);
+            this.btnCreateItem.Location = new System.Drawing.Point(305, 187);
             this.btnCreateItem.Name = "btnCreateItem";
             this.btnCreateItem.Size = new System.Drawing.Size(186, 48);
             this.btnCreateItem.TabIndex = 4;
@@ -69,17 +68,6 @@
             this.btnCheckStock.UseVisualStyleBackColor = true;
             this.btnCheckStock.Click += new System.EventHandler(this.btnCheckStock_Click);
             // 
-            // btnUpdateStock
-            // 
-            this.btnUpdateStock.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnUpdateStock.Location = new System.Drawing.Point(305, 187);
-            this.btnUpdateStock.Name = "btnUpdateStock";
-            this.btnUpdateStock.Size = new System.Drawing.Size(186, 48);
-            this.btnUpdateStock.TabIndex = 1;
-            this.btnUpdateStock.Text = "Update Stock";
-            this.btnUpdateStock.UseVisualStyleBackColor = true;
-            this.btnUpdateStock.Click += new System.EventHandler(this.btnUpdateStock_Click);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -101,18 +89,17 @@
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
-            // Inventory
+            // StockMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnUpdateStock);
             this.Controls.Add(this.btnCheckStock);
             this.Controls.Add(this.btnRemoveItem);
             this.Controls.Add(this.btnCreateItem);
-            this.Name = "Inventory";
+            this.Name = "StockMenu";
             this.Text = "Inventory";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -124,7 +111,6 @@
         private System.Windows.Forms.Button btnCreateItem;
         private System.Windows.Forms.Button btnRemoveItem;
         private System.Windows.Forms.Button btnCheckStock;
-        private System.Windows.Forms.Button btnUpdateStock;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnBack;
     }

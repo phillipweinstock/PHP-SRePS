@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.btnAddSale = new System.Windows.Forms.Button();
-            this.btnCheckStock = new System.Windows.Forms.Button();
-            this.btnAnalysis = new System.Windows.Forms.Button();
             this.btnLogOut = new System.Windows.Forms.Button();
+            this.btnSales = new System.Windows.Forms.Button();
+            this.btnStock = new System.Windows.Forms.Button();
+            this.btnReport = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -45,43 +45,10 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "People\'s Health Pharmacy";
             // 
-            // btnAddSale
-            // 
-            this.btnAddSale.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnAddSale.Location = new System.Drawing.Point(274, 129);
-            this.btnAddSale.Name = "btnAddSale";
-            this.btnAddSale.Size = new System.Drawing.Size(158, 48);
-            this.btnAddSale.TabIndex = 1;
-            this.btnAddSale.Text = "Add Sale";
-            this.btnAddSale.UseVisualStyleBackColor = true;
-            this.btnAddSale.Click += new System.EventHandler(this.btnAddSale_Click);
-            // 
-            // btnCheckStock
-            // 
-            this.btnCheckStock.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnCheckStock.Location = new System.Drawing.Point(274, 183);
-            this.btnCheckStock.Name = "btnCheckStock";
-            this.btnCheckStock.Size = new System.Drawing.Size(158, 48);
-            this.btnCheckStock.TabIndex = 2;
-            this.btnCheckStock.Text = "Check Stock";
-            this.btnCheckStock.UseVisualStyleBackColor = true;
-            this.btnCheckStock.Click += new System.EventHandler(this.btnCheckStock_Click);
-            // 
-            // btnAnalysis
-            // 
-            this.btnAnalysis.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnAnalysis.Location = new System.Drawing.Point(274, 237);
-            this.btnAnalysis.Name = "btnAnalysis";
-            this.btnAnalysis.Size = new System.Drawing.Size(158, 48);
-            this.btnAnalysis.TabIndex = 3;
-            this.btnAnalysis.Text = "Check Sales";
-            this.btnAnalysis.UseVisualStyleBackColor = true;
-            this.btnAnalysis.Click += new System.EventHandler(this.btnAnalysis_Click);
-            // 
             // btnLogOut
             // 
             this.btnLogOut.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnLogOut.Location = new System.Drawing.Point(274, 291);
+            this.btnLogOut.Location = new System.Drawing.Point(278, 293);
             this.btnLogOut.Name = "btnLogOut";
             this.btnLogOut.Size = new System.Drawing.Size(158, 48);
             this.btnLogOut.TabIndex = 4;
@@ -89,15 +56,48 @@
             this.btnLogOut.UseVisualStyleBackColor = true;
             this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
+            // btnSales
+            // 
+            this.btnSales.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnSales.Location = new System.Drawing.Point(277, 131);
+            this.btnSales.Name = "btnSales";
+            this.btnSales.Size = new System.Drawing.Size(159, 48);
+            this.btnSales.TabIndex = 5;
+            this.btnSales.Text = "Sales";
+            this.btnSales.UseVisualStyleBackColor = true;
+            this.btnSales.Click += new System.EventHandler(this.btnSales_Click);
+            // 
+            // btnStock
+            // 
+            this.btnStock.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnStock.Location = new System.Drawing.Point(278, 185);
+            this.btnStock.Name = "btnStock";
+            this.btnStock.Size = new System.Drawing.Size(159, 48);
+            this.btnStock.TabIndex = 5;
+            this.btnStock.Text = "Stock";
+            this.btnStock.UseVisualStyleBackColor = true;
+            this.btnStock.Click += new System.EventHandler(this.btnStock_Click);
+            // 
+            // btnReport
+            // 
+            this.btnReport.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnReport.Location = new System.Drawing.Point(277, 239);
+            this.btnReport.Name = "btnReport";
+            this.btnReport.Size = new System.Drawing.Size(159, 48);
+            this.btnReport.TabIndex = 5;
+            this.btnReport.Text = "Reports";
+            this.btnReport.UseVisualStyleBackColor = true;
+            this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
+            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(704, 450);
+            this.ClientSize = new System.Drawing.Size(719, 450);
+            this.Controls.Add(this.btnReport);
+            this.Controls.Add(this.btnStock);
+            this.Controls.Add(this.btnSales);
             this.Controls.Add(this.btnLogOut);
-            this.Controls.Add(this.btnAnalysis);
-            this.Controls.Add(this.btnCheckStock);
-            this.Controls.Add(this.btnAddSale);
             this.Controls.Add(this.label1);
             this.Name = "MainMenu";
             this.Text = "Main Menu";
@@ -109,9 +109,9 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnAddSale;
-        private System.Windows.Forms.Button btnCheckStock;
-        private System.Windows.Forms.Button btnAnalysis;
         private System.Windows.Forms.Button btnLogOut;
+        private System.Windows.Forms.Button btnSales;
+        private System.Windows.Forms.Button btnStock;
+        private System.Windows.Forms.Button btnReport;
     }
 }

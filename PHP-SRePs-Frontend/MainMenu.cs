@@ -15,24 +15,6 @@ namespace PHP_SRePS_Frontend
             InitializeComponent();
         }
 
-        private void btnAddSale_Click(object sender, EventArgs e)
-        {
-            AddSalesRecord frmAddSalesRecord = new AddSalesRecord(this);
-            frmAddSalesRecord.Show();
-            this.Hide();
-        }
-        private void btnCheckStock_Click(object sender, EventArgs e)
-        {
-            Inventory frmInventory = new Inventory(this);
-            frmInventory.Show();
-            this.Hide();
-        }
-        private void btnAnalysis_Click(object sender, EventArgs e)
-        {
-            CheckSales frmCheckSales = new CheckSales(this);
-            frmCheckSales.Show();
-            this.Hide();
-        }
         private void btnLogOut_Click(object sender, EventArgs e)
         {
             LogIn frmLogIn = new LogIn();
@@ -40,6 +22,25 @@ namespace PHP_SRePS_Frontend
             this.Close();
         }
 
-        
+        private void btnSales_Click(object sender, EventArgs e)
+        {
+            SaleMenu sm = new SaleMenu(this);
+            sm.Show();
+            this.Hide();
+        }
+
+        private void btnStock_Click(object sender, EventArgs e)
+        {
+            StockMenu sm = new StockMenu(this);
+            sm.Show();
+            this.Hide();
+        }
+
+        private void btnReport_Click(object sender, EventArgs e)
+        {
+            ReportMenu sm = new ReportMenu(this);
+            sm.Show();
+            this.Hide();
+        }
     }
 }

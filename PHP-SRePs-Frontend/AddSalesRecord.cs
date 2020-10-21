@@ -17,17 +17,20 @@ namespace PHP_SRePS_Frontend
 {
     public partial class AddSalesRecord : Form
     {
-        MainMenu frmMainMenu;
+        SaleMenu formMenu;
 
-        public AddSalesRecord(MainMenu form)
+        public AddSalesRecord(SaleMenu form)
         {
             InitializeComponent();
-            frmMainMenu = form;
+            formMenu = form;
         }
 
         private void btnDeleteItem_Click(object sender, EventArgs e)
         {
-            salesRecordView.Rows.RemoveAt(salesRecordView.CurrentRow.Index);
+            try
+            {
+                salesRecordView.Rows.RemoveAt(salesRecordView.CurrentRow.Index);
+            } catch { }
         }
 
         private void btnAddItem_Click(object sender, EventArgs e)
@@ -72,7 +75,7 @@ namespace PHP_SRePS_Frontend
                 await AddSale(itemInfos);
             }
 
-            frmMainMenu.Show();
+            formMenu.Show();
             this.Close();
         }
 
@@ -92,7 +95,7 @@ namespace PHP_SRePS_Frontend
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            frmMainMenu.Show();
+            formMenu.Show();
             this.Close();
         }
 

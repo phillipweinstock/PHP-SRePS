@@ -13,9 +13,9 @@ namespace PHP_SRePS_Frontend
 {
     public partial class RemoveStock : Form
     {
-        Inventory frmInventory;
+        StockMenu frmInventory;
 
-        public RemoveStock(Inventory form)
+        public RemoveStock(StockMenu form)
         {
             InitializeComponent();
             frmInventory = form;

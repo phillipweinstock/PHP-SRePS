@@ -14,9 +14,9 @@ namespace PHP_SRePS_Frontend
 {
     public partial class CheckStock : Form
     {
-        Inventory frmInventory;
+        StockMenu frmInventory;
 
-        public CheckStock(Inventory form)
+        public CheckStock(StockMenu form)
         {
             InitializeComponent();
             frmInventory = form;

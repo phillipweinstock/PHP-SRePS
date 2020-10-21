@@ -16,25 +16,18 @@ namespace PHP_SRePS_Frontend
 {
     public partial class CheckSales : Form
     {
-        MainMenu frmMainMenu;
+        SaleMenu formMenu;
 
-        public CheckSales(MainMenu form)
+        public CheckSales(SaleMenu form)
         {
             InitializeComponent();
-            frmMainMenu = form;
+            formMenu = form;
         }
 
         private async void CheckSales_Load(object sender, EventArgs e)
         {
             await GetAllSales();
-            //AllocConsole();
         }
-        
-        
-        [DllImport("kernel32.dll", SetLastError = true)]
-        [return: MarshalAs(UnmanagedType.Bool)]
-        static extern bool AllocConsole();
-        
 
         private async Task GetAllSales()
         {
@@ -73,40 +66,43 @@ namespace PHP_SRePS_Frontend
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            frmMainMenu.Show();
+            formMenu.Show();
             this.Close();
         }
 
         private async void dgvSalesSearch_SelectionChanged(object sender, EventArgs e)
         {
-            if(this.dgvSalesSearch.SelectedRows.Count > 0)
+            try
             {
-                var dvg = this.dgvSalesSearch;
-                
-                var channel = GrpcChannel.ForAddress("https://localhost:5001");
-                var client = new SaleDef.SaleDefClient(channel);
-
-                // This should only have 1 field: 
-                // not SaleId = num, SaleDate = "a date"
-                var input = new SaleGet
+                if (this.dgvSalesSearch.SelectedRows.Count > 0)
                 {
-                    SaleId = UInt32.Parse(dvg.SelectedRows[0].Cells[1].Value.ToString())
-                };
+                    var dvg = this.dgvSalesSearch;
 
-                // get the current sale information
-                var currentSaleInfo = await client.GetSaleAsync(input);
+                    var channel = GrpcChannel.ForAddress("https://localhost:5001");
+                    var client = new SaleDef.SaleDefClient(channel);
 
-                var dvgItems = this.dvgItemInfo;
-                dvgItems.Rows.Clear();
+                    // This should only have 1 field: 
+                    // not SaleId = num, SaleDate = "a date"
+                    var input = new SaleGet
+                    {
+                        SaleId = UInt32.Parse(dvg.SelectedRows[0].Cells[1].Value.ToString())
+                    };
 
-                // Get the item information
-                foreach (var itemInfo in currentSaleInfo.ItemDetails)
-                {
-                    dvgItems.Rows.Add(itemInfo.ItemId, itemInfo.Name, itemInfo.Price, itemInfo.Quantity);
+                    // get the current sale information
+                    var currentSaleInfo = await client.GetSaleAsync(input);
+
+                    var dvgItems = this.dvgItemInfo;
+                    dvgItems.Rows.Clear();
+
+                    // Get the item information
+                    foreach (var itemInfo in currentSaleInfo.ItemDetails)
+                    {
+                        dvgItems.Rows.Add(itemInfo.ItemId, itemInfo.Name, itemInfo.Price, itemInfo.Quantity);
+                    }
+
+                    dvgItems.Refresh();
                 }
-
-                dvgItems.Refresh();
-            }
+            } catch { }
         }
     }
 }

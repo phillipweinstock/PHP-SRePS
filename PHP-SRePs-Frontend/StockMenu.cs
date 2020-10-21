@@ -8,11 +8,11 @@ using System.Windows.Forms;
 
 namespace PHP_SRePS_Frontend
 {
-    public partial class Inventory : Form
+    public partial class StockMenu : Form
     {
         MainMenu frmMainMenu;
 
-        public Inventory(MainMenu form)
+        public StockMenu(MainMenu form)
         {
             InitializeComponent();
             frmMainMenu = form;

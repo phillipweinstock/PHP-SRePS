@@ -10,10 +10,10 @@ namespace PHP_SRePS_Frontend
 {
     public partial class UpdateStock : Form
     {
-        Inventory frmInventory;
+        StockMenu frmInventory;
         AddStock frmAddStock;
 
-        public UpdateStock(Inventory form)
+        public UpdateStock(StockMenu form)
         {
             InitializeComponent();
             frmInventory = form;

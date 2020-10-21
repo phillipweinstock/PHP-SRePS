@@ -29,9 +29,7 @@
         private void InitializeComponent()
         {
             this.btnCSV = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.lblTotalPrice = new System.Windows.Forms.Label();
@@ -46,6 +44,7 @@
             this.txtYear = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.btnGenerateReport = new System.Windows.Forms.Button();
+            this.btnBack = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dvgSalesReport)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,38 +59,20 @@
             this.btnCSV.UseVisualStyleBackColor = true;
             this.btnCSV.Click += new System.EventHandler(this.btnCSV_Click);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(11, 102);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(153, 32);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Search by ID:";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(11, 150);
+            this.label2.Location = new System.Drawing.Point(12, 102);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(194, 32);
             this.label2.TabIndex = 2;
             this.label2.Text = "Search by Name:";
             // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(232, 102);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(222, 39);
-            this.textBox1.TabIndex = 3;
-            // 
             // textBox2
             // 
             this.textBox2.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox2.Location = new System.Drawing.Point(232, 147);
+            this.textBox2.Location = new System.Drawing.Point(219, 102);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(222, 39);
             this.textBox2.TabIndex = 4;
@@ -145,9 +126,9 @@
             this.itemName,
             this.itemQtySold,
             this.itemRevenue});
-            this.dvgSalesReport.Location = new System.Drawing.Point(11, 192);
+            this.dvgSalesReport.Location = new System.Drawing.Point(11, 147);
             this.dvgSalesReport.Name = "dvgSalesReport";
-            this.dvgSalesReport.Size = new System.Drawing.Size(443, 213);
+            this.dvgSalesReport.Size = new System.Drawing.Size(443, 258);
             this.dvgSalesReport.TabIndex = 5;
             this.dvgSalesReport.Text = "dataGridView1";
             // 
@@ -155,7 +136,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(12, 30);
+            this.label5.Location = new System.Drawing.Point(11, 61);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(69, 32);
             this.label5.TabIndex = 1;
@@ -164,7 +145,7 @@
             // txtMonth
             // 
             this.txtMonth.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtMonth.Location = new System.Drawing.Point(81, 30);
+            this.txtMonth.Location = new System.Drawing.Point(81, 60);
             this.txtMonth.Name = "txtMonth";
             this.txtMonth.Size = new System.Drawing.Size(125, 35);
             this.txtMonth.TabIndex = 3;
@@ -172,7 +153,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(103, 9);
+            this.label6.Location = new System.Drawing.Point(103, 40);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(77, 15);
             this.label6.TabIndex = 8;
@@ -181,7 +162,7 @@
             // txtYear
             // 
             this.txtYear.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtYear.Location = new System.Drawing.Point(212, 30);
+            this.txtYear.Location = new System.Drawing.Point(211, 60);
             this.txtYear.Name = "txtYear";
             this.txtYear.Size = new System.Drawing.Size(125, 35);
             this.txtYear.TabIndex = 3;
@@ -189,7 +170,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(263, 9);
+            this.label7.Location = new System.Drawing.Point(256, 40);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(29, 15);
             this.label7.TabIndex = 8;
@@ -198,7 +179,7 @@
             // btnGenerateReport
             // 
             this.btnGenerateReport.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnGenerateReport.Location = new System.Drawing.Point(344, 30);
+            this.btnGenerateReport.Location = new System.Drawing.Point(342, 60);
             this.btnGenerateReport.Name = "btnGenerateReport";
             this.btnGenerateReport.Size = new System.Drawing.Size(111, 35);
             this.btnGenerateReport.TabIndex = 9;
@@ -206,11 +187,23 @@
             this.btnGenerateReport.UseVisualStyleBackColor = true;
             this.btnGenerateReport.Click += new System.EventHandler(this.btnGenerateReport_Click);
             // 
+            // btnBack
+            // 
+            this.btnBack.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnBack.Location = new System.Drawing.Point(2, 3);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(78, 39);
+            this.btnBack.TabIndex = 9;
+            this.btnBack.Text = "<--";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
             // MonthlyReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(466, 466);
+            this.ClientSize = new System.Drawing.Size(453, 466);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnGenerateReport);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtYear);
@@ -221,9 +214,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.dvgSalesReport);
             this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnCSV);
             this.Name = "MonthlyReport";
             this.Text = "MonthlyReport";
@@ -236,9 +227,7 @@
         #endregion
 
         private System.Windows.Forms.Button btnCSV;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.DataGridView dvgSalesReport;
         private System.Windows.Forms.Label label3;
@@ -253,5 +242,6 @@
         private System.Windows.Forms.TextBox txtYear;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnGenerateReport;
+        private System.Windows.Forms.Button btnBack;
     }
 }
