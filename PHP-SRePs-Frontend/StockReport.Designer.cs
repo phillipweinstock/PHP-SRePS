@@ -102,12 +102,6 @@
             this.btnCSV.UseVisualStyleBackColor = true;
             this.btnCSV.Click += new System.EventHandler(this.btnCSV_Click);
             // 
-            // StockReport
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(516, 411);
-            // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -120,6 +114,12 @@
             this.dataGridView1.Size = new System.Drawing.Size(344, 251);
             this.dataGridView1.TabIndex = 6;
             this.dataGridView1.Text = "dataGridView1";
+            // 
+            // StockReport
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(516, 411);
             this.Controls.Add(this.btnCSV);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.textBox2);

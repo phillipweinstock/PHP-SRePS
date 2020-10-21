@@ -15,8 +15,7 @@ service StockDef {
 	rpc GetStock     (Item)       returns (StockInfo);
 	
 	//Remove a quantity of stock 
-	rpc ChangeStock  (StockTake)  returns (StockInfo);
-	
+	rpc ChangeStock  (StockTake)  returns (StockInfo);	
 }
 
 // The return message that contains the sale information
