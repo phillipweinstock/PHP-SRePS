@@ -7,11 +7,16 @@ package backend;
 service ReportDef {
 	rpc GetMonthlyReportAsCSV (DateGet) returns (MonthlyCSV);
 	rpc GetMonthlyReport (DateGet) returns (stream MonthlyItemInfo);
+	rpc GetPredictionReport (LinearGet) returns (LinearItemInfo);
 }
 
 message DateGet {
 	int32 month = 1;
 	int32 year = 2; 
+}
+message LinearGet {
+	uint32 item_id =1;
+	DateGet date_info = 2;
 }
 
 message MonthlyItemInfo {
@@ -19,6 +24,16 @@ message MonthlyItemInfo {
 	string item_name = 2;
 	float qty_sold = 3;
 	float item_revenue = 4;
+}
+message ReducedItemInfo {
+	double qty_sold = 3;
+}
+message LinearItemInfo{
+	double y_intercept = 1;
+	double b_slope = 2;
+	double rsquared = 3;
+	repeated ReducedItemInfo sales =4;
+	
 }
 
 message MonthlyCSV {
