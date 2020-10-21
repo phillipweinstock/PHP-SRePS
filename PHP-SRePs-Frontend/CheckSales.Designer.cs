@@ -131,9 +131,11 @@
             this.ItemId.Name = "ItemId";
             this.ItemId.ReadOnly = true;
             this.ItemId.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ItemId.Width = 80;
             // 
             // ItemName
             // 
+            this.ItemName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.ItemName.HeaderText = "Item Name";
             this.ItemName.Name = "ItemName";
             this.ItemName.ReadOnly = true;
@@ -152,6 +154,13 @@
             this.ItemQuantity.Name = "ItemQuantity";
             this.ItemQuantity.ReadOnly = true;
             this.ItemQuantity.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ItemQuantity.Width = 80;
+            // 
+            // CheckSales
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(811, 463);
             // 
             // dvgItemInfo
             // 
@@ -169,12 +178,6 @@
             this.dvgItemInfo.Size = new System.Drawing.Size(447, 284);
             this.dvgItemInfo.TabIndex = 6;
             this.dvgItemInfo.Text = "dataGridView1";
-            // 
-            // CheckSales
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(811, 463);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dvgItemInfo);
