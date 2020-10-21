@@ -1,4 +1,5 @@
-﻿using Grpc.Core;
+﻿using Google.Protobuf.WellKnownTypes;
+using Grpc.Core;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
 using MySqlConnector;
@@ -59,6 +60,28 @@ namespace PHP_SRePS_Backend
 
             return (Stockinfo);
 
+        }
+        public override async  Task<Empty> AddStock(StockTake request, ServerCallContext context)
+        {
+            await db.Connection.OpenAsync();
+
+            var cmd = db.Connection.CreateCommand();
+
+     
+           
+
+
+
+            //await Stock.CloseAsync();
+            // await Stock.DisposeAsync();
+
+
+            cmd.CommandText = $"INSERT INTO STOCK (item_id,item_stock)" +
+                              $"VALUES({request.Item.ItemId},{request.Info.Stock});";
+            _ = await cmd.ExecuteReaderAsync();
+            await cmd.DisposeAsync();
+            
+            return (new Empty());
         }
 
         public override async Task GetAllStocks(HasChanged request, IServerStreamWriter<StockTake> responseStream, ServerCallContext context)
