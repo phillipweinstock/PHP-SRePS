@@ -94,7 +94,7 @@ namespace PHP_SRePS_Backend
             }
             yvals = sales.ToArray();
             double rsquared, yint, slope;
-            LinearRegression(xvals, yvals, 0, sales.Count - 1, out rsquared, out yint, out slope);
+            LinearRegression(xvals, yvals, 0, sales.Count, out rsquared, out yint, out slope);
             List<ReducedItemInfo> item_info = new List<ReducedItemInfo>();
             item_info.AddRange((IEnumerable<ReducedItemInfo>)sales.AsEnumerable());//May cause error
             return (new LinearItemInfo()
