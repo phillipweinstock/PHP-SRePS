@@ -16,7 +16,9 @@ namespace PHP_SRePS_Frontend
     {
         public AddStock()
         {
+            
             InitializeComponent();
+            _ = Gprc_channel_instance.GetInstance();
         }
 
         private async void btnAddStock_Click(object sender, EventArgs e)
@@ -40,8 +42,8 @@ namespace PHP_SRePS_Frontend
 
         private async Task AddItem(uint categoryid, string name, float price)
         {
-            var channel = GrpcChannel.ForAddress("https://localhost:5001");
-            var client = new ItemDef.ItemDefClient(channel);
+
+            var client = Gprc_channel_instance.ItemClient;
 
             var input = new Item
             {

@@ -20,18 +20,20 @@ namespace PHP_SRePS_Frontend
 
         public AddItem(AddSalesRecord form)
         {
+            
             InitializeComponent();
+            _ = Gprc_channel_instance.GetInstance();
 
             frmAddSalesRecord = form;
-
+            
             DisplayAllItems();
         }
 
         private async Task DisplayAllItems()
         {
 
-            var channel = GrpcChannel.ForAddress("https://localhost:5001");
-            var client = new ItemDef.ItemDefClient(channel);
+
+            var client = Gprc_channel_instance.ItemClient;
 
             var input = new HasChanged
             {
@@ -59,7 +61,7 @@ namespace PHP_SRePS_Frontend
             }
         }
 
-        private void btnAddItem_Click(object sender, EventArgs e)
+        private void   btnAddItem_Click(object sender, EventArgs e)
         {
             frmAddSalesRecord.AddItem(lbItems.SelectedItem.ToString());
         }

@@ -18,6 +18,7 @@ namespace PHP_SRePS_Frontend
 
         public RemoveStock(StockMenu form)
         {
+            _ = Gprc_channel_instance.GetInstance();
             InitializeComponent();
             frmInventory = form;
 
@@ -80,8 +81,8 @@ namespace PHP_SRePS_Frontend
 
         private async Task RemoveItem(uint id)
         {
-            var channel = GrpcChannel.ForAddress("https://localhost:5001");
-            var client = new ItemDef.ItemDefClient(channel);
+
+            var client = Gprc_channel_instance.ItemClient;
 
             var input = new Item
             {

@@ -14,6 +14,7 @@ namespace PHP_SRePS_Frontend
 
         public MonthlyReport(ReportMenu form)
         {
+            _ = Gprc_channel_instance.GetInstance();
             InitializeComponent();
 
             menuForm = form;
@@ -26,8 +27,8 @@ namespace PHP_SRePS_Frontend
 
         private async Task getMonthlySale()
         {
-            var channel = GrpcChannel.ForAddress("https://localhost:5001");
-            var client = new ReportDef.ReportDefClient(channel);
+
+            var client = Gprc_channel_instance.ReportClient;
 
             var input = new DateGet
             {
@@ -64,8 +65,7 @@ namespace PHP_SRePS_Frontend
 
         private async void btnCSV_Click(object sender, EventArgs e)
         {
-            var channel = GrpcChannel.ForAddress("https://localhost:5001");
-            var client = new ReportDef.ReportDefClient(channel);
+            var client = Gprc_channel_instance.ReportClient;
 
             var input = new DateGet
             {

@@ -22,7 +22,12 @@ namespace PHP_SRePS_Frontend
         public AddSalesRecord(SaleMenu form)
         {
             InitializeComponent();
+<<<<<<< HEAD
             formMenu = form;
+=======
+            _ = Gprc_channel_instance.GetInstance();
+            frmMainMenu = form;
+>>>>>>> b1fba50... Replaced all channels, with a singleton class,
         }
 
         private void btnDeleteItem_Click(object sender, EventArgs e)
@@ -73,8 +78,7 @@ namespace PHP_SRePS_Frontend
 
         private async Task AddSale(List<ItemDetail> itemInfos)
         {
-            var channel = GrpcChannel.ForAddress("https://localhost:5001");
-            var client = new SaleDef.SaleDefClient(channel);
+            var client = Gprc_channel_instance.SaleClient;
 
             var input = new AddSaleRequest
             {
@@ -95,8 +99,7 @@ namespace PHP_SRePS_Frontend
         {
             var dvg = this.salesRecordView;
 
-            var channel = GrpcChannel.ForAddress("https://localhost:5001");
-            var client = new ItemDef.ItemDefClient(channel);
+            var client = Gprc_channel_instance.ItemClient;
 
             var input = new ItemGet
             {

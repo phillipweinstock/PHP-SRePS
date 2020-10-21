@@ -31,8 +31,7 @@ namespace PHP_SRePS_Frontend
 
         private async Task GetAllSales()
         {
-            var channel = GrpcChannel.ForAddress("https://localhost:5001");
-            var client = new SaleDef.SaleDefClient(channel);
+            var client = Gprc_channel_instance.SaleClient;
 
             var input = new HasChanged
             {
@@ -74,7 +73,17 @@ namespace PHP_SRePS_Frontend
         {
             try
             {
+<<<<<<< HEAD
                 if (this.dgvSalesSearch.SelectedRows.Count > 0)
+=======
+                var dvg = this.dgvSalesSearch;
+
+                var client = Gprc_channel_instance.SaleClient;
+
+                // This should only have 1 field: 
+                // not SaleId = num, SaleDate = "a date"
+                var input = new SaleGet
+>>>>>>> b1fba50... Replaced all channels, with a singleton class,
                 {
                     var dvg = this.dgvSalesSearch;
 

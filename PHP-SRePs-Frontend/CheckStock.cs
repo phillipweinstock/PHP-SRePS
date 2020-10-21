@@ -19,6 +19,7 @@ namespace PHP_SRePS_Frontend
         public CheckStock(StockMenu form)
         {
             InitializeComponent();
+            _ = Gprc_channel_instance.GetInstance();
             frmInventory = form;
         }
 
@@ -29,8 +30,7 @@ namespace PHP_SRePS_Frontend
 
         private async Task GetAllItems()
         {
-            var channel = GrpcChannel.ForAddress("https://localhost:5001");
-            var client = new ItemDef.ItemDefClient(channel);
+            var client = Gprc_channel_instance.ItemClient;
 
             var input = new HasChanged
             {
