@@ -203,6 +203,7 @@
             this.Controls.Add(this.salesRecordView);
             this.Name = "AddSalesRecord";
             this.Text = "Add Sales Record";
+            this.Load += new System.EventHandler(this.AddSalesRecord_Load);
             ((System.ComponentModel.ISupportInitialize)(this.salesRecordView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

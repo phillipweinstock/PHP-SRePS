@@ -16,6 +16,7 @@ namespace PHP_SRePS_Frontend
 {
     public partial class PredictItem : Form
     {
+        ReportMenu menuForm;
         LinearRegressionLine model;
         List<double> dataX;
         List<double> dataY;
@@ -24,6 +25,7 @@ namespace PHP_SRePS_Frontend
         {
             InitializeComponent();
             _ = Gprc_channel_instance.GetInstance();
+            menuForm = form;
 
             dataX = new List<double>();
             dataY = new List<double>();
@@ -78,9 +80,9 @@ namespace PHP_SRePS_Frontend
 
         private void btnPredict_Click(object sender, EventArgs e)
         {
-            lblVal.Text = $"{double.Parse($"{model.slope:0.0000}") * double.Parse(txtDaysAhead.Text.Trim()) + double.Parse($"{model.offset}"):0.0000}";
-
             var days = int.Parse(txtDaysAhead.Text.Trim());
+
+            lblVal.Text = $"{Math.Round(double.Parse($"{model.slope:0.0000}") * (dataX[dataX.Count - 1] + days) + double.Parse($"{model.offset}")):0} sales";
 
             List<double> dataX2 = new List<double>();
             dataX2.Add(dataX[dataX.Count - 1]);
@@ -91,6 +93,12 @@ namespace PHP_SRePS_Frontend
             predictGraph.plt.PlotScatter(dataX2.ToArray(), dataY2.ToArray(), markerSize: 7, markerShape: MarkerShape.filledSquare);
             predictGraph.plt.AxisAuto();
             predictGraph.Render();
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            menuForm.Show();
+            this.Close();
         }
     }
 }

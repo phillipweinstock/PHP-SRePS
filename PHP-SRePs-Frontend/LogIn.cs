@@ -22,7 +22,7 @@ namespace PHP_SRePS_Frontend
             //check user Id and password against database or w/e
           
             string mssg = "Username and/or Password is incorrect";
-            if (txtUsername.Text == "Admin" && txtPassword.Text =="LEGENDARY")
+            if (txtUsername.Text.ToLower() == "admin" && txtPassword.Text =="password")
             {
                 frmMainMenu.Show();
                 this.Close();

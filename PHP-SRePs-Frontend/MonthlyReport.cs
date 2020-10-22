@@ -59,7 +59,7 @@ namespace PHP_SRePS_Frontend
                     dvg.Rows.Add(itemid, itemName, qty, revenue);
                 }
 
-                lblTotalPrice.Text = $"${total}";
+                lblTotalPrice.Text = $"${total:0.00}";
             }
         }
 

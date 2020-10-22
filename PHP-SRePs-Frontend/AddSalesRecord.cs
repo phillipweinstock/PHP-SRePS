@@ -109,5 +109,14 @@ namespace PHP_SRePS_Frontend
             dvg.Rows.Add(reply.ItemId, reply.NameId, "", reply.PriceId);
         }
 
+        private void AddSalesRecord_Load(object sender, EventArgs e)
+        {
+            var dt = DateTime.Now;
+
+            lblTime.Text = $"{dt.TimeOfDay.Hours}:{dt.TimeOfDay.Minutes}";
+            lblDate.Text = $"{dt.Date.Day}/{dt.Date.Month}/{dt.Date.Year}";
+
+            lblSalesNum.Text = $"{28:00000}";
+        }
     }
 }

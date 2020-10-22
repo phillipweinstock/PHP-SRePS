@@ -42,6 +42,7 @@
             this.btnPredict = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.lblVal = new System.Windows.Forms.Label();
+            this.btnBack = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // predictGraph
@@ -49,14 +50,14 @@
             this.predictGraph.Location = new System.Drawing.Point(177, 12);
             this.predictGraph.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.predictGraph.Name = "predictGraph";
-            this.predictGraph.Size = new System.Drawing.Size(610, 426);
+            this.predictGraph.Size = new System.Drawing.Size(610, 474);
             this.predictGraph.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(13, 13);
+            this.label1.Location = new System.Drawing.Point(12, 60);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(139, 21);
             this.label1.TabIndex = 1;
@@ -65,7 +66,7 @@
             // btnGo
             // 
             this.btnGo.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnGo.Location = new System.Drawing.Point(14, 239);
+            this.btnGo.Location = new System.Drawing.Point(13, 286);
             this.btnGo.Name = "btnGo";
             this.btnGo.Size = new System.Drawing.Size(138, 38);
             this.btnGo.TabIndex = 2;
@@ -76,7 +77,7 @@
             // txtMonth
             // 
             this.txtMonth.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtMonth.Location = new System.Drawing.Point(13, 37);
+            this.txtMonth.Location = new System.Drawing.Point(12, 84);
             this.txtMonth.Name = "txtMonth";
             this.txtMonth.Size = new System.Drawing.Size(139, 33);
             this.txtMonth.TabIndex = 3;
@@ -84,7 +85,7 @@
             // txtYear
             // 
             this.txtYear.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtYear.Location = new System.Drawing.Point(13, 104);
+            this.txtYear.Location = new System.Drawing.Point(12, 151);
             this.txtYear.Name = "txtYear";
             this.txtYear.Size = new System.Drawing.Size(139, 33);
             this.txtYear.TabIndex = 3;
@@ -93,7 +94,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(13, 80);
+            this.label2.Location = new System.Drawing.Point(12, 127);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(80, 21);
             this.label2.TabIndex = 1;
@@ -103,7 +104,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(13, 154);
+            this.label3.Location = new System.Drawing.Point(12, 201);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(60, 21);
             this.label3.TabIndex = 1;
@@ -112,7 +113,7 @@
             // txtItemID
             // 
             this.txtItemID.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtItemID.Location = new System.Drawing.Point(14, 178);
+            this.txtItemID.Location = new System.Drawing.Point(13, 225);
             this.txtItemID.Name = "txtItemID";
             this.txtItemID.Size = new System.Drawing.Size(139, 33);
             this.txtItemID.TabIndex = 3;
@@ -120,7 +121,7 @@
             // txtDaysAhead
             // 
             this.txtDaysAhead.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtDaysAhead.Location = new System.Drawing.Point(12, 315);
+            this.txtDaysAhead.Location = new System.Drawing.Point(11, 362);
             this.txtDaysAhead.Name = "txtDaysAhead";
             this.txtDaysAhead.Size = new System.Drawing.Size(139, 33);
             this.txtDaysAhead.TabIndex = 3;
@@ -129,7 +130,7 @@
             // 
             this.ys.AutoSize = true;
             this.ys.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ys.Location = new System.Drawing.Point(12, 291);
+            this.ys.Location = new System.Drawing.Point(11, 338);
             this.ys.Name = "ys";
             this.ys.Size = new System.Drawing.Size(92, 21);
             this.ys.TabIndex = 1;
@@ -138,7 +139,7 @@
             // btnPredict
             // 
             this.btnPredict.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnPredict.Location = new System.Drawing.Point(12, 354);
+            this.btnPredict.Location = new System.Drawing.Point(11, 401);
             this.btnPredict.Name = "btnPredict";
             this.btnPredict.Size = new System.Drawing.Size(138, 38);
             this.btnPredict.TabIndex = 2;
@@ -150,7 +151,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(12, 408);
+            this.label4.Location = new System.Drawing.Point(11, 455);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(111, 30);
             this.label4.TabIndex = 4;
@@ -160,16 +161,27 @@
             // 
             this.lblVal.AutoSize = true;
             this.lblVal.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblVal.Location = new System.Drawing.Point(129, 408);
+            this.lblVal.Location = new System.Drawing.Point(128, 455);
             this.lblVal.Name = "lblVal";
             this.lblVal.Size = new System.Drawing.Size(0, 30);
             this.lblVal.TabIndex = 5;
+            // 
+            // btnBack
+            // 
+            this.btnBack.Location = new System.Drawing.Point(11, 12);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(96, 39);
+            this.btnBack.TabIndex = 5;
+            this.btnBack.Text = "<--";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // PredictItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 498);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.lblVal);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnPredict);
@@ -207,5 +219,6 @@
         private System.Windows.Forms.Button btnPredict;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblVal;
+        private System.Windows.Forms.Button btnBack;
     }
 }

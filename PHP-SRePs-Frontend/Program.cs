@@ -49,9 +49,9 @@ namespace PHP_SRePS_Frontend
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //new LogIn().Show();
+            new LogIn().Show();
 
-            new MainMenu().Show();
+            //new MainMenu().Show();
 
             //new TestForm().Show();
             
