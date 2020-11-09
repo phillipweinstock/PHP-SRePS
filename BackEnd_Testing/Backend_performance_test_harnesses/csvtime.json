@@ -1,0 +1,19 @@
+{
+    "proto": "Report.proto",
+    "call": "backend.ReportDef.GetMonthlyReportAsCSV",
+    "total": 1,
+    "concurrency": 1,
+    "data": {
+        "month": "10","year":"2020"
+    },
+    "metadata": {
+        "foo": "bar",
+        "trace_id": "{{.RequestNumber}}",
+        "timestamp": "{{.TimestampUnix}}"
+    },
+    "import-paths": [
+        ""
+    ],
+    "max-duration": "3s",
+    "host": "localhost:50051"
+}
